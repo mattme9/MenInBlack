@@ -1,5 +1,7 @@
 /dist/
 
+#Ignore buildfiles
 /build/
 
+#Ignore IDE specific files
 /nbproject/
