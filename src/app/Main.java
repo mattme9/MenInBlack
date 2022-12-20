@@ -14,6 +14,7 @@ public class Main
     public static void main(String args[]) throws Exception
     {
         //Här skapar vi upp all kod/funktioner vi kommer tänkas använda
+        //Skriver lite för att testa git
         Program program = new Program(new Database());
 
         program.printAllAgents();
