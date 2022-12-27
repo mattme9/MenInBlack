@@ -45,7 +45,7 @@ public class Program
         }
         else
         {
-            throw new Exception("Youre not logged in!");
+            return "";
         }
     }
     
