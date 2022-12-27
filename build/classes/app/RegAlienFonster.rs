@@ -1,0 +1,5 @@
+testapplikation.RegAlienFonster$4
+testapplikation.RegAlienFonster
+testapplikation.RegAlienFonster$1
+testapplikation.RegAlienFonster$2
+testapplikation.RegAlienFonster$3

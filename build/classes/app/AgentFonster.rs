@@ -1,0 +1,4 @@
+testapplikation.AgentFonster$1
+testapplikation.AgentFonster$2
+testapplikation.AgentFonster$3
+testapplikation.AgentFonster

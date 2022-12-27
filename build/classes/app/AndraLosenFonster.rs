@@ -1,0 +1,3 @@
+testapplikation.AndraLosenFonster
+testapplikation.AndraLosenFonster$1
+testapplikation.AndraLosenFonster$2
