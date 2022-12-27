@@ -1,3 +1,0 @@
-testapplikation.LoginFonster$2
-testapplikation.LoginFonster
-testapplikation.LoginFonster$1
