@@ -9,6 +9,7 @@ import java.util.HashMap;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import program.User;
+import program.UserAlien;
 
 /**
  * Denna klass syfte är att prata SQL med databasen.
@@ -40,14 +41,23 @@ public class Database
     
     public User logIn(int id, String password) throws InfException
     {
-        HashMap<String, String> user = db.fetchRow("SELECT * FROM agent "
-                + "WHERE Agent_ID=" + id + " AND Losenord=" + password);
+        String query = "SELECT * FROM agent WHERE Agent_ID=" + id + " AND Losenord='" + password + "'";
+        HashMap<String, String> user = db.fetchRow(query);
+        
         return new User(user);
+    }
+    
+    public UserAlien logInAlien(int id, String password) throws InfException
+    {
+        String query = "SELECT * FROM alien WHERE Alien_ID=" + id + " AND Losenord='" + password + "'";
+        HashMap<String, String> user = db.fetchRow(query);
+        
+        return new UserAlien(user);
     }
     
     public User changePassword(User user, String newPassword) throws InfException
     {
-        db.update("UPDATE agent SET Losenord=" + newPassword + " WHERE Agent_ID=" + user.getId());
+        db.update("UPDATE agent SET Losenord='" + newPassword + "' WHERE Agent_ID=" + user.getId());
         return logIn(user.getId(), newPassword);
     }
     

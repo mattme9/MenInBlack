@@ -2,10 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package testapplikation;
+package app;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.HashMap;
@@ -21,24 +19,14 @@ public final class LoginFonster extends javax.swing.JFrame {
     private static HashMap<String, String> AgentLogin;
     private static HashMap<String, String> AlienLogin;
     private static HashMap<String, String> AdminLogin;
-    private String[] args;
 
     /**
      * Creates new form LoginFonster
      */
     public LoginFonster() {
-        try {
-            AgentLogin = new HashMap();
-            AlienLogin = new HashMap();
-            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
-            hamtaLoginDataAlien();
-            hamtaLoginDataAgent();
-            initComponents();
 
-        } catch (InfException ex) {
-            Logger.getLogger(TestMainApplikation.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
+    
     private void hamtaLoginDataAgent(){
         try {
             //Fyll HashMap med loginvalues för Agent
@@ -165,7 +153,7 @@ public final class LoginFonster extends javax.swing.JFrame {
             //Kollar så att user-värdet är lika med inmatningen i password
             if(AlienLogin.get(user).equals(pass)){
                 //Popup ruta
-                AlienFonster.main(args);
+                AlienFonster.main(null);
                 
                 JOptionPane.showMessageDialog(null, "Du är inloggad som alien!");
                 //Här ska fönstret AlienFonster köras
@@ -177,7 +165,7 @@ public final class LoginFonster extends javax.swing.JFrame {
         else if(AgentLogin.containsKey(user)){
                 if(AgentLogin.get(user).equals(pass)){
                     JOptionPane.showMessageDialog(null, "Du är inloggad som Agent!");
-                    AgentFonster.main(args);
+                    AgentFonster.main(null);
                     //Här ska fönstret AgentFonster köras
                 }
              

@@ -3,8 +3,6 @@ package program;
 import db.Database;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import oru.inf.InfException;
 
 /**
@@ -21,6 +19,7 @@ public class Program
     private final Database database;
     
     private User user;
+    private UserAlien alien;
     
     public Program(final Database database)
     {
@@ -35,20 +34,34 @@ public class Program
             return null;
         }
         
-        try
+        if(isLoggedInAsAgent())
         {
-            return database.getAgentNameById(user.getId());
+            return user.getName();
         }
-        catch (InfException ex)
+        else if(isLoggedInAsAlien())
         {
-            System.err.println("Could not get username, reason: " + ex.getMessage());
-            return null;
+            //alien.getName();
+            return "";
         }
+        else
+        {
+            throw new Exception("Youre not logged in!");
+        }
+    }
+    
+    public boolean isLoggedInAsAgent()
+    {
+        return user != null;
+    }
+    
+    public boolean isLoggedInAsAlien()
+    {
+        return alien != null;
     }
     
     public void logIn(int id, String password)
     {
-        if(user != null)
+        if(user != null || alien != null)
         {
             System.out.println("Already logged in, log out first.");
             return;
@@ -61,46 +74,72 @@ public class Program
         }
         catch(InfException e)
         {
-            System.err.println("Could not login, wrong username or password");
+            try
+            {
+                alien = database.logInAlien(id, password);
+                System.out.println("Logged in as: " + alien);
+            }
+            catch (InfException ex)
+            {
+                System.err.println("Could not login, wrong username or password");
+            }
         }
     }
     
     public void printLoggedInUser()
     {
-        if(user == null)
+        if(user != null)
         {
-            System.err.println("Youre not logged in!");
-            return;
+            System.out.println(user.toString());
         }
-        System.out.println(user.toString());
+        if(alien != null)
+        {
+            System.out.println(alien.toString());
+        }
+        System.out.println("is not logged in!");
     }
     
     public void logOut()
     {
         user = null;
+        alien = null;
         System.out.println("You have logged out!");
     }
     
     public boolean isLoggedIn()
     {
-        return user != null;
+        return user != null || alien != null;
     }
     
-    public void changePassword(String password)
+    public boolean changePassword(String password)
     {
         if(!isLoggedIn())
         {
             System.err.println("Log in first!");
-            return;
+            return false;
         }
         
         try
         {
-            database.changePassword(user, password);
+            if(isLoggedInAsAgent())
+            {
+                database.changePassword(user, password);
+                return true;
+            }
+            else if(isLoggedInAsAlien())
+            {
+                //changepasswordAlien(alien, password);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         catch (InfException ex)
         {
             System.err.println("Could not change password, reason: " + ex.getMessage());
+            return false;
         }
     }
     
