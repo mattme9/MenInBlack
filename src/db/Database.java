@@ -43,15 +43,20 @@ public class Database
     {
         String query = "SELECT * FROM agent WHERE Agent_ID=" + id + " AND Losenord='" + password + "'";
         HashMap<String, String> user = db.fetchRow(query);
-        
+        if(user.isEmpty()) {
+            return null;
+        }
         return new User(user);
+        
     }
     
     public UserAlien logInAlien(int id, String password) throws InfException
     {
         String query = "SELECT * FROM alien WHERE Alien_ID=" + id + " AND Losenord='" + password + "'";
         HashMap<String, String> user = db.fetchRow(query);
-        
+        if(user.isEmpty()) {
+            return null;
+        }
         return new UserAlien(user);
     }
     

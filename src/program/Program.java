@@ -70,19 +70,17 @@ public class Program
         try
         {
             user = database.logIn(id, password);
-            System.out.println("Logged in as " + user.getName());
+            if(user == null) {
+                alien = database.logInAlien(id, password);
+                
+            }
+            
         }
         catch(InfException e)
         {
-            try
-            {
-                alien = database.logInAlien(id, password);
-                System.out.println("Logged in as: " + alien);
-            }
-            catch (InfException ex)
-            {
+            
                 System.err.println("Could not login, wrong username or password");
-            }
+            
         }
     }
     
