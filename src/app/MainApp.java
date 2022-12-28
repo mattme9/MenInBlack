@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
@@ -35,7 +36,6 @@ public class MainApp extends javax.swing.JFrame {
         initComponents();
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
-            fyllAnsvarigRoller();
             sattDatum();
             fyllPlatser();
         } catch (InfException e) {
@@ -44,6 +44,15 @@ public class MainApp extends javax.swing.JFrame {
         
     }
     
+    private void fyllAgenter()
+    {
+        List<String> allAgents = program.getAllAgents();
+        for(String oneAgent : allAgents){
+            System.out.println(oneAgent);
+            jAnsvarigBox.addItem(oneAgent);
+        }
+    }
+    /*
     private void fyllAnsvarigRoller() {
         try {
             int id = 1;
@@ -58,6 +67,7 @@ public class MainApp extends javax.swing.JFrame {
             System.out.println("Knas!");
         }
     }
+    */
 
     //Lägger in automatiskt dagens datum i datumfältet i gränssnittet
     //Detta ska ändras så att man kan välja datum men det måste vara denna typ (YY-MM-DD)
@@ -601,6 +611,7 @@ public class MainApp extends javax.swing.JFrame {
     private void showRegAlien() {
         panelHome.setVisible(false);
         panelLogin.setVisible(false);
+        fyllAgenter();
         panelRegAlien.setVisible(true);
         
     }

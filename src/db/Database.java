@@ -6,6 +6,7 @@ package db;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import program.User;
@@ -69,5 +70,10 @@ public class Database
     public ArrayList<HashMap<String, String>> listAllAgents() throws InfException
     {
         return db.fetchRows("SELECT * FROM agent");
+    }
+    
+    public List<String> listAllAgentsName() throws InfException
+    {
+        return db.fetchColumn("SELECT Namn FROM agent");
     }
 }

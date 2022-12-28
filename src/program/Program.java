@@ -3,6 +3,9 @@ package program;
 import db.Database;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oru.inf.InfException;
 
 /**
@@ -58,6 +61,16 @@ public class Program
         return alien != null;
     }
     
+    public List<String> getAllAgents()
+    {
+        try {
+            
+            return database.listAllAgentsName();
+        } catch (InfException ex) {
+            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+            return new ArrayList<String>();
+        }
+    }
     public void logIn(int id, String password)
     {
         if(user != null || alien != null)
