@@ -40,7 +40,7 @@ public class Program
         }
         else if(isLoggedInAsAlien())
         {
-            //alien.getName();
+            alien.getName();
             return "";
         }
         else
