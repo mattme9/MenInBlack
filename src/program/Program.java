@@ -39,8 +39,7 @@ public class Program
             return user.getName();
         }
         else if(isLoggedInAsAlien())
-        {
-            alien.getName();
+        {           
             return "";
         }
         else
