@@ -33,6 +33,13 @@
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Component id="panelHome" alignment="0" max="32767" attributes="0"/>
           </Group>
+          <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panelRegAlien" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -40,6 +47,13 @@
           <Component id="panelLogin" alignment="0" pref="401" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Component id="panelHome" alignment="0" max="32767" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panelRegAlien" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,7 +82,7 @@
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="240" max="32767" attributes="0"/>
+                  <EmptySpace pref="241" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -81,7 +95,7 @@
                   <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="btnLogin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="147" max="32767" attributes="0"/>
+                  <EmptySpace pref="146" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -149,6 +163,244 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
           </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panelRegAlien">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jPlatsBox" min="-2" pref="101" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="losenField" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jAnsvarigBox" min="-2" pref="91" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="bRegistrera" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="datumLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="platsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jAlienID" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="datumField" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="namnLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="ansvLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="teleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tfnField1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="namnField" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="losenLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                          <Component id="regAliRubrik" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="harRegRubrik" min="-2" pref="140" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="255" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="regAliRubrik" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="17" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jAlienID" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="datumLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="namnLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="teleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="namnField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfnField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="datumField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="platsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="losenLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ansvLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="losenField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jAnsvarigBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPlatsBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="bRegistrera" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="harRegRubrik" min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace pref="135" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="datumLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Datum:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="namnLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Namn:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ansvLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ansvarig:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfnField1">
+          <Properties>
+            <Property name="columns" type="int" value="7"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfnField1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="jAlienID">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="ID f&#xe5;r inte vara identiskt med ett annat Alien_ID i databasen"/>
+            <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="4" type="code"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jAlienIDStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="namnField">
+          <Properties>
+            <Property name="columns" type="int" value="7"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="namnFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="teleLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Telefon"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jPlatsBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="harRegRubrik">
+        </Component>
+        <Component class="javax.swing.JLabel" name="platsLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Plats:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Alien_ID"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="bRegistrera">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registrera"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRegistreraActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="datumField">
+          <Properties>
+            <Property name="columns" type="int" value="7"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="datumFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="losenField">
+          <Properties>
+            <Property name="columns" type="int" value="7"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="losenFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="losenLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="L&#xf6;senord:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jAnsvarigBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jAnsvarigBoxActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="regAliRubrik">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambay Devanagari" size="24" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Registrera alien"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
