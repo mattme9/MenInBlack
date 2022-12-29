@@ -24,7 +24,6 @@ import javax.swing.*;
 public class MainApp extends javax.swing.JFrame {
 
     private String datum;
-    private static InfDB idb;
     private final Program program;
     /**
      * Creates new form MainApp
@@ -34,13 +33,6 @@ public class MainApp extends javax.swing.JFrame {
         program = new Program(new Database());
         program.printAllAgents();
         initComponents();
-        try {
-            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
-            sattDatum();
-            fyllPlatser();
-        } catch (InfException e) {
-            System.out.println("Knas");
-        }
         
     }
     
@@ -50,6 +42,15 @@ public class MainApp extends javax.swing.JFrame {
         for(String oneAgent : allAgents){
             System.out.println(oneAgent);
             jAnsvarigBox.addItem(oneAgent);
+        }
+    }
+    
+    private void fyllPlatser()
+    {
+        List<String> allPlatser = program.getAllPlatser();
+        for(String onePlats : allPlatser){
+            System.out.println(onePlats);
+            jPlatsBox.addItem(onePlats);
         }
     }
     /*
@@ -79,7 +80,7 @@ public class MainApp extends javax.swing.JFrame {
     }
 
     //Samma funktion som fyllAnsvarigRoller-metoden fast den fyller PLATS i gränssnittet
-    private void fyllPlatser() {
+    /*private void fyllPlatser() {
         try {
             int id = 1;
             String cont = idb.fetchSingle("SELECT count(Benamning) FROM Plats");
@@ -94,6 +95,7 @@ public class MainApp extends javax.swing.JFrame {
             System.err.println("Knas");
         }
     }
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -612,6 +614,8 @@ public class MainApp extends javax.swing.JFrame {
         panelHome.setVisible(false);
         panelLogin.setVisible(false);
         fyllAgenter();
+        sattDatum();
+        fyllPlatser();
         panelRegAlien.setVisible(true);
         
     }

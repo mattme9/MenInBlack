@@ -68,8 +68,19 @@ public class Program
             return database.listAllAgentsName();
         } catch (InfException ex) {
             Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
-            return new ArrayList<String>();
+            return new ArrayList<>();
         }
+    }
+    
+    public List<String> getAllPlatser()
+    {
+           try {
+               
+               return database.listAllPlatserBenamning();
+           } catch (InfException ex) {
+               Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+               return new ArrayList<>();
+           }
     }
     public void logIn(int id, String password)
     {

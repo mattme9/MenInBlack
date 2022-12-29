@@ -72,8 +72,14 @@ public class Database
         return db.fetchRows("SELECT * FROM agent");
     }
     
+    public List<String> listAllPlatserBenamning () throws InfException
+    {
+        return db.fetchColumn("SELECT Benamning FROM Plats");
+    }
+    
     public List<String> listAllAgentsName() throws InfException
     {
         return db.fetchColumn("SELECT Namn FROM agent");
     }
+    
 }
