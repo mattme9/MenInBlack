@@ -25,6 +25,16 @@ public class MainApp extends javax.swing.JFrame {
 
     private String datum;
     private final Program program;
+    
+    //Ska tas bort sen
+    private static final String NAME = "mibdb";
+    private static final String PORT = "3306";
+    private static final String USER = "mibdba";
+    private static final String PASSWORD = "mibkey";
+    
+    private final InfDB idb;
+    //Ska tas bort sen
+    
     /**
      * Creates new form MainApp
      * @throws oru.inf.InfException
@@ -32,6 +42,11 @@ public class MainApp extends javax.swing.JFrame {
     public MainApp() throws InfException {
         program = new Program(new Database());
         program.printAllAgents();
+        
+        //Ska bort
+        idb = new InfDB(NAME, PORT, USER, PASSWORD);
+        //Ska bort
+        
         initComponents();
         
     }
