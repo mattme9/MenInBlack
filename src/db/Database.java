@@ -81,5 +81,9 @@ public class Database
     {
         return db.fetchColumn("SELECT Namn FROM agent");
     }
-    
+    /*
+    public List<String> listAllAliensByPlats(int plats)
+    {
+        return db.fetchColumn("SELECT Namn FROM alien WHERE )
+    }*/
 }

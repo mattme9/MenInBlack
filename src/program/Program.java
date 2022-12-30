@@ -29,6 +29,11 @@ public class Program
         this.database = database;
     }
     
+    public boolean isAdmin()
+    {
+        return user != null && user.isIsAdmin();
+    }
+    
     public String getUserName()
     {
         if(!isLoggedIn())
