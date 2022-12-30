@@ -121,9 +121,6 @@ public class MainApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelUpdateAgent = new javax.swing.JPanel();
-        btnBackToHome = new javax.swing.JButton();
-        lblUpdateAgent = new javax.swing.JLabel();
         panelLogin = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JTextField();
@@ -171,45 +168,22 @@ public class MainApp extends javax.swing.JFrame {
         jAnsvarigBox = new javax.swing.JComboBox<>();
         regAliRubrik = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        panelUpdateAgent = new javax.swing.JPanel();
+        btnBackToHome = new javax.swing.JButton();
+        lblUpdateAgent = new javax.swing.JLabel();
+        panelUpdateAlien = new javax.swing.JPanel();
+        btnBackToHome1 = new javax.swing.JButton();
+        lblUpdateAlien = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(600, 400));
+        setMinimumSize(new java.awt.Dimension(600, 400));
         setPreferredSize(new java.awt.Dimension(600, 400));
+        setResizable(false);
         setSize(new java.awt.Dimension(600, 400));
 
-        panelUpdateAgent.setPreferredSize(new java.awt.Dimension(600, 400));
-
-        btnBackToHome.setText("Tillbaka");
-        btnBackToHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackToHomeActionPerformed(evt);
-            }
-        });
-
-        lblUpdateAgent.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblUpdateAgent.setText("Ändra Agent");
-
-        javax.swing.GroupLayout panelUpdateAgentLayout = new javax.swing.GroupLayout(panelUpdateAgent);
-        panelUpdateAgent.setLayout(panelUpdateAgentLayout);
-        panelUpdateAgentLayout.setHorizontalGroup(
-            panelUpdateAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelUpdateAgentLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(btnBackToHome)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
-                .addContainerGap(259, Short.MAX_VALUE)
-                .addComponent(lblUpdateAgent)
-                .addGap(240, 240, 240))
-        );
-        panelUpdateAgentLayout.setVerticalGroup(
-            panelUpdateAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
-                .addComponent(lblUpdateAgent)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
-                .addComponent(btnBackToHome)
-                .addGap(22, 22, 22))
-        );
-
+        panelLogin.setMaximumSize(new java.awt.Dimension(600, 400));
+        panelLogin.setMinimumSize(new java.awt.Dimension(600, 400));
         panelLogin.setPreferredSize(new java.awt.Dimension(600, 400));
         panelLogin.setRequestFocusEnabled(false);
 
@@ -244,14 +218,18 @@ public class MainApp extends javax.swing.JFrame {
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginLayout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addGap(100, 100, 100)
                 .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(btnLogin)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        panelHome.setMaximumSize(new java.awt.Dimension(600, 400));
+        panelHome.setMinimumSize(new java.awt.Dimension(600, 400));
+        panelHome.setPreferredSize(new java.awt.Dimension(600, 400));
 
         lblUser.setText("hello");
 
@@ -288,6 +266,11 @@ public class MainApp extends javax.swing.JFrame {
         });
 
         btnUpdateAlien.setText("Ändra");
+        btnUpdateAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateAlienActionPerformed(evt);
+            }
+        });
 
         listAgents.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -335,26 +318,29 @@ public class MainApp extends javax.swing.JFrame {
             .addGroup(panelHomeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(scrollPaneAliens, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrollPaneUtrustning, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelHomeLayout.createSequentialGroup()
-                                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblUtrustning)
-                                    .addGroup(panelHomeLayout.createSequentialGroup()
-                                        .addComponent(btnDeleteAlien)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnUpdateAlien)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRegAlien)))
-                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelHomeLayout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(scrollPaneAgents, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(scrollPaneAliens, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(scrollPaneUtrustning, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelHomeLayout.createSequentialGroup()
+                            .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblUtrustning)
+                                .addGroup(panelHomeLayout.createSequentialGroup()
+                                    .addComponent(btnDeleteAlien)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnUpdateAlien)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnRegAlien)))
+                    .addGroup(panelHomeLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(lblAlien))
+                    .addComponent(btnDeleteUtrustning))
+                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelHomeLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(scrollPaneAgents, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAgentPhone)
                                     .addGroup(panelHomeLayout.createSequentialGroup()
                                         .addComponent(btnDeleteAgent)
@@ -364,24 +350,18 @@ public class MainApp extends javax.swing.JFrame {
                                         .addComponent(btnRegAgent))
                                     .addComponent(lblAgentName)
                                     .addComponent(lblAgentPhone1)
-                                    .addComponent(lblAgentPhone2))))
-                        .addContainerGap())
-                    .addGroup(panelHomeLayout.createSequentialGroup()
-                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAgentPhone2)))
                             .addGroup(panelHomeLayout.createSequentialGroup()
+                                .addComponent(lblUser)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnLogout)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnChangePassword))
-                            .addComponent(btnDeleteUtrustning))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblUser)
-                        .addGap(39, 39, 39))))
-            .addGroup(panelHomeLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(lblAlien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAlien1)
-                .addGap(108, 108, 108))
+                                .addComponent(btnChangePassword)))
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAlien1)
+                        .addGap(125, 125, 125))))
         );
         panelHomeLayout.setVerticalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,21 +389,26 @@ public class MainApp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHomeLayout.createSequentialGroup()
+                        .addComponent(scrollPaneUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDeleteUtrustning))
+                    .addGroup(panelHomeLayout.createSequentialGroup()
                         .addComponent(lblAgentPhone)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblAgentPhone1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblAgentPhone2))
-                    .addComponent(scrollPaneUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDeleteUtrustning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogout)
-                    .addComponent(lblUser)
-                    .addComponent(btnChangePassword))
-                .addGap(7, 7, 7))
+                        .addComponent(lblAgentPhone2)
+                        .addGap(45, 45, 45)
+                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnLogout)
+                            .addComponent(btnChangePassword)
+                            .addComponent(lblUser))))
+                .addGap(63, 63, 63))
         );
+
+        panelRegAlien.setMaximumSize(new java.awt.Dimension(600, 400));
+        panelRegAlien.setMinimumSize(new java.awt.Dimension(600, 400));
+        panelRegAlien.setPreferredSize(new java.awt.Dimension(600, 400));
 
         datumLabel.setText("Datum:");
 
@@ -550,7 +535,7 @@ public class MainApp extends javax.swing.JFrame {
                         .addGap(100, 100, 100)
                         .addComponent(harRegRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton1))
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addGap(266, 266, 266))
         );
         panelRegAlienLayout.setVerticalGroup(
             panelRegAlienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -585,44 +570,125 @@ public class MainApp extends javax.swing.JFrame {
                 .addComponent(bRegistrera)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(harRegRubrik, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(jButton1)
-                .addGap(14, 14, 14))
+                .addContainerGap())
+        );
+
+        panelUpdateAgent.setMaximumSize(new java.awt.Dimension(600, 400));
+        panelUpdateAgent.setMinimumSize(new java.awt.Dimension(600, 400));
+        panelUpdateAgent.setPreferredSize(new java.awt.Dimension(600, 400));
+
+        btnBackToHome.setText("Tillbaka");
+        btnBackToHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackToHomeActionPerformed(evt);
+            }
+        });
+
+        lblUpdateAgent.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblUpdateAgent.setText("Ändra Agent");
+
+        javax.swing.GroupLayout panelUpdateAgentLayout = new javax.swing.GroupLayout(panelUpdateAgent);
+        panelUpdateAgent.setLayout(panelUpdateAgentLayout);
+        panelUpdateAgentLayout.setHorizontalGroup(
+            panelUpdateAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
+                .addContainerGap(257, Short.MAX_VALUE)
+                .addComponent(lblUpdateAgent)
+                .addGap(240, 240, 240))
+            .addGroup(panelUpdateAgentLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnBackToHome)
+                .addContainerGap())
+        );
+        panelUpdateAgentLayout.setVerticalGroup(
+            panelUpdateAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
+                .addComponent(lblUpdateAgent)
+                .addGap(224, 224, 224)
+                .addComponent(btnBackToHome)
+                .addGap(128, 128, 128))
+        );
+
+        panelUpdateAlien.setMaximumSize(new java.awt.Dimension(600, 400));
+        panelUpdateAlien.setMinimumSize(new java.awt.Dimension(600, 400));
+
+        btnBackToHome1.setText("Tillbaka");
+        btnBackToHome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackToHome1ActionPerformed(evt);
+            }
+        });
+
+        lblUpdateAlien.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblUpdateAlien.setText("Ändra Alien");
+
+        javax.swing.GroupLayout panelUpdateAlienLayout = new javax.swing.GroupLayout(panelUpdateAlien);
+        panelUpdateAlien.setLayout(panelUpdateAlienLayout);
+        panelUpdateAlienLayout.setHorizontalGroup(
+            panelUpdateAlienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAlienLayout.createSequentialGroup()
+                .addContainerGap(265, Short.MAX_VALUE)
+                .addComponent(lblUpdateAlien)
+                .addGap(240, 240, 240))
+            .addGroup(panelUpdateAlienLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnBackToHome1)
+                .addContainerGap())
+        );
+        panelUpdateAlienLayout.setVerticalGroup(
+            panelUpdateAlienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAlienLayout.createSequentialGroup()
+                .addComponent(lblUpdateAlien)
+                .addGap(224, 224, 224)
+                .addComponent(btnBackToHome1)
+                .addGap(128, 128, 128))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelRegAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelRegAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(250, 250, 250)
+                    .addGap(6, 6, 6)
                     .addComponent(panelUpdateAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(250, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelUpdateAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(2, 2, 2)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelRegAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelRegAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(150, 150, 150)
+                    .addGap(61, 61, 61)
                     .addComponent(panelUpdateAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(150, Short.MAX_VALUE)))
+                    .addContainerGap(62, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelUpdateAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(113, Short.MAX_VALUE)))
         );
 
         pack();
@@ -785,6 +851,7 @@ public class MainApp extends javax.swing.JFrame {
         panelLogin.setVisible(false);
         panelRegAlien.setVisible(true);
         panelUpdateAgent.setVisible(false);
+        panelUpdateAlien.setVisible(false);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -792,6 +859,7 @@ public class MainApp extends javax.swing.JFrame {
         panelLogin.setVisible(false);
         panelRegAlien.setVisible(false);
         panelUpdateAgent.setVisible(false);
+        panelUpdateAlien.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBackToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToHomeActionPerformed
@@ -799,6 +867,7 @@ public class MainApp extends javax.swing.JFrame {
         panelLogin.setVisible(false);
         panelRegAlien.setVisible(false);
         panelUpdateAgent.setVisible(false);
+        panelUpdateAlien.setVisible(false);
     }//GEN-LAST:event_btnBackToHomeActionPerformed
 
     private void btnUpdateAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAgentActionPerformed
@@ -811,6 +880,28 @@ public class MainApp extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnUpdateAgentActionPerformed
 
+    private void btnBackToHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToHome1ActionPerformed
+        panelHome.setVisible(true);
+        panelLogin.setVisible(false);
+        panelRegAlien.setVisible(false);
+        panelUpdateAgent.setVisible(false);
+        panelUpdateAlien.setVisible(false);
+    }//GEN-LAST:event_btnBackToHome1ActionPerformed
+
+    private void btnUpdateAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAlienActionPerformed
+        if(listAliens.getSelectedValue() == null)
+        {
+            //Igen alien vald
+            return;
+        }
+        
+        panelHome.setVisible(false);
+        panelLogin.setVisible(false);
+        panelRegAlien.setVisible(false);
+        panelUpdateAgent.setVisible(false);
+        panelUpdateAlien.setVisible(true);
+    }//GEN-LAST:event_btnUpdateAlienActionPerformed
+
     private void updateAgent(String agentName)
     {
         //Hämta lite värden här för agent by namn
@@ -820,6 +911,7 @@ public class MainApp extends javax.swing.JFrame {
         panelLogin.setVisible(false);
         panelRegAlien.setVisible(false);
         panelUpdateAgent.setVisible(true);
+        panelUpdateAlien.setVisible(false);
     }
     /**
      * @param args the command line arguments
@@ -856,6 +948,7 @@ public class MainApp extends javax.swing.JFrame {
                 m.panelHome.setVisible(false);
                 m.panelRegAlien.setVisible(false);
                 m.panelUpdateAgent.setVisible(false);
+                m.panelUpdateAlien.setVisible(false);
                 m.panelLogin.setVisible(true);             
                 m.setVisible(true);
             
@@ -869,6 +962,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel ansvLabel;
     private javax.swing.JButton bRegistrera;
     private javax.swing.JButton btnBackToHome;
+    private javax.swing.JButton btnBackToHome1;
     private javax.swing.JButton btnChangePassword;
     private javax.swing.JButton btnDeleteAgent;
     private javax.swing.JButton btnDeleteAlien;
@@ -894,6 +988,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblAlien;
     private javax.swing.JLabel lblAlien1;
     private javax.swing.JLabel lblUpdateAgent;
+    private javax.swing.JLabel lblUpdateAlien;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblUtrustning;
     private javax.swing.JList<String> listAgents;
@@ -907,6 +1002,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelRegAlien;
     private javax.swing.JPanel panelUpdateAgent;
+    private javax.swing.JPanel panelUpdateAlien;
     private javax.swing.JLabel platsLabel;
     private javax.swing.JLabel regAliRubrik;
     private javax.swing.JScrollPane scrollPaneAgents;
