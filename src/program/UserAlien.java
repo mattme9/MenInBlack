@@ -28,4 +28,7 @@ public class UserAlien
         contact = Integer.parseInt(userdata.get("Ansvarig_Agent"));
     }
     
+    public int getContact(){
+        return contact;
+    }
 }

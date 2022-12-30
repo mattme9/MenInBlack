@@ -56,6 +56,10 @@ public class Program
         }
     }
     
+    public int getAlienContact(){
+        return alien.getContact();
+    }
+    
     public boolean isLoggedInAsAgent()
     {
         return user != null;
