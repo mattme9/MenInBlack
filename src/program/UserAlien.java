@@ -19,16 +19,22 @@ public class UserAlien
     
     public UserAlien(HashMap<String, String> userdata)
     {
+        System.out.println(userdata.toString());
         id = Integer.parseInt(userdata.get("Alien_ID"));
         name = userdata.get("Namn");
         date = userdata.get("Registreringsdatum");
         password = userdata.get("Losenord");
-        area = Integer.parseInt(userdata.get("Omrade"));
+        area = Integer.parseInt(userdata.get("Plats"));
         phone = userdata.get("Telefon");
         contact = Integer.parseInt(userdata.get("Ansvarig_Agent"));
     }
     
     public int getContact(){
         return contact;
+    }
+    
+    public String getName()
+    {
+        return name;
     }
 }

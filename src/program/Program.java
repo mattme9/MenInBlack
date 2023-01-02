@@ -48,7 +48,7 @@ public class Program
         }
         else if(isLoggedInAsAlien())
         {           
-            return "";
+            return alien.getName();
         }
         else
         {
@@ -56,8 +56,13 @@ public class Program
         }
     }
     
-    public int getAlienContact(){
-        return alien.getContact();
+    public String getAlienContact(){
+        try {
+            return database.getAgentNameById(alien.getContact());
+        } catch (InfException ex) {
+            System.err.println("Error: " + ex.getMessage());
+            return "";
+        }
     }
     
     public boolean isLoggedInAsAgent()
@@ -104,7 +109,6 @@ public class Program
             user = database.logIn(id, password);
             if(user == null) {
                 alien = database.logInAlien(id, password);
-                
             }
             
         }
