@@ -196,4 +196,16 @@ public class Program
             System.err.println("WOPS");
         }
     }
+    
+    public List<String> listAliensByPlats(int plats) throws InfException
+    {
+        try
+        {
+        return database.listAllAliensByPlats(plats);
+        }
+        catch (InfException ex)
+        {
+        return new ArrayList();    
+        }
+    }
 }
