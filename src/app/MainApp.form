@@ -359,7 +359,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -690,6 +690,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrera"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegUtrustningActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblUtrustID">
           <Properties>
@@ -1133,11 +1136,12 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="txtHarReg" min="-2" pref="143" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox1" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="jAdminCheck" min="-2" pref="85" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
@@ -1185,12 +1189,15 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtAgentPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jOmradeBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jAdminCheck" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnRegNewAgent" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="harRegRubrik1" min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="harRegRubrik1" min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="txtHarReg" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="btnRegAgentBack" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1316,10 +1323,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegAgentBackActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+        <Component class="javax.swing.JCheckBox" name="jAdminCheck">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ja"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="txtHarReg">
         </Component>
       </SubComponents>
     </Container>

@@ -211,25 +211,25 @@ public class Program
     
     public List<String> listRegistratedAliens(String start, String slut) throws InfException
     {
-    try
+        try
         {
-         return database.listRegistratedAliens(start, slut);
-        }  
-    catch (InfException ex)
+            return database.listRegistratedAliens(start, slut);
+        }
+        catch(InfException ex)
         {
-         return new ArrayList();
+            return new ArrayList();
         }
     }
     
     public List<String> listAliensByRace(String race) throws InfException
     {
-    try 
+        try 
         {
-        return database.listAliensByRace(race);
-        }    
-    catch (InfException ex)
-            {
-                return new ArrayList();
-            }
+            return database.listAliensByRace(race);
+        }
+        catch (InfException ex)
+        {
+            return new ArrayList();
+        }
     }
 }

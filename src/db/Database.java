@@ -105,7 +105,6 @@ public class Database
     {
         String query = "SELECT Namn FROM alien AS ID\n" +
                        "JOIN "+ race +" x on x.Alien_ID = ID.Alien_ID";
-        
         return db.fetchColumn(query);
     }
 }
