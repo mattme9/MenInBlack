@@ -61,6 +61,12 @@ public class Database
         return new UserAlien(user);
     }
     
+    public UserAlien changePasswordAlien (UserAlien userAlien, String newPasswordA) throws InfException
+    {
+        db.update("UPDATE alien SET Losenord='" + newPasswordA + "' WHERE Alien_ID=" + userAlien.getId());
+        return logInAlien(userAlien.getId(), newPasswordA);
+    }
+    
     public User changePassword(User user, String newPassword) throws InfException
     {
         db.update("UPDATE agent SET Losenord='" + newPassword + "' WHERE Agent_ID=" + user.getId());
@@ -92,6 +98,14 @@ public class Database
         String query = "SELECT Namn FROM alien WHERE "
                 + "Registreringsdatum < '"+start+"' AND "
                 + "Registreringsdatum > '"+slut+"'";
+        return db.fetchColumn(query);
+    }
+    
+    public List<String> listAliensByRace(String race) throws InfException
+    {
+        String query = "SELECT Namn FROM alien AS ID\n" +
+                       "JOIN "+ race +" x on x.Alien_ID = ID.Alien_ID";
+        
         return db.fetchColumn(query);
     }
 }

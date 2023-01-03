@@ -37,4 +37,9 @@ public class UserAlien
     {
         return name;
     }
+    
+    public int getId()
+    {
+        return id;    
+    }
 }

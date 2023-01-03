@@ -142,6 +142,7 @@ public class MainApp extends javax.swing.JFrame {
         lblNewPass = new javax.swing.JLabel();
         btnApprove = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         panelLogin = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JTextField();
@@ -261,10 +262,20 @@ public class MainApp extends javax.swing.JFrame {
         jDialog1.setTitle("Byt lösenord");
 
         txtNewPass.setText("jTextField3");
+        txtNewPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNewPassActionPerformed(evt);
+            }
+        });
 
         lblNewPass.setText("Nytt lösenord:");
 
         btnApprove.setText("Godkänn");
+        btnApprove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApproveActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Tillbaka");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -278,17 +289,22 @@ public class MainApp extends javax.swing.JFrame {
         jDialog1Layout.setHorizontalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNewPass)
-                    .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(111, Short.MAX_VALUE))
-            .addGroup(jDialog1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(btnApprove)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(34, 34, 34))
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNewPass)
+                            .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel4)))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,7 +313,9 @@ public class MainApp extends javax.swing.JFrame {
                 .addComponent(lblNewPass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnApprove)
                     .addComponent(btnBack))
@@ -351,7 +369,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(btnLogin)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         panelHome.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -484,12 +502,13 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(lblAlienRegDatum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblAlienTfn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelHomeLayout.createSequentialGroup()
-                                .addComponent(lblAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 105, Short.MAX_VALUE))
-                            .addGroup(panelHomeLayout.createSequentialGroup()
-                                .addComponent(lblAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblAlienID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelHomeLayout.createSequentialGroup()
+                                        .addComponent(lblAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblAlienID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelHomeLayout.createSequentialGroup()
@@ -518,7 +537,7 @@ public class MainApp extends javax.swing.JFrame {
                                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAlien)
                                     .addComponent(jValjAlienBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 25, Short.MAX_VALUE)))
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
@@ -535,7 +554,7 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(lblAlien1))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelHomeLayout.createSequentialGroup()
                                 .addComponent(lblUser)
@@ -623,7 +642,7 @@ public class MainApp extends javax.swing.JFrame {
                                     .addComponent(btnDeleteUtrustning)
                                     .addComponent(btnRegUtrustning)))
                             .addComponent(lblUtrID1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         panelRegAlien.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -814,7 +833,7 @@ public class MainApp extends javax.swing.JFrame {
         panelUpdateAgentLayout.setHorizontalGroup(
             panelUpdateAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
-                .addContainerGap(252, Short.MAX_VALUE)
+                .addContainerGap(257, Short.MAX_VALUE)
                 .addComponent(lblUpdateAgent)
                 .addGap(240, 240, 240))
             .addGroup(panelUpdateAgentLayout.createSequentialGroup()
@@ -1293,7 +1312,7 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblAlien5)))
-                .addGap(0, 2, Short.MAX_VALUE)
+                .addGap(0, 6, Short.MAX_VALUE)
                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAgentHomeLayout.createSequentialGroup()
                         .addComponent(scrollPaneUtrustning1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1577,6 +1596,8 @@ public class MainApp extends javax.swing.JFrame {
 
     private void btnChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePasswordActionPerformed
         jDialog1.setSize(500, 300);
+        jDialog1.dispose();
+        jDialog1.repaint();
         jDialog1.setVisible(true);
     }//GEN-LAST:event_btnChangePasswordActionPerformed
 
@@ -1733,6 +1754,7 @@ public class MainApp extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         jDialog1.setEnabled(false);
         jDialog1.dispose();
+        
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDeleteAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAlienActionPerformed
@@ -1844,6 +1866,27 @@ public class MainApp extends javax.swing.JFrame {
             System.out.print(e.getMessage() + " knas i jUtrButton");
         }
     }//GEN-LAST:event_jUtrustningBoxActionPerformed
+
+    private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
+        if (txtNewPass.getText() == "")
+        {
+            return;
+        }
+       boolean didChange = program.changePassword(txtNewPass.getText());
+        if(didChange)
+        {
+            System.out.println("Du har bytt lösenord!");
+            jLabel4.setText("Du har bytt lösenord! Nytt lösenord:" + txtNewPass.getText());
+        }
+        else
+        {
+            System.out.println("Lösenord har inte ändrats.");    
+        }
+    }//GEN-LAST:event_btnApproveActionPerformed
+
+    private void txtNewPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNewPassActionPerformed
     
     private void showRegAlien() {
         panelHome.setVisible(false);
@@ -1959,6 +2002,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JComboBox<String> jOmradeBox;
     private javax.swing.JComboBox<String> jPlatsBox;
     private javax.swing.JScrollPane jScrollPane1;

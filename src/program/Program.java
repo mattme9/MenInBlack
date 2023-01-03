@@ -157,12 +157,12 @@ public class Program
         {
             if(isLoggedInAsAgent())
             {
-                database.changePassword(user, password);
+                user = database.changePassword(user, password);
                 return true;
             }
             else if(isLoggedInAsAlien())
             {
-                //changepasswordAlien(alien, password);
+                alien = database.changePasswordAlien(alien, password);
                 return true;
             }
             else
@@ -201,11 +201,35 @@ public class Program
     {
         try
         {
-        return database.listAllAliensByPlats(plats);
+            return database.listAllAliensByPlats(plats);
         }
         catch (InfException ex)
         {
-        return new ArrayList();    
+             return new ArrayList();    
         }
+    }
+    
+    public List<String> listRegistratedAliens(String start, String slut) throws InfException
+    {
+    try
+        {
+         return database.listRegistratedAliens(start, slut);
+        }  
+    catch (InfException ex)
+        {
+         return new ArrayList();
+        }
+    }
+    
+    public List<String> listAliensByRace(String race) throws InfException
+    {
+    try 
+        {
+        return database.listAliensByRace(race);
+        }    
+    catch (InfException ex)
+            {
+                return new ArrayList();
+            }
     }
 }
