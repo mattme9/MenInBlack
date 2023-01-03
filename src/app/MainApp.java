@@ -67,6 +67,7 @@ public class MainApp extends javax.swing.JFrame {
         for(String onePlats : allPlatser){
             System.out.println(onePlats);
             jPlatsBox.addItem(onePlats);
+            jOmradeBox.addItem(onePlats);
         }
     }
     
@@ -108,6 +109,7 @@ public class MainApp extends javax.swing.JFrame {
         String datum = date.toString();
         this.datum = datum;
         datumField.setText(datum);
+        txtAgentReg.setText(datum);
     }
 
     //Samma funktion som fyllAnsvarigRoller-metoden fast den fyller PLATS i gränssnittet
@@ -221,7 +223,8 @@ public class MainApp extends javax.swing.JFrame {
         jOmradeBox = new javax.swing.JComboBox<>();
         regAliRubrik1 = new javax.swing.JLabel();
         btnRegAgentBack = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jAdminCheck = new javax.swing.JCheckBox();
+        txtHarReg = new javax.swing.JLabel();
         panelAlienHome = new javax.swing.JPanel();
         btnChangeAlienPassword = new javax.swing.JButton();
         lblUserAlien = new javax.swing.JLabel();
@@ -468,6 +471,11 @@ public class MainApp extends javax.swing.JFrame {
         });
 
         btnRegUtrustning.setText("Registrera");
+        btnRegUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegUtrustningActionPerformed(evt);
+            }
+        });
 
         lblUtrustID.setText("Utrustning ID:");
 
@@ -484,12 +492,13 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(lblAlienRegDatum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblAlienTfn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelHomeLayout.createSequentialGroup()
-                                .addComponent(lblAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 105, Short.MAX_VALUE))
-                            .addGroup(panelHomeLayout.createSequentialGroup()
-                                .addComponent(lblAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblAlienID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelHomeLayout.createSequentialGroup()
+                                        .addComponent(lblAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblAlienID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelHomeLayout.createSequentialGroup()
@@ -518,7 +527,7 @@ public class MainApp extends javax.swing.JFrame {
                                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAlien)
                                     .addComponent(jValjAlienBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 16, Short.MAX_VALUE)))
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
@@ -942,7 +951,7 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setText("Ja");
+        jAdminCheck.setText("Ja");
 
         javax.swing.GroupLayout panelRegAgentLayout = new javax.swing.GroupLayout(panelRegAgent);
         panelRegAgent.setLayout(panelRegAgentLayout);
@@ -985,10 +994,11 @@ public class MainApp extends javax.swing.JFrame {
                                             .addComponent(losenLabel1)
                                             .addComponent(txtAgentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnRegNewAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(112, 112, 112))))
+                                        .addGap(112, 112, 112))
+                                    .addComponent(txtHarReg, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelRegAgentLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jAdminCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelRegAgentLayout.createSequentialGroup()
@@ -1025,11 +1035,13 @@ public class MainApp extends javax.swing.JFrame {
                 .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAgentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jOmradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1))
+                    .addComponent(jAdminCheck))
                 .addGap(18, 18, 18)
                 .addComponent(btnRegNewAgent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(harRegRubrik1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(harRegRubrik1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHarReg))
                 .addGap(25, 25, 25)
                 .addComponent(btnRegAgentBack)
                 .addContainerGap())
@@ -1638,6 +1650,55 @@ public class MainApp extends javax.swing.JFrame {
 
     private void btnRegNewAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegNewAgentActionPerformed
         // TODO add your handling code here:
+        //REGISTRERA BUTTON
+        //Hämta inmatat ID
+        try{
+        String cont = jAgentID.getValue().toString();
+        int id = Integer.parseInt(cont);
+        System.out.println(id);
+        
+        String datum = txtAgentReg.getText();
+        //Fixa så de satt datum när man går in i fönstret
+        System.out.println(datum);
+        
+        String namn = txtAgentName.getText();
+        System.out.println(namn);
+        
+        String telefon = txtAgentPhone.getText();
+        
+        String losenord = txtAgentPassword.getText();
+        
+        String omrade = jOmradeBox.getSelectedItem().toString();
+        String cont2 = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='" + omrade + "'");
+        int platsid = Integer.parseInt(cont2);
+        
+        String isAdmin;
+        if(jAdminCheck.isSelected()){
+            isAdmin = "J";
+        } else {
+            isAdmin = "N";
+        }
+        
+        if(losenord.isEmpty() || namn.isEmpty() || telefon.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Samtliga fält måste vara ifyllda!");
+                }
+                else{
+                    //Sätter in samtliga värden i databasen och reggar en ny alien
+                    idb.insert("INSERT INTO Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Omrade) VALUES ('"
+                        + id + "','"
+                        + namn + "','"
+                        + telefon + "','"
+                        + datum + "','"
+                        + isAdmin + "','"
+                        + losenord + "','"
+                        + platsid + "')");
+                    //Printas ut under button att alien har reggats
+                    txtHarReg.setText(namn + " har registrerats!");
+                }
+        }catch(InfException e){
+            System.out.println("Knas i regAgent " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Nånting blev fel. Kanske Agent_ID redan finns i databasen?");
+        }
     }//GEN-LAST:event_btnRegNewAgentActionPerformed
 
     private void txtAgentRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgentRegActionPerformed
@@ -1672,6 +1733,8 @@ public class MainApp extends javax.swing.JFrame {
         panelRegAlien.setVisible(false);
         panelUpdateAgent.setVisible(false);
         panelUpdateAlien.setVisible(false);
+        sattDatum();
+        fyllPlatser();
     }//GEN-LAST:event_btnRegAgentActionPerformed
 
     private void btnBackToHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToHome1ActionPerformed
@@ -1844,6 +1907,31 @@ public class MainApp extends javax.swing.JFrame {
             System.out.print(e.getMessage() + " knas i jUtrButton");
         }
     }//GEN-LAST:event_jUtrustningBoxActionPerformed
+
+    private void btnRegUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegUtrustningActionPerformed
+        // TODO add your handling code here:
+        try{
+        String utrNamn = JOptionPane.showInputDialog(panelHome, "Fyll i namnet på utrustningen.");
+        System.out.println(utrNamn);
+        if(utrNamn.isEmpty()){
+            JOptionPane.showMessageDialog(panelHome, "Fältet får ej vara tomt.");
+        }
+        else{
+            String cont = JOptionPane.showInputDialog(panelHome, "Fyll i ID.");
+            int id = Integer.parseInt(cont);
+            if(id > 0 && id < 10000){
+                idb.insert("INSERT INTO Utrustning VALUES('" + id + "','" + utrNamn + "')");
+                JOptionPane.showMessageDialog(panelHome, utrNamn + " har registrerats!");
+            }
+            else{
+                JOptionPane.showMessageDialog(panelHome, "ID måste inte redan finnas i databasen och vara mellan 0-10000");
+            }
+            
+        }
+        }catch(InfException e){
+            System.out.println("Knas i btnRegUtr " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegUtrustningActionPerformed
     
     private void showRegAlien() {
         panelHome.setVisible(false);
@@ -1950,11 +2038,11 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel datumLabel1;
     private javax.swing.JLabel harRegRubrik;
     private javax.swing.JLabel harRegRubrik1;
+    private javax.swing.JCheckBox jAdminCheck;
     private javax.swing.JSpinner jAgentID;
     private javax.swing.JSpinner jAlienID;
     private javax.swing.JComboBox<String> jAnsvarigBox;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -2033,6 +2121,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JTextField txtAgentPassword;
     private javax.swing.JTextField txtAgentPhone;
     private javax.swing.JTextField txtAgentReg;
+    private javax.swing.JLabel txtHarReg;
     private javax.swing.JTextField txtNewPass;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
