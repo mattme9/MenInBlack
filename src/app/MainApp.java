@@ -70,6 +70,20 @@ public class MainApp extends javax.swing.JFrame {
         }
     }
     
+    private void fyllUtrustning()
+    {
+        try{
+        List<String> utrustning = idb.fetchColumn("SELECT Benamning FROM Utrustning");
+        for(String enUtrustning : utrustning){
+            System.out.println(enUtrustning);
+            jUtrustningBox.addItem(enUtrustning);
+        }
+        }catch(InfException e){
+            System.out.println(e.getMessage());
+        }
+            
+    }
+    
     /*
     private void fyllAnsvarigRoller() {
         try {
@@ -148,8 +162,6 @@ public class MainApp extends javax.swing.JFrame {
         lblAgentName = new javax.swing.JLabel();
         lblAgentDatum = new javax.swing.JLabel();
         lblAgentOmrade = new javax.swing.JLabel();
-        scrollPaneUtrustning = new javax.swing.JScrollPane();
-        listUtrustning = new javax.swing.JList<>();
         lblUtrustning = new javax.swing.JLabel();
         btnDeleteUtrustning = new javax.swing.JButton();
         jValjAlienBox1 = new javax.swing.JComboBox<>();
@@ -160,6 +172,12 @@ public class MainApp extends javax.swing.JFrame {
         lblAlienPlats = new javax.swing.JLabel();
         jValjAgentCombo = new javax.swing.JComboBox<>();
         lblAgentID = new javax.swing.JLabel();
+        lblAlienID1 = new javax.swing.JLabel();
+        lblAgentID1 = new javax.swing.JLabel();
+        jUtrustningBox = new javax.swing.JComboBox<>();
+        btnRegUtrustning = new javax.swing.JButton();
+        lblUtrustID = new javax.swing.JLabel();
+        lblUtrID1 = new javax.swing.JLabel();
         panelRegAlien = new javax.swing.JPanel();
         datumLabel = new javax.swing.JLabel();
         namnLabel = new javax.swing.JLabel();
@@ -396,6 +414,11 @@ public class MainApp extends javax.swing.JFrame {
         });
 
         btnDeleteAgent.setText("Ta bort");
+        btnDeleteAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteAgentActionPerformed(evt);
+            }
+        });
 
         lblAgentPhone.setText("Telefon:");
 
@@ -405,16 +428,14 @@ public class MainApp extends javax.swing.JFrame {
 
         lblAgentOmrade.setText("Område:");
 
-        listUtrustning.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        scrollPaneUtrustning.setViewportView(listUtrustning);
-
         lblUtrustning.setText("Utrustning");
 
         btnDeleteUtrustning.setText("Ta bort");
+        btnDeleteUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteUtrustningActionPerformed(evt);
+            }
+        });
 
         jValjAlienBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -440,6 +461,16 @@ public class MainApp extends javax.swing.JFrame {
 
         lblAgentID.setText("Agent_ID:");
 
+        jUtrustningBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUtrustningBoxActionPerformed(evt);
+            }
+        });
+
+        btnRegUtrustning.setText("Registrera");
+
+        lblUtrustID.setText("Utrustning ID:");
+
         javax.swing.GroupLayout panelHomeLayout = new javax.swing.GroupLayout(panelHome);
         panelHome.setLayout(panelHomeLayout);
         panelHomeLayout.setHorizontalGroup(
@@ -447,36 +478,47 @@ public class MainApp extends javax.swing.JFrame {
             .addGroup(panelHomeLayout.createSequentialGroup()
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHomeLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(scrollPaneUtrustning, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelHomeLayout.createSequentialGroup()
-                                    .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblUtrustning)
-                                        .addGroup(panelHomeLayout.createSequentialGroup()
-                                            .addComponent(btnDeleteAlien)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnUpdateAlien)
-                                            .addGap(6, 6, 6)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnRegAlien)
-                                    .addGap(6, 6, 6)))
-                            .addComponent(btnDeleteUtrustning)))
-                    .addGroup(panelHomeLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jValjAlienBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelHomeLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(lblAlien))
-                    .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAlienLosen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblAlienID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblAlienRegDatum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblAlienTfn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(panelHomeLayout.createSequentialGroup()
+                                .addComponent(lblAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 105, Short.MAX_VALUE))
+                            .addGroup(panelHomeLayout.createSequentialGroup()
+                                .addComponent(lblAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblAlienID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelHomeLayout.createSequentialGroup()
+                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelHomeLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelHomeLayout.createSequentialGroup()
+                                        .addComponent(btnDeleteUtrustning)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnRegUtrustning))
+                                    .addComponent(lblUtrustning)
+                                    .addComponent(jUtrustningBox, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelHomeLayout.createSequentialGroup()
+                                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelHomeLayout.createSequentialGroup()
+                                                .addComponent(lblUtrustID)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lblUtrID1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGroup(panelHomeLayout.createSequentialGroup()
+                                                .addComponent(btnDeleteAlien)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnUpdateAlien)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnRegAlien))))
+                            .addGroup(panelHomeLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAlien)
+                                    .addComponent(jValjAlienBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
@@ -486,29 +528,29 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(lblAgentDatum)
                             .addComponent(lblAgentName)
                             .addComponent(jValjAgentCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAgentID))
+                            .addGroup(panelHomeLayout.createSequentialGroup()
+                                .addComponent(lblAgentID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblAgentID1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblAlien1))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(panelHomeLayout.createSequentialGroup()
-                                        .addComponent(lblUser)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnLogout)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnChangePassword))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelHomeLayout.createSequentialGroup()
-                                        .addComponent(btnDeleteAgent)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnUpdateAgent)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnRegAgent)))
-                                .addGap(30, 30, 30))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                                .addComponent(lblAlien1)
-                                .addGap(183, 183, 183))))))
+                            .addGroup(panelHomeLayout.createSequentialGroup()
+                                .addComponent(lblUser)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLogout)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnChangePassword))
+                            .addGroup(panelHomeLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(btnDeleteAgent)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnUpdateAgent)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRegAgent)))
+                        .addGap(28, 28, 28))))
         );
         panelHomeLayout.setVerticalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -522,9 +564,11 @@ public class MainApp extends javax.swing.JFrame {
                     .addComponent(jValjAlienBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jValjAgentCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelHomeLayout.createSequentialGroup()
-                        .addComponent(lblAgentID)
+                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAgentID1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAgentID))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblAgentName)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -539,7 +583,9 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(btnUpdateAgent)
                             .addComponent(btnRegAgent)))
                     .addGroup(panelHomeLayout.createSequentialGroup()
-                        .addComponent(lblAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAlienID1))
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelHomeLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
@@ -549,8 +595,8 @@ public class MainApp extends javax.swing.JFrame {
                                 .addComponent(lblAlienRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblAlienLosen, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAlienPlats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnDeleteAlien)
@@ -564,13 +610,20 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(btnChangePassword)
                             .addComponent(lblUser)))
                     .addGroup(panelHomeLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(24, 24, 24)
                         .addComponent(lblUtrustning)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scrollPaneUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jUtrustningBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDeleteUtrustning)))
-                .addGap(15, 15, 15))
+                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelHomeLayout.createSequentialGroup()
+                                .addComponent(lblUtrustID)
+                                .addGap(7, 7, 7)
+                                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnDeleteUtrustning)
+                                    .addComponent(btnRegUtrustning)))
+                            .addComponent(lblUtrID1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         panelRegAlien.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -1239,9 +1292,8 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblAlien5)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAlien5)))
+                .addGap(0, 2, Short.MAX_VALUE)
                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAgentHomeLayout.createSequentialGroup()
                         .addComponent(scrollPaneUtrustning1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1331,7 +1383,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panelAgentHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(59, Short.MAX_VALUE)))
+                    .addContainerGap(62, Short.MAX_VALUE)))
         );
 
         pack();
@@ -1392,6 +1444,7 @@ public class MainApp extends javax.swing.JFrame {
         panelHome.setVisible(true);
         fyllAlienBox();
         fyllAgenter();
+        fyllUtrustning();
     }
     private void fyllAlienBox(){
         try {
@@ -1534,6 +1587,9 @@ public class MainApp extends javax.swing.JFrame {
         panelUpdateAgent.setVisible(false);
         panelRegAgent.setVisible(false);
         panelUpdateAlien.setVisible(false);
+        //FyllPlatse
+        fyllPlatser();
+        sattDatum();
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1543,6 +1599,7 @@ public class MainApp extends javax.swing.JFrame {
         panelRegAgent.setVisible(false);
         panelUpdateAgent.setVisible(false);
         panelUpdateAlien.setVisible(false);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBackToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToHomeActionPerformed
@@ -1555,22 +1612,10 @@ public class MainApp extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackToHomeActionPerformed
 
     private void btnUpdateAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAgentActionPerformed
-        if(listAgents.getSelectedValue() == null)
-        {
-            //Ingen agent vald
-            return;
-        }
-        updateAgent(listAgents.getSelectedValue());
-        
+
     }//GEN-LAST:event_btnUpdateAgentActionPerformed
 
     private void btnUpdateAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAlienActionPerformed
-        if(listAliens.getSelectedValue() == null)
-        {
-            //Igen alien vald
-            return;
-        }
-        
         panelHome.setVisible(false);
         panelLogin.setVisible(false);
         panelRegAlien.setVisible(false);
@@ -1692,6 +1737,19 @@ public class MainApp extends javax.swing.JFrame {
 
     private void btnDeleteAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAlienActionPerformed
         // TODO add your handling code here:
+        String value = (String) jValjAlienBox1.getSelectedItem();
+        int reply = JOptionPane.showConfirmDialog(panelHome, "Vill du radera " + value + " från databasen?", "Varning!", JOptionPane.YES_NO_OPTION);
+            if(reply == JOptionPane.YES_OPTION){
+                try{
+            idb.delete("DELETE FROM Alien WHERE Alien_ID=" + Integer.parseInt(lblAlienID1.getText()));
+            JOptionPane.showMessageDialog(null, "En alien har raderats.");
+            
+            }
+            catch (InfException e){
+                System.out.println("Knas" + e.getMessage());
+            }
+            
+        }
     }//GEN-LAST:event_btnDeleteAlienActionPerformed
 
     private void jValjAlienBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jValjAlienBox1ActionPerformed
@@ -1708,7 +1766,8 @@ public class MainApp extends javax.swing.JFrame {
         String plats = idb.fetchSingle("SELECT Benamning FROM Plats WHERE Plats_ID=" + cont2);
         
         
-        lblAlienID.setText("ID: " + id);
+        lblAlienID.setText("ID: ");
+        lblAlienID1.setText(id);
         lblAlienRegDatum.setText("Reg.datum: " +datum);
         lblAlienTfn.setText("Telefon: " + telefon);
         lblAlienLosen.setText("Losenord: " + losenord);
@@ -1734,7 +1793,8 @@ public class MainApp extends javax.swing.JFrame {
         
         String cont = idb.fetchSingle("SELECT Omrade FROM Agent WHERE Namn ='" + namn + "'");
         String omrade = idb.fetchSingle("SELECT Benamning FROM Plats WHERE Plats_ID=" + cont);
-        lblAgentID.setText("Agent ID: " + id);
+        lblAgentID.setText("Agent ID: ");
+        lblAgentID1.setText(id);
         lblAgentPhone.setText("Telefon: " + telefon);
         lblAgentName.setText("Namn: " + namn);
         lblAgentDatum.setText("Anst.datum: " + datum);
@@ -1743,6 +1803,47 @@ public class MainApp extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jValjAgentComboActionPerformed
+
+    private void btnDeleteAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAgentActionPerformed
+        // TODO add your handling code here:
+        
+        String value = (String) jValjAgentCombo.getSelectedItem();
+        int reply = JOptionPane.showConfirmDialog(panelHome, "Vill du radera " + value + " från databasen?", "Varning!", JOptionPane.YES_NO_OPTION);
+            if(reply == JOptionPane.YES_OPTION){
+              try{
+            idb.delete("DELETE FROM Agent WHERE Agent_ID=" + Integer.parseInt(lblAgentID1.getText()));
+            JOptionPane.showMessageDialog(null, "En agent har raderats.");
+            }catch(InfException e){
+                System.out.println("Knas" + e.getMessage());
+            }
+            
+        }
+    }//GEN-LAST:event_btnDeleteAgentActionPerformed
+
+    private void btnDeleteUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteUtrustningActionPerformed
+        // TODO add your handling code here:
+        String value = (String) jUtrustningBox.getSelectedItem();
+        int reply = JOptionPane.showConfirmDialog(panelHome, "Vill du radera " + value + " från databasen?", "Varning!", JOptionPane.YES_NO_OPTION);
+            if(reply == JOptionPane.YES_OPTION) {
+                try{
+                    int id = Integer.parseInt(lblUtrID1.getText());
+                    idb.delete("DELETE FROM Utrustning WHERE Utrustnings_ID=" + id);
+                }catch (InfException e){
+                    System.out.println(e.getMessage() + " knas i btnDeleteUtrustning");
+                    
+                }
+            }
+    }//GEN-LAST:event_btnDeleteUtrustningActionPerformed
+
+    private void jUtrustningBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUtrustningBoxActionPerformed
+        // TODO add your handling code here:
+        try{
+        String val = (String) jUtrustningBox.getSelectedItem();
+        lblUtrID1.setText(idb.fetchSingle("SELECT Utrustnings_ID FROM Utrustning WHERE Benamning='" + val + "'"));
+        } catch(InfException e){
+            System.out.print(e.getMessage() + " knas i jUtrButton");
+        }
+    }//GEN-LAST:event_jUtrustningBoxActionPerformed
     
     private void showRegAlien() {
         panelHome.setVisible(false);
@@ -1839,6 +1940,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JButton btnRegAlien1;
     private javax.swing.JButton btnRegNewAgent;
     private javax.swing.JButton btnRegUtrust;
+    private javax.swing.JButton btnRegUtrustning;
     private javax.swing.JButton btnShowInfo;
     private javax.swing.JButton btnUpdateAgent;
     private javax.swing.JButton btnUpdateAlien;
@@ -1863,11 +1965,13 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JComboBox<String> jUtrustningBox;
     private javax.swing.JComboBox<String> jValjAgentCombo;
     private javax.swing.JComboBox<String> jValjAlienBox;
     private javax.swing.JComboBox<String> jValjAlienBox1;
     private javax.swing.JLabel lblAgentDatum;
     private javax.swing.JLabel lblAgentID;
+    private javax.swing.JLabel lblAgentID1;
     private javax.swing.JLabel lblAgentName;
     private javax.swing.JLabel lblAgentOmrade;
     private javax.swing.JLabel lblAgentPhone;
@@ -1882,6 +1986,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblAlien8;
     private javax.swing.JLabel lblAlienAgentValue;
     private javax.swing.JLabel lblAlienID;
+    private javax.swing.JLabel lblAlienID1;
     private javax.swing.JLabel lblAlienLosen;
     private javax.swing.JLabel lblAlienPlats;
     private javax.swing.JLabel lblAlienRegDatum;
@@ -1893,11 +1998,12 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblUser1;
     private javax.swing.JLabel lblUserAlien;
+    private javax.swing.JLabel lblUtrID1;
+    private javax.swing.JLabel lblUtrustID;
     private javax.swing.JLabel lblUtrustning;
     private javax.swing.JLabel lblUtrustning1;
     private javax.swing.JList<String> listAliens2;
     private javax.swing.JList<String> listAliens3;
-    private javax.swing.JList<String> listUtrustning;
     private javax.swing.JList<String> listUtrustning1;
     private javax.swing.JTextField losenField;
     private javax.swing.JLabel losenLabel;
@@ -1919,7 +2025,6 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel regAliRubrik1;
     private javax.swing.JScrollPane scrollPaneAliens2;
     private javax.swing.JScrollPane scrollPaneAliens3;
-    private javax.swing.JScrollPane scrollPaneUtrustning;
     private javax.swing.JScrollPane scrollPaneUtrustning1;
     private javax.swing.JLabel teleLabel;
     private javax.swing.JLabel teleLabel1;
