@@ -86,9 +86,12 @@ public class Database
     {
         return db.fetchColumn("SELECT Namn FROM alien WHERE plats="+plats);
     }
-    /*
-    public List<String> listRegistratedAliens()
+    
+    public List<String> listRegistratedAliens(String start, String slut) throws InfException
     {
-        return db.fetchColumn(")
-    }*/
+        String query = "SELECT Namn FROM alien WHERE "
+                + "Registreringsdatum < '"+start+"' AND "
+                + "Registreringsdatum > '"+slut+"'";
+        return db.fetchColumn(query);
+    }
 }
