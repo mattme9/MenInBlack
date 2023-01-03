@@ -1909,7 +1909,7 @@ public class MainApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jUtrustningBoxActionPerformed
 
     private void btnRegUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegUtrustningActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here.
         try{
         String utrNamn = JOptionPane.showInputDialog(panelHome, "Fyll i namnet på utrustningen.");
         System.out.println(utrNamn);
@@ -1930,6 +1930,7 @@ public class MainApp extends javax.swing.JFrame {
         }
         }catch(InfException e){
             System.out.println("Knas i btnRegUtr " + e.getMessage());
+            JOptionPane.showMessageDialog(panelHome, "Error! ID:t kanske redan finns i databasen?");
         }
     }//GEN-LAST:event_btnRegUtrustningActionPerformed
     

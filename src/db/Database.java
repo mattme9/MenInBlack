@@ -94,4 +94,12 @@ public class Database
                 + "Registreringsdatum > '"+slut+"'";
         return db.fetchColumn(query);
     }
+    
+    public List<String> listAliensByRace(String race) throws InfException
+    {
+        String query = "SELECT Namn FROM alien AS ID\n" +
+                       "JOIN "+ race +" x on x.Alien_ID = ID.Alien_ID";
+
+        return db.fetchColumn(query);
+    }
 }
