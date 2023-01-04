@@ -6,9 +6,6 @@ package app;
 
 import program.Program;
 import db.Database;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import oru.inf.InfException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.logging.Level;
@@ -149,6 +146,8 @@ public class MainApp extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         panelHome = new javax.swing.JPanel();
         lblUser = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
@@ -245,14 +244,8 @@ public class MainApp extends javax.swing.JFrame {
         listUtrustning1 = new javax.swing.JList<>();
         lblUtrustning1 = new javax.swing.JLabel();
         btnDeleteUtrustning1 = new javax.swing.JButton();
-        scrollPaneAliens2 = new javax.swing.JScrollPane();
-        listAliens2 = new javax.swing.JList<>();
-        scrollPaneAliens3 = new javax.swing.JScrollPane();
-        listAliens3 = new javax.swing.JList<>();
         lblAlien3 = new javax.swing.JLabel();
         lblAlien4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         lblAlien5 = new javax.swing.JLabel();
@@ -260,6 +253,10 @@ public class MainApp extends javax.swing.JFrame {
         lblAlien7 = new javax.swing.JLabel();
         lblAlien8 = new javax.swing.JLabel();
         jValjAlienBox = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textAlienResult = new javax.swing.JTextArea();
 
         jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jDialog1.setTitle("Byt lösenord");
@@ -348,31 +345,48 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Användarnamn:");
+
+        jLabel6.setText("Lösenord:");
+
         javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
         panelLogin.setLayout(panelLoginLayout);
         panelLoginLayout.setHorizontalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginLayout.createSequentialGroup()
-                .addGap(234, 234, 234)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
-                        .addComponent(btnLogin)
-                        .addGap(30, 30, 30)))
+                    .addGroup(panelLoginLayout.createSequentialGroup()
+                        .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelLoginLayout.createSequentialGroup()
+                                .addGap(165, 165, 165)
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel5)
+                                .addGap(5, 5, 5)))
+                        .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelLoginLayout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(btnLogin)))
                 .addContainerGap(240, Short.MAX_VALUE))
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(29, 29, 29)
+                .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(45, 45, 45)
                 .addComponent(btnLogin)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         panelHome.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -545,7 +559,7 @@ public class MainApp extends javax.swing.JFrame {
                                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAlien)
                                     .addComponent(jValjAlienBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 16, Short.MAX_VALUE)))
+                        .addGap(0, 21, Short.MAX_VALUE)))
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
@@ -562,7 +576,7 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(lblAlien1))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelHomeLayout.createSequentialGroup()
                                 .addComponent(lblUser)
@@ -1182,27 +1196,21 @@ public class MainApp extends javax.swing.JFrame {
 
         btnDeleteUtrustning1.setText("Ta bort");
 
-        listAliens2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        scrollPaneAliens2.setViewportView(listAliens2);
-
-        listAliens3.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        scrollPaneAliens3.setViewportView(listAliens3);
-
-        lblAlien3.setText("Område");
+        lblAlien3.setText("Plats");
 
         lblAlien4.setText("Ras");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         lblAlien5.setText("Aliens");
 
@@ -1210,7 +1218,26 @@ public class MainApp extends javax.swing.JFrame {
 
         lblAlien7.setText("Reg fr.o.m");
 
-        lblAlien8.setText("chef:");
+        lblAlien8.setText("Områdeschef:");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "boglodite", "worm", "squid" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Örebro", "Västerås", "Vilhelmina", "Borås" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        textAlienResult.setEditable(false);
+        textAlienResult.setColumns(20);
+        textAlienResult.setRows(5);
+        jScrollPane1.setViewportView(textAlienResult);
 
         javax.swing.GroupLayout panelAgentHomeLayout = new javax.swing.GroupLayout(panelAgentHome);
         panelAgentHome.setLayout(panelAgentHomeLayout);
@@ -1241,99 +1268,90 @@ public class MainApp extends javax.swing.JFrame {
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAlien2)
                             .addComponent(jValjAlienBox, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(6, 71, Short.MAX_VALUE)
                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgentHomeLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblUser1)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLogout1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnChangePassword1)
+                        .addGap(35, 35, 35))
+                    .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgentHomeLayout.createSequentialGroup()
+                            .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblAlien7)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblAlien6))
+                            .addGap(47, 47, 47))
+                        .addGroup(panelAgentHomeLayout.createSequentialGroup()
+                            .addComponent(lblAlien5)
+                            .addContainerGap()))
+                    .addGroup(panelAgentHomeLayout.createSequentialGroup()
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAgentHomeLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblUser1)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLogout1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnChangePassword1))
-                            .addComponent(lblAlien5)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgentHomeLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgentHomeLayout.createSequentialGroup()
                                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAlien7)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblAlien3))
+                                .addGap(10, 10, 10)
                                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblAlien6))
-                                .addGap(37, 37, 37))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgentHomeLayout.createSequentialGroup()
-                                .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgentHomeLayout.createSequentialGroup()
-                                        .addComponent(scrollPaneAliens2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(scrollPaneAliens3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelAgentHomeLayout.createSequentialGroup()
-                                        .addComponent(lblAlien3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblAlien8)
-                                        .addGap(116, 116, 116)
-                                        .addComponent(lblAlien4)
-                                        .addGap(67, 67, 67)))
-                                .addGap(17, 17, 17))))))
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblAlien4)))
+                            .addComponent(lblAlien8)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46))))
         );
         panelAgentHomeLayout.setVerticalGroup(
             panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAgentHomeLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelAgentHomeLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
                         .addComponent(lblAlien2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jValjAlienBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))
-                    .addGroup(panelAgentHomeLayout.createSequentialGroup()
-                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAlien3)
-                            .addComponent(lblAlien4)
-                            .addComponent(lblAlien8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrollPaneAliens2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(scrollPaneAliens3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAgentHomeLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegAlien1)
                             .addComponent(btnUpdateAlien1)
                             .addComponent(btnShowInfo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblUtrustning1))
-                    .addGroup(panelAgentHomeLayout.createSequentialGroup()
-                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelAgentHomeLayout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(lblAlien6))
-                            .addGroup(panelAgentHomeLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblAlien7)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblAlien5)))
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAgentHomeLayout.createSequentialGroup()
+                        .addComponent(lblUtrustning1)
+                        .addGap(0, 27, Short.MAX_VALUE)
                         .addComponent(scrollPaneUtrustning1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnDeleteUtrustning1)
                             .addComponent(btnRegUtrust)))
                     .addGroup(panelAgentHomeLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAlien4)
+                            .addComponent(lblAlien3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAlien6)
+                            .addGroup(panelAgentHomeLayout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(lblAlien7)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAlien5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblAlien8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnLogout1)
                             .addComponent(btnChangePassword1)
@@ -1977,6 +1995,81 @@ public class MainApp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRegUtrustningActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // get combobox value
+        String race = getComboTextSafe(jComboBox1);
+        
+        //clear other query fields (just estetics)
+        jComboBox2.setSelectedIndex(0); //plats
+        jTextField1.setText("");
+        jTextField2.setText("");
+        
+        // Get all aliens by race input (from combobox value)
+        List<String> aliens = program.listAliensByRace(race);
+        
+        //Builder for presentation
+        StringBuilder builder = new StringBuilder();
+        for(String alien : aliens)
+        {
+            //Add each alien
+            builder.append(alien).append("\n");
+        }
+        
+        //Set presentation box with values
+        textAlienResult.setText(builder.toString());
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // get combobox value
+        String plats = getComboTextSafe(jComboBox2);
+        
+        //clear other query fields (just estetics)
+        jComboBox1.setSelectedIndex(0); //race
+        jTextField1.setText("");
+        jTextField2.setText("");
+        
+        
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // check all inputs
+        String race = getComboTextSafe(jComboBox1);
+        String plats = getComboTextSafe(jComboBox2);
+        String fromDate = getTextSafe(jTextField1);
+        String toDate = getTextSafe(jTextField2);
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+         // check all inputs
+        String race = getComboTextSafe(jComboBox1);
+        String plats = getComboTextSafe(jComboBox2);
+        String fromDate = getTextSafe(jTextField1);
+        String toDate = getTextSafe(jTextField2);
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private String getTextSafe(javax.swing.JTextField field)
+    {
+        try
+        {
+            return field.getText();
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+    }
+    
+    private String getComboTextSafe(javax.swing.JComboBox<String> combo)
+    {
+        try
+        {
+            return combo.getSelectedItem().toString();
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+    }
     
     private void showRegAlien() {
         panelHome.setVisible(false);
@@ -2088,15 +2181,18 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JSpinner jAlienID;
     private javax.swing.JComboBox<String> jAnsvarigBox;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JComboBox<String> jOmradeBox;
     private javax.swing.JComboBox<String> jPlatsBox;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JComboBox<String> jUtrustningBox;
@@ -2136,8 +2232,6 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblUtrustID;
     private javax.swing.JLabel lblUtrustning;
     private javax.swing.JLabel lblUtrustning1;
-    private javax.swing.JList<String> listAliens2;
-    private javax.swing.JList<String> listAliens3;
     private javax.swing.JList<String> listUtrustning1;
     private javax.swing.JTextField losenField;
     private javax.swing.JLabel losenLabel;
@@ -2157,11 +2251,10 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel platsLabel1;
     private javax.swing.JLabel regAliRubrik;
     private javax.swing.JLabel regAliRubrik1;
-    private javax.swing.JScrollPane scrollPaneAliens2;
-    private javax.swing.JScrollPane scrollPaneAliens3;
     private javax.swing.JScrollPane scrollPaneUtrustning1;
     private javax.swing.JLabel teleLabel;
     private javax.swing.JLabel teleLabel1;
+    private javax.swing.JTextArea textAlienResult;
     private javax.swing.JTextField tfnField1;
     private javax.swing.JTextField txtAgentName;
     private javax.swing.JTextField txtAgentPassword;
