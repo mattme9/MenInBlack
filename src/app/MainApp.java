@@ -211,9 +211,17 @@ public class MainApp extends javax.swing.JFrame {
         txtNewValue = new javax.swing.JTextField();
         lblNewValue = new javax.swing.JLabel();
         btnAndra = new javax.swing.JButton();
+        jSetAdminBox = new javax.swing.JCheckBox();
         panelUpdateAlien = new javax.swing.JPanel();
         btnBackToHome1 = new javax.swing.JButton();
         lblUpdateAlien = new javax.swing.JLabel();
+        lblValjAlien = new javax.swing.JLabel();
+        txtAndraVal = new javax.swing.JLabel();
+        jAndraVal = new javax.swing.JTextField();
+        btnAndra2 = new javax.swing.JButton();
+        jAlienBox = new javax.swing.JComboBox<>();
+        jAndraBox2 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
         panelRegAgent = new javax.swing.JPanel();
         datumLabel1 = new javax.swing.JLabel();
         namnLabel1 = new javax.swing.JLabel();
@@ -250,7 +258,6 @@ public class MainApp extends javax.swing.JFrame {
         btnRegUtrust = new javax.swing.JButton();
         btnShowInfo = new javax.swing.JButton();
         lblUtrustning1 = new javax.swing.JLabel();
-        btnDeleteUtrustning1 = new javax.swing.JButton();
         lblAlien3 = new javax.swing.JLabel();
         lblAlien4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -860,7 +867,7 @@ public class MainApp extends javax.swing.JFrame {
 
         jLabel7.setText("Välj agent:");
 
-        jAndraBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agent ID", "Namn", "Telefon", "Anstallningsdatum", "Omrade", "Administrator", "Losenord" }));
+        jAndraBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Namn", "Telefon", "Anstallningsdatum", "Omrade", "Administrator", "Losenord" }));
         jAndraBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jAndraBoxActionPerformed(evt);
@@ -878,6 +885,8 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
+        jSetAdminBox.setText("Klicka för att ändra till admin");
+
         javax.swing.GroupLayout panelUpdateAgentLayout = new javax.swing.GroupLayout(panelUpdateAgent);
         panelUpdateAgent.setLayout(panelUpdateAgentLayout);
         panelUpdateAgentLayout.setHorizontalGroup(
@@ -889,14 +898,11 @@ public class MainApp extends javax.swing.JFrame {
                 .addComponent(btnAndra)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
-                .addContainerGap(222, Short.MAX_VALUE)
+                .addContainerGap(213, Short.MAX_VALUE)
                 .addGroup(panelUpdateAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(263, 263, 263))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
-                        .addComponent(lblUpdateAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(196, 196, 196))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(240, 240, 240))
@@ -908,7 +914,12 @@ public class MainApp extends javax.swing.JFrame {
                         .addGap(215, 215, 215))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
                         .addComponent(lblNewValue)
-                        .addGap(242, 242, 242))))
+                        .addGap(242, 242, 242))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAgentLayout.createSequentialGroup()
+                        .addGroup(panelUpdateAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSetAdminBox)
+                            .addComponent(lblUpdateAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(196, 196, 196))))
         );
         panelUpdateAgentLayout.setVerticalGroup(
             panelUpdateAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -933,8 +944,10 @@ public class MainApp extends javax.swing.JFrame {
                         .addComponent(btnBackToHome))
                     .addGroup(panelUpdateAgentLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(btnAndra)))
-                .addGap(126, 126, 126))
+                        .addComponent(btnAndra)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSetAdminBox)))
+                .addGap(106, 106, 106))
         );
 
         panelUpdateAlien.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -950,24 +963,69 @@ public class MainApp extends javax.swing.JFrame {
         lblUpdateAlien.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblUpdateAlien.setText("Ändra Alien");
 
+        lblValjAlien.setText("Välj alien:");
+
+        txtAndraVal.setText("Vad vill du ändra?");
+
+        btnAndra2.setText("Ändra");
+        btnAndra2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAndra2ActionPerformed(evt);
+            }
+        });
+
+        jAndraBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registreringsdatum", "Losenord", "Namn", "Telefon", "Plats", "Ansvarig_Agent" }));
+
+        jLabel9.setText("Mata in nya värdet:");
+
         javax.swing.GroupLayout panelUpdateAlienLayout = new javax.swing.GroupLayout(panelUpdateAlien);
         panelUpdateAlien.setLayout(panelUpdateAlienLayout);
         panelUpdateAlienLayout.setHorizontalGroup(
             panelUpdateAlienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAlienLayout.createSequentialGroup()
-                .addContainerGap(265, Short.MAX_VALUE)
-                .addComponent(lblUpdateAlien)
-                .addGap(240, 240, 240))
             .addGroup(panelUpdateAlienLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(btnBackToHome1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAlienLayout.createSequentialGroup()
+                .addContainerGap(253, Short.MAX_VALUE)
+                .addComponent(lblUpdateAlien)
+                .addGap(252, 252, 252))
+            .addGroup(panelUpdateAlienLayout.createSequentialGroup()
+                .addGap(266, 266, 266)
+                .addComponent(btnAndra2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelUpdateAlienLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelUpdateAlienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jAndraVal, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblValjAlien)
+                    .addComponent(txtAndraVal)
+                    .addComponent(jLabel9)
+                    .addGroup(panelUpdateAlienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jAlienBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jAndraBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelUpdateAlienLayout.setVerticalGroup(
             panelUpdateAlienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAlienLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblUpdateAlien)
-                .addGap(224, 224, 224)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblValjAlien)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jAlienBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtAndraVal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jAndraBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jAndraVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAndra2)
+                .addGap(9, 9, 9)
                 .addComponent(btnBackToHome1)
                 .addGap(128, 128, 128))
         );
@@ -1252,8 +1310,6 @@ public class MainApp extends javax.swing.JFrame {
 
         lblUtrustning1.setText("Utrustning");
 
-        btnDeleteUtrustning1.setText("Ta bort");
-
         lblAlien3.setText("Plats");
 
         lblAlien4.setText("Ras");
@@ -1330,8 +1386,7 @@ public class MainApp extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnRegAlien1))
                             .addGroup(panelAgentHomeLayout.createSequentialGroup()
-                                .addComponent(btnDeleteUtrustning1)
-                                .addGap(18, 18, 18)
+                                .addGap(90, 90, 90)
                                 .addComponent(btnRegUtrust))))
                     .addGroup(panelAgentHomeLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
@@ -1392,9 +1447,7 @@ public class MainApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblUtrustning1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnDeleteUtrustning1)
-                            .addComponent(btnRegUtrust)))
+                        .addComponent(btnRegUtrust))
                     .addGroup(panelAgentHomeLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1575,6 +1628,7 @@ public class MainApp extends javax.swing.JFrame {
             while (id <= max) {
                 String namn = idb.fetchSingle("SELECT Namn FROM Alien WHERE Alien_ID=" + id);
                 jValjAlienBox1.addItem(namn);
+                jAlienBox.addItem(namn);
                 id++;
             }
         } catch (Exception e) {
@@ -1753,6 +1807,7 @@ public class MainApp extends javax.swing.JFrame {
         panelUpdateAgent.setVisible(false);
         panelRegAgent.setVisible(false);
         panelUpdateAlien.setVisible(true);
+        fyllAlienBox();
     }//GEN-LAST:event_btnUpdateAlienActionPerformed
 
     private void txtAgentPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgentPhoneActionPerformed
@@ -2145,6 +2200,53 @@ public class MainApp extends javax.swing.JFrame {
 
     private void btnRegUtrustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegUtrustActionPerformed
         // TODO add your handling code here:
+        String andra = (String) jAndraBox.getSelectedItem();
+        String namn = (String) jAgentBox.getSelectedItem();
+        String newValue = txtNewValue.getText().toString();
+        System.out.print(andra);
+        try{
+        if(andra == "Namn" || andra == "Telefon" || andra == "Losenord"  || andra == "Anstallningsdatum"){
+        String agent = idb.fetchSingle("SELECT " + andra + " FROM Agent WHERE Namn='" + namn +"'");
+        
+        idb.update("UPDATE Agent SET " + andra + "='" + newValue + "' WHERE " + andra + "='" + agent + "'");
+        }
+        /*
+        else if(andra == "Agent_ID"){
+            String value = idb.fetchSingle("SELECT " + andra + " FROM Agent WHERE Namn='" + namn + "'");
+            int id = Integer.parseInt(value);
+            int newId = Integer.parseInt(newValue);
+            idb.update("UPDATE Agent SET " + andra + "=" + newId +" WHERE " + andra + "=" + id);
+        }
+        */
+        else if(andra == "Omrade"){
+            
+            String cont = idb.fetchSingle("SELECT Omrade FROM Agent WHERE Namn ='" + namn + "'");
+            int nuvarandeOmrade = Integer.parseInt(cont);
+            System.out.println(nuvarandeOmrade);
+            //Tidigare områdesID
+            
+            String cont2 = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning ='" + newValue + "'");
+            int newOmrade = Integer.parseInt(cont2);
+            System.out.println(newOmrade);
+            //Nytt områdesID
+            
+            idb.update("UPDATE Agent SET " + andra + "=" + newOmrade + " WHERE " + andra + "=" +  nuvarandeOmrade + " AND Namn='" + namn + "'");
+            
+            JOptionPane.showMessageDialog(null, namn + " tillhör nu område " + newValue);
+        }
+        else if(andra == "Administrator"){
+        
+            //KNAS HÄR FIXA
+         if(jSetAdminBox.isSelected()){
+             String j = "J";
+             String n = "N";
+             idb.update("UPDATE Agent SET Administrator='" + j + "' WHERE Administrator='" + n + "' AND Namn='" + namn + "'");
+          }
+        }
+        } catch(InfException e){
+            System.out.println("Knas " + e.getMessage());
+            JOptionPane.showMessageDialog(panelHome, "Error! Kolla så att du skrivit rätt.");
+        }
     }//GEN-LAST:event_btnRegUtrustActionPerformed
 
     private void btnUpdateAlien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAlien1ActionPerformed
@@ -2188,12 +2290,57 @@ public class MainApp extends javax.swing.JFrame {
             //Add each alien
             builder.append(alien).append("\n");
         }
-
+        
         //Set presentation box with values
         textAlienResult.setText(builder.toString());
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    
+    private void btnAndra2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndra2ActionPerformed
+        // TODO add your handling code here:
+        String andra = (String) jAndraBox2.getSelectedItem();
+        String namn = (String) jAlienBox.getSelectedItem();
+        String newValue = jAndraVal.getText();
+        
+        try{
+            
+            if(andra == "Registreringsdatum" || andra == "Losenord" || andra == "Namn" || andra == "Telefon"){
+                
+                String oldValue = idb.fetchSingle("SELECT " + andra + " FROM Alien WHERE Namn='" + namn + "'");
+                
+                idb.update("UPDATE Alien SET " + andra + "='" + newValue + "' WHERE " + andra + "='" + oldValue + "' AND Namn='" + namn + "'");
+                JOptionPane.showMessageDialog(null, namn + " har ändrats.");
+            }
+            else if(andra == "Ansvarig_Agent"){
+                
+            }
+            else if(andra == "Plats"){
+                
+                String cont1 = idb.fetchSingle("SELECT Plats FROM Alien WHERE Namn='" + namn + "'");
+                int nuvarandeOmrade = Integer.parseInt(cont1);
+                System.out.println(nuvarandeOmrade);
+                //Hämtar nuvarande platsID
+                  
+                String cont2 = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='" + newValue + "'");
+                int newOmrade = Integer.parseInt(cont2);
+                System.out.println(newOmrade);
+                //Hämtar nytt platsid
+                
+                idb.update("UPDATE Alien SET " + andra + "=" + newOmrade + " WHERE " + andra + "=" + nuvarandeOmrade + " AND Namn='" + namn + "'");
+                
+                
+                
+            
+            }
+        }catch(InfException e){
+            System.out.println("Knas " + e.getMessage());
+        }
+        
+        
+        
+        
+        
+    }
+
     private String getTextSafe(javax.swing.JTextField field)
     {
         try
@@ -2293,6 +2440,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel ansvLabel;
     private javax.swing.JButton bRegistrera;
     private javax.swing.JButton btnAndra;
+    private javax.swing.JButton btnAndra2;
     private javax.swing.JButton btnApprove;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBackToHome;
@@ -2303,7 +2451,6 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteAgent;
     private javax.swing.JButton btnDeleteAlien;
     private javax.swing.JButton btnDeleteUtrustning;
-    private javax.swing.JButton btnDeleteUtrustning1;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnLogout1;
@@ -2327,8 +2474,11 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JCheckBox jAdminCheck;
     private javax.swing.JComboBox<String> jAgentBox;
     private javax.swing.JSpinner jAgentID;
+    private javax.swing.JComboBox<String> jAlienBox;
     private javax.swing.JSpinner jAlienID;
     private javax.swing.JComboBox<String> jAndraBox;
+    private javax.swing.JComboBox<String> jAndraBox2;
+    private javax.swing.JTextField jAndraVal;
     private javax.swing.JComboBox<String> jAnsvarigBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -2343,9 +2493,11 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox<String> jOmradeBox;
     private javax.swing.JComboBox<String> jPlatsBox;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JCheckBox jSetAdminBox;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JComboBox<String> jUtrustningBox;
@@ -2386,6 +2538,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblUtrustID;
     private javax.swing.JLabel lblUtrustning;
     private javax.swing.JLabel lblUtrustning1;
+    private javax.swing.JLabel lblValjAlien;
     private javax.swing.JTextField losenField;
     private javax.swing.JLabel losenLabel;
     private javax.swing.JLabel losenLabel1;
@@ -2412,6 +2565,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JTextField txtAgentPassword;
     private javax.swing.JTextField txtAgentPhone;
     private javax.swing.JTextField txtAgentReg;
+    private javax.swing.JLabel txtAndraVal;
     private javax.swing.JLabel txtHarReg;
     private javax.swing.JTextField txtNewPass;
     private javax.swing.JTextField txtNewValue;
