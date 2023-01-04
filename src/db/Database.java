@@ -88,9 +88,11 @@ public class Database
         return db.fetchColumn("SELECT Namn FROM agent");
     }
     
-    public List<String> listAllAliensByPlats(int plats) throws InfException
+    public List<String> listAllAliensByPlats(String plats) throws InfException
     {
-        return db.fetchColumn("SELECT Namn FROM alien WHERE plats="+plats);
+        String query ="SELECT Namn FROM alien as a\n" +
+                    "JOIN plats p on p.Plats_ID = a.Alien_ID WHERE p.Benamning = '" + plats + "';";
+        return db.fetchColumn(query);
     }
     
     public List<String> listRegistratedAliens(String start, String slut) throws InfException
@@ -105,6 +107,11 @@ public class Database
     {
         String query = "SELECT Namn FROM alien AS ID\n" +
                        "JOIN "+ race +" x on x.Alien_ID = ID.Alien_ID";
+        return db.fetchColumn(query);
+    }
+    
+    public List<String> listAlienQuery(String query) throws InfException
+    {
         return db.fetchColumn(query);
     }
 }
