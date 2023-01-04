@@ -13,11 +13,14 @@ import program.User;
 import program.UserAlien;
 
 /**
- * Denna klass syfte är att prata SQL med databasen.
- * Varför vi har en egen klass för detta är för att vi inte vill skriva
- * SQL i programmet, utan skapar metoder här med SQL som program anropar
+ * Vi har skapat en egen databasklass i detta projekt. 
+ * Denna klass har som syfte är att komminucera via MySQL med databasen.
+ * Vi har valt att göra på detta sätt för att undvika att skriva SQL-frågor i programmet.
+ * Vi skapar alltså metoder med SQL som sedan kan anropas från vår programklass.
  * 
- * Här hämtar vi bara data, program gör saker med datat.
+ * Vi hämtar alltså endast ut data från denna klass. Eftersom data bara hämtas ut så har 
+ * vi valt att göra våra fält som "final". Detta innebär att när vi satt värden i fälten så
+ * kommer de inte gå att förändra. De blir som låsta. Detta kan ses som en säkerbetsåtgärd.
  * 
  * @author Sara
  */
@@ -35,10 +38,15 @@ public class Database
         db = new InfDB(NAME, PORT, USER, PASSWORD);
     }
     
+    //Metod som hämtar agenters namn utifrån ID. Metoden tar en int som parameter och returnerar en rad
+    //Från databasen där ID matchar den parameter som skickats in.
     public String getAgentNameById(int id) throws InfException
     {
         return db.fetchSingle("SELECT Namn FROM agent WHERE Agent_ID=" + id);
     }
+    
+    //Metod som tar in en int (som användarnamn) samt en String (som lösenord) som parametrar.
+    //
     
     public User logIn(int id, String password) throws InfException
     {
@@ -61,23 +69,30 @@ public class Database
         return new UserAlien(user);
     }
     
+    //Metod som låter en alien-användare byta lösenord. Denna metod tar in en UserAlien 
+    //Samt en String (lösenord) som parametrar. 
     public UserAlien changePasswordAlien (UserAlien userAlien, String newPasswordA) throws InfException
     {
         db.update("UPDATE alien SET Losenord='" + newPasswordA + "' WHERE Alien_ID=" + userAlien.getId());
         return logInAlien(userAlien.getId(), newPasswordA);
     }
     
+    //Samma som ovanstående metod men för Agent samt Admin, tar istället in en User som parameter.
     public User changePassword(User user, String newPassword) throws InfException
     {
         db.update("UPDATE agent SET Losenord='" + newPassword + "' WHERE Agent_ID=" + user.getId());
         return logIn(user.getId(), newPassword);
     }
     
+    //En metod för att lista alla agenter samt information om den, vi kör denna direkt programmet 
+    //Startar för att ha snabb tillgång till användarnamn samt lösenord. Denna metod returnerar en 
+    //ArrayList.
     public ArrayList<HashMap<String, String>> listAllAgents() throws InfException
     {
         return db.fetchRows("SELECT * FROM agent");
     }
     
+    //Metod som returnerar en lista utav Strings. 
     public List<String> listAllPlatserBenamning () throws InfException
     {
         return db.fetchColumn("SELECT Benamning FROM Plats");
@@ -98,8 +113,8 @@ public class Database
     public List<String> listRegistratedAliens(String start, String slut) throws InfException
     {
         String query = "SELECT Namn FROM alien WHERE "
-                + "Registreringsdatum < '"+start+"' AND "
-                + "Registreringsdatum > '"+slut+"'";
+                + "Registreringsdatum > '"+start+"' AND "
+                + "Registreringsdatum < '"+slut+"'";
         return db.fetchColumn(query);
     }
     
