@@ -148,8 +148,9 @@ public class MainApp extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblAnvändarnamn = new javax.swing.JLabel();
+        lblLösenord = new javax.swing.JLabel();
+        lblFelMeddelande = new javax.swing.JLabel();
         panelHome = new javax.swing.JPanel();
         lblUser = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
@@ -353,9 +354,9 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Användarnamn:");
+        lblAnvändarnamn.setText("Användarnamn:");
 
-        jLabel6.setText("Lösenord:");
+        lblLösenord.setText("Lösenord:");
 
         javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
         panelLogin.setLayout(panelLoginLayout);
@@ -367,18 +368,21 @@ public class MainApp extends javax.swing.JFrame {
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelLoginLayout.createSequentialGroup()
                                 .addGap(165, 165, 165)
-                                .addComponent(jLabel6)
+                                .addComponent(lblLösenord)
                                 .addGap(18, 18, 18))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel5)
+                                .addComponent(lblAnvändarnamn)
                                 .addGap(5, 5, 5)))
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelLoginLayout.createSequentialGroup()
                         .addGap(257, 257, 257)
-                        .addComponent(btnLogin)))
+                        .addComponent(btnLogin))
+                    .addGroup(panelLoginLayout.createSequentialGroup()
+                        .addGap(269, 269, 269)
+                        .addComponent(lblFelMeddelande)))
                 .addContainerGap(240, Short.MAX_VALUE))
         );
         panelLoginLayout.setVerticalGroup(
@@ -387,14 +391,16 @@ public class MainApp extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(lblAnvändarnamn))
                 .addGap(29, 29, 29)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(45, 45, 45)
+                    .addComponent(lblLösenord))
+                .addGap(17, 17, 17)
+                .addComponent(lblFelMeddelande)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogin)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
         panelHome.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -1515,16 +1521,18 @@ public class MainApp extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
 
-        Integer userId = Integer.valueOf(txtUsername.getText());
+        String userName = txtUsername.getText();
         String password = txtPassword.getText();
         
-        program.logIn(userId, password);
+        program.logIn(userName, password);
         
         if(!program.isLoggedIn())
         {
             System.out.println("Could not login!");
+            lblFelMeddelande.setText("Fel användarnamn eller lösenord!");
             return;
         }
+            lblFelMeddelande.setText("");
         
         if(program.isLoggedInAsAgent() && program.isAdmin())
         {
@@ -2229,18 +2237,6 @@ public class MainApp extends javax.swing.JFrame {
         
     }
     
-    private void updateAgent(String agentName)
-    {
-        //Hämta lite värden här för agent by namn
-        
-        //Visa panel
-        panelHome.setVisible(false);
-        panelLogin.setVisible(false);
-        panelRegAgent.setVisible(false);
-        panelRegAlien.setVisible(false);
-        panelUpdateAgent.setVisible(true);
-        panelUpdateAlien.setVisible(false);
-    }
     /**
      * @param args the command line arguments
      */
@@ -2339,8 +2335,6 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JComboBox<String> jOmradeBox;
@@ -2374,6 +2368,9 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblAlienPlats;
     private javax.swing.JLabel lblAlienRegDatum;
     private javax.swing.JLabel lblAlienTfn;
+    private javax.swing.JLabel lblAnvändarnamn;
+    private javax.swing.JLabel lblFelMeddelande;
+    private javax.swing.JLabel lblLösenord;
     private javax.swing.JLabel lblNewPass;
     private javax.swing.JLabel lblNewValue;
     private javax.swing.JLabel lblOmrade;

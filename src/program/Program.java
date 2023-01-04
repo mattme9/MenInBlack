@@ -9,11 +9,16 @@ import java.util.logging.Logger;
 import oru.inf.InfException;
 
 /**
- * Detta är huvudklassen som håller all "logik", alltså funktioner.
- * Denna klass tar en Database, som är final av anledningen att när vi skapar
- * Program vill vi att Database som vi angett aldrig ändras.
+ * Detta är vår egentliga huvudklass - eller vår "javaböna". Denna klass innehåller
+ * all "logik" och därav alla funktioner. Man kan säga att denna klass används för
+ * att transporta data från databasen. Här har vi instansierat databasklassen så att
+ * vi kan hämta data däirfrån.
  * 
- * Här finns alla metoder för att göra ändringar/läsa data från db.
+ * Vi instansierar även våra klasser User samt UserAlien för att kunna använda oss
+ * utav data från dem i våra metoder vi bygger här. User och UserAlien används som 
+ * inloggade användare.
+ * 
+ * Här har vi skapat upp alla metoder som behövs för att göra ändringar/läsa data från db.
  * 
  * @author Sara
  */
@@ -29,11 +34,16 @@ public class Program
         this.database = database;
     }
     
+    // Metod för att kolla om en User är administratör eller inte.
     public boolean isAdmin()
     {
         return user != null && user.isIsAdmin();
     }
     
+    // Metod för att hämta ut användarnamn på User (agent/admin) 
+    // Och UserAlien (alien). Metoden kollar först om någon är inloggad alls.
+    // Om man är inloggad som user/userAlien returnerar metoden
+    // användarnamnet för denne.
     public String getUserName()
     {
         if(!isLoggedIn())
@@ -56,6 +66,10 @@ public class Program
         }
     }
     
+    // Get-metod som hämtar data om Aliens kontaktperson. Metoden anropar 
+    // Databasen för att hämta kontaktID för en alien och namnet på denne.
+    // Om detta inte finns har vi en "catch" som kommer att skriva ut aktuellt
+    // Felmeddelande i terminalen samt retuernera en tomsträng.
     public String getAlienContact(){
         try {
             return database.getAgentNameById(alien.getContact());
@@ -65,6 +79,7 @@ public class Program
         }
     }
     
+    // Två metoder för att kolla om man är inloggad som agent eller alein.
     public boolean isLoggedInAsAgent()
     {
         return user != null;
@@ -96,7 +111,8 @@ public class Program
                return new ArrayList<>();
            }
     }
-    public void logIn(int id, String password)
+    
+    public void logIn(String name, String password)
     {
         if(user != null || alien != null)
         {
@@ -106,9 +122,9 @@ public class Program
         
         try
         {
-            user = database.logIn(id, password);
+            user = database.logIn(name, password);
             if(user == null) {
-                alien = database.logInAlien(id, password);
+                alien = database.logInAlien(name, password);
             }
             
         }

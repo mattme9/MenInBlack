@@ -45,12 +45,12 @@ public class Database
         return db.fetchSingle("SELECT Namn FROM agent WHERE Agent_ID=" + id);
     }
     
-    //Metod som tar in en int (som användarnamn) samt en String (som lösenord) som parametrar.
-    //
-    
-    public User logIn(int id, String password) throws InfException
+    // Metod som tar in en String (som användarnamn) samt en String (som lösenord) som parametrar.
+    // Denna metod returnerar ett User-objekt. Om det inte finns så returnerar den null.
+    // User objekt representerar log in-state.
+    public User logIn(String name, String password) throws InfException
     {
-        String query = "SELECT * FROM agent WHERE Agent_ID=" + id + " AND Losenord='" + password + "'";
+        String query = "SELECT * FROM agent WHERE Namn='" + name + "' AND Losenord='" + password + "'";
         HashMap<String, String> user = db.fetchRow(query);
         if(user.isEmpty()) {
             return null;
@@ -58,10 +58,12 @@ public class Database
         return new User(user);
         
     }
-    
-    public UserAlien logInAlien(int id, String password) throws InfException
+    // Lika metod som ovan, här loggar du dock in som ett Alien-objekt. 
+    // Då funktionerna i systemet skiljer sig beroende på vem du är inloggad som
+    // så behövs olika metoder för detta.
+    public UserAlien logInAlien(String name, String password) throws InfException
     {
-        String query = "SELECT * FROM alien WHERE Alien_ID=" + id + " AND Losenord='" + password + "'";
+        String query = "SELECT * FROM alien WHERE Namn='" + name + "' AND Losenord='" + password + "'";
         HashMap<String, String> user = db.fetchRow(query);
         if(user.isEmpty()) {
             return null;
@@ -69,30 +71,31 @@ public class Database
         return new UserAlien(user);
     }
     
-    //Metod som låter en alien-användare byta lösenord. Denna metod tar in en UserAlien 
-    //Samt en String (lösenord) som parametrar. 
+    // Metod som låter en alien-användare byta lösenord. Denna metod tar in ett UserAlien-objekt 
+    // Samt en String (lösenord) som parametrar. Metoden returnerar ett uppdaterat UserAlien-objekt.
     public UserAlien changePasswordAlien (UserAlien userAlien, String newPasswordA) throws InfException
     {
         db.update("UPDATE alien SET Losenord='" + newPasswordA + "' WHERE Alien_ID=" + userAlien.getId());
-        return logInAlien(userAlien.getId(), newPasswordA);
+        return logInAlien(userAlien.getName(), newPasswordA);
     }
     
-    //Samma som ovanstående metod men för Agent samt Admin, tar istället in en User som parameter.
+    // Samma som ovanstående metod men för Agent samt Admin, tar istället in en User som parameter.
+    // Returnerar ett uppdaterat User-objekt.
     public User changePassword(User user, String newPassword) throws InfException
     {
         db.update("UPDATE agent SET Losenord='" + newPassword + "' WHERE Agent_ID=" + user.getId());
-        return logIn(user.getId(), newPassword);
+        return logIn(user.getName(), newPassword);
     }
     
-    //En metod för att lista alla agenter samt information om den, vi kör denna direkt programmet 
-    //Startar för att ha snabb tillgång till användarnamn samt lösenord. Denna metod returnerar en 
-    //ArrayList.
+    // En metod för att lista alla agenter samt information om den, vi kör denna direkt programmet 
+    // Startar för att ha snabb tillgång till användarnamn samt lösenord. Denna metod returnerar en 
+    // ArrayList av Strings.
     public ArrayList<HashMap<String, String>> listAllAgents() throws InfException
     {
         return db.fetchRows("SELECT * FROM agent");
     }
     
-    //Metod som returnerar en lista utav Strings. 
+    // 6 metoder som alla returnerar en lista utav Strings.  
     public List<String> listAllPlatserBenamning () throws InfException
     {
         return db.fetchColumn("SELECT Benamning FROM Plats");
