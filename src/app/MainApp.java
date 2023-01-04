@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.*;
+import static program.ValidateInput.isValidDate;
 
 /**
  *
@@ -260,9 +261,10 @@ public class MainApp extends javax.swing.JFrame {
         lblAlien8 = new javax.swing.JLabel();
         jValjAlienBox = new javax.swing.JComboBox<>();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         textAlienResult = new javax.swing.JTextArea();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
 
         jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jDialog1.setTitle("Byt lösenord");
@@ -377,7 +379,7 @@ public class MainApp extends javax.swing.JFrame {
                     .addGroup(panelLoginLayout.createSequentialGroup()
                         .addGap(257, 257, 257)
                         .addComponent(btnLogin)))
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,7 +394,7 @@ public class MainApp extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(45, 45, 45)
                 .addComponent(btnLogin)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         panelHome.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -565,7 +567,7 @@ public class MainApp extends javax.swing.JFrame {
                                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAlien)
                                     .addComponent(jValjAlienBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 15, Short.MAX_VALUE)))
+                        .addGap(0, 21, Short.MAX_VALUE)))
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
@@ -582,7 +584,7 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(lblAlien1))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelHomeLayout.createSequentialGroup()
                                 .addComponent(lblUser)
@@ -670,7 +672,7 @@ public class MainApp extends javax.swing.JFrame {
                                     .addComponent(btnDeleteUtrustning)
                                     .addComponent(btnRegUtrustning)))
                             .addComponent(lblUtrID1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         panelRegAlien.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -1256,6 +1258,13 @@ public class MainApp extends javax.swing.JFrame {
 
         lblAlien4.setText("Ras");
 
+        jTextField1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jTextField1InputMethodTextChanged(evt);
+            }
+        });
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -1283,17 +1292,24 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Örebro", "Västerås", "Vilhelmina", "Borås" }));
+        textAlienResult.setEditable(false);
+        textAlienResult.setColumns(20);
+        textAlienResult.setRows(5);
+        jScrollPane1.setViewportView(textAlienResult);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"", "Örebro", "Västerås", "Vilhelmina", "Borås" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
 
-        textAlienResult.setEditable(false);
-        textAlienResult.setColumns(20);
-        textAlienResult.setRows(5);
-        jScrollPane1.setViewportView(textAlienResult);
+        jButton2.setText("Sök");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelAgentHomeLayout = new javax.swing.GroupLayout(panelAgentHome);
         panelAgentHome.setLayout(panelAgentHomeLayout);
@@ -1322,41 +1338,42 @@ public class MainApp extends javax.swing.JFrame {
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAlien2)
                             .addComponent(jValjAlienBox, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(6, 71, Short.MAX_VALUE)
                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgentHomeLayout.createSequentialGroup()
+                    .addGroup(panelAgentHomeLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblUser1)
                         .addGap(18, 18, 18)
                         .addComponent(btnLogout1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnChangePassword1)
                         .addGap(35, 35, 35))
-                    .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgentHomeLayout.createSequentialGroup()
-                            .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblAlien7)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblAlien6))
-                            .addGap(47, 47, 47))
-                        .addGroup(panelAgentHomeLayout.createSequentialGroup()
-                            .addComponent(lblAlien5)
-                            .addContainerGap()))
                     .addGroup(panelAgentHomeLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgentHomeLayout.createSequentialGroup()
+                                    .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblAlien7)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblAlien6)
+                                        .addGroup(panelAgentHomeLayout.createSequentialGroup()
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblAlien5))
+                            .addComponent(lblAlien8)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelAgentHomeLayout.createSequentialGroup()
                                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblAlien3))
-                                .addGap(10, 10, 10)
+                                    .addComponent(lblAlien3)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
                                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblAlien4)))
-                            .addComponent(lblAlien8)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46))))
+                                    .addComponent(lblAlien4))))
+                        .addContainerGap())))
         );
         panelAgentHomeLayout.setVerticalGroup(
             panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1369,9 +1386,9 @@ public class MainApp extends javax.swing.JFrame {
                         .addComponent(jValjAlienBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRegAlien1)
                             .addComponent(btnUpdateAlien1)
-                            .addComponent(btnShowInfo))
+                            .addComponent(btnShowInfo)
+                            .addComponent(btnRegAlien1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblUtrustning1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1383,11 +1400,11 @@ public class MainApp extends javax.swing.JFrame {
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblAlien4)
                             .addComponent(lblAlien3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAlien6)
                             .addGroup(panelAgentHomeLayout.createSequentialGroup()
@@ -1396,20 +1413,23 @@ public class MainApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblAlien5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblAlien8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnLogout1)
                             .addComponent(btnChangePassword1)
                             .addComponent(lblUser1))))
                 .addGap(60, 60, 60))
         );
+
+        jComboBox1.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1862,35 +1882,6 @@ public class MainApp extends javax.swing.JFrame {
         panelLogin.setVisible(true);
     }//GEN-LAST:event_btnLogoutAlienActionPerformed
 
-    private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnShowInfoActionPerformed
-
-    private void btnRegUtrustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegUtrustActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegUtrustActionPerformed
-
-    private void btnUpdateAlien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAlien1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUpdateAlien1ActionPerformed
-
-    private void btnRegAlien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlien1ActionPerformed
-        // TODO add your handling code here:
-        showRegAlien();
-          
-    }//GEN-LAST:event_btnRegAlien1ActionPerformed
-
-    private void btnChangePassword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePassword1ActionPerformed
-        jDialog1.setSize(500, 300);
-        jDialog1.setVisible(true);
-    }//GEN-LAST:event_btnChangePassword1ActionPerformed
-
-    private void btnLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogout1ActionPerformed
-        program.logOut();
-        panelAgentHome.setVisible(false);
-        panelLogin.setVisible(true);
-    }//GEN-LAST:event_btnLogout1ActionPerformed
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         jDialog1.setEnabled(false);
         jDialog1.dispose();
@@ -2059,58 +2050,6 @@ public class MainApp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRegUtrustningActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // get combobox value
-        String race = getComboTextSafe(jComboBox1);
-        
-        //clear other query fields (just estetics)
-        jComboBox2.setSelectedIndex(0); //plats
-        jTextField1.setText("");
-        jTextField2.setText("");
-        
-        // Get all aliens by race input (from combobox value)
-        List<String> aliens = program.listAliensByRace(race);
-        
-        //Builder for presentation
-        StringBuilder builder = new StringBuilder();
-        for(String alien : aliens)
-        {
-            //Add each alien
-            builder.append(alien).append("\n");
-        }
-        
-        //Set presentation box with values
-        textAlienResult.setText(builder.toString());
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // get combobox value
-        String plats = getComboTextSafe(jComboBox2);
-        
-        //clear other query fields (just estetics)
-        jComboBox1.setSelectedIndex(0); //race
-        jTextField1.setText("");
-        jTextField2.setText("");
-        
-        
-    }//GEN-LAST:event_jComboBox2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // check all inputs
-        String race = getComboTextSafe(jComboBox1);
-        String plats = getComboTextSafe(jComboBox2);
-        String fromDate = getTextSafe(jTextField1);
-        String toDate = getTextSafe(jTextField2);
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-         // check all inputs
-        String race = getComboTextSafe(jComboBox1);
-        String plats = getComboTextSafe(jComboBox2);
-        String fromDate = getTextSafe(jTextField1);
-        String toDate = getTextSafe(jTextField2);
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void jAndraBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAndraBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jAndraBoxActionPerformed
@@ -2122,7 +2061,6 @@ public class MainApp extends javax.swing.JFrame {
         String newValue = txtNewValue.getText().toString();
         System.out.print(andra);
         try{
-        if(andra = )
         String agent = idb.fetchSingle("SELECT " + andra + " FROM Agent WHERE Namn='" + namn +"'");
         
         idb.update("UPDATE Agent SET " + andra + "='" + newValue + "' WHERE " + andra + "='" + agent + "'");
@@ -2132,6 +2070,130 @@ public class MainApp extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAndraActionPerformed
 
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        //Swing is mental so we ignore the programatically setter event
+        if(jComboBox2.getSelectedIndex() < 0)
+        {
+            return;
+        }
+        String plats = getComboTextSafe(jComboBox2);
+        //clear other query fields (just estetics)
+        jComboBox1.setSelectedIndex(-1); //This will fire an event because why not XDDDD
+        jTextField1.setText("");
+        jTextField2.setText("");
+
+        // Get all aliens by race input (from combobox value)
+        List<String> aliens = program.listAliensByPlats(plats);
+
+        //Builder for presentation
+        StringBuilder builder = new StringBuilder();
+        for(String alien : aliens)
+        {
+            //Add each alien
+            builder.append(alien).append("\n");
+        }
+
+        //Set presentation box with values
+        textAlienResult.setText(builder.toString());
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        //Swing framework is mental so this will fire an event on index set
+        if(jComboBox1.getSelectedIndex() < 0)
+        {
+            return;
+        }
+
+        // get combobox value
+        String race = getComboTextSafe(jComboBox1);
+
+        //clear other query fields (just estetics)
+        jComboBox2.setSelectedIndex(-1); //this will fire an event XD swing<3
+        jTextField1.setText("");
+        jTextField2.setText("");
+
+        // Get all aliens by race input (from combobox value)
+        List<String> aliens = program.listAliensByRace(race);
+
+        //Builder for presentation
+        StringBuilder builder = new StringBuilder();
+        for(String alien : aliens)
+        {
+            //Add each alien
+            builder.append(alien).append("\n");
+        }
+
+        //Set presentation box with values
+        textAlienResult.setText(builder.toString());
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTextField1InputMethodTextChanged
+
+    }//GEN-LAST:event_jTextField1InputMethodTextChanged
+
+    private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnShowInfoActionPerformed
+
+    private void btnRegUtrustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegUtrustActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegUtrustActionPerformed
+
+    private void btnUpdateAlien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAlien1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateAlien1ActionPerformed
+
+    private void btnRegAlien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlien1ActionPerformed
+        // TODO add your handling code here:
+        showRegAlien();
+
+    }//GEN-LAST:event_btnRegAlien1ActionPerformed
+
+    private void btnChangePassword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePassword1ActionPerformed
+        jDialog1.setSize(500, 300);
+        jDialog1.setVisible(true);
+    }//GEN-LAST:event_btnChangePassword1ActionPerformed
+
+    private void btnLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogout1ActionPerformed
+        program.logOut();
+        panelAgentHome.setVisible(false);
+        panelLogin.setVisible(true);
+    }//GEN-LAST:event_btnLogout1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String from = getTextSafe(jTextField1);
+        String to = getTextSafe(jTextField2);
+        
+        if(from == null || !isValidDate(from) || to == null || !isValidDate(to))
+        {
+            return;
+        }
+        
+        jComboBox1.setSelectedIndex(-1);
+        jComboBox2.setSelectedIndex(-1);
+        List<String> aliens = program.listRegistratedAliens(from, to);
+        
+        //Builder for presentation
+        StringBuilder builder = new StringBuilder();
+        for(String alien : aliens)
+        {
+            //Add each alien
+            builder.append(alien).append("\n");
+        }
+
+        //Set presentation box with values
+        textAlienResult.setText(builder.toString());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    
     private String getTextSafe(javax.swing.JTextField field)
     {
         try
@@ -2269,6 +2331,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jAndraBox;
     private javax.swing.JComboBox<String> jAnsvarigBox;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JDialog jDialog1;

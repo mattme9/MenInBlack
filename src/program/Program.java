@@ -197,7 +197,7 @@ public class Program
         }
     }
     
-    public List<String> listAliensByPlats(String plats) throws InfException
+    public List<String> listAliensByPlats(String plats)
     {
         try
         {
@@ -205,11 +205,11 @@ public class Program
         }
         catch (InfException ex)
         {
-             return new ArrayList();    
+             return new ArrayList<>();    
         }
     }
     
-    public List<String> listRegistratedAliens(String start, String slut) throws InfException
+    public List<String> listRegistratedAliens(String start, String slut)
     {
         try
         {
