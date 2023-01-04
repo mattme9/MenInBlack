@@ -1024,15 +1024,11 @@
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="222" max="32767" attributes="0"/>
+                  <EmptySpace pref="213" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="lblUpdateAgent" min="-2" pref="163" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
@@ -1049,6 +1045,13 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lblNewValue" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jSetAdminBox" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblUpdateAgent" min="-2" pref="163" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1072,16 +1075,18 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtNewValue" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnBackToHome" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnAndra" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jSetAdminBox" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1121,14 +1126,13 @@
         <Component class="javax.swing.JComboBox" name="jAndraBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="7">
-                <StringItem index="0" value="Agent ID"/>
-                <StringItem index="1" value="Namn"/>
-                <StringItem index="2" value="Telefon"/>
-                <StringItem index="3" value="Anstallningsdatum"/>
-                <StringItem index="4" value="Omrade"/>
-                <StringItem index="5" value="Administrator"/>
-                <StringItem index="6" value="Losenord"/>
+              <StringArray count="6">
+                <StringItem index="0" value="Namn"/>
+                <StringItem index="1" value="Telefon"/>
+                <StringItem index="2" value="Anstallningsdatum"/>
+                <StringItem index="3" value="Omrade"/>
+                <StringItem index="4" value="Administrator"/>
+                <StringItem index="5" value="Losenord"/>
               </StringArray>
             </Property>
           </Properties>
@@ -1159,6 +1163,11 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndraActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JCheckBox" name="jSetAdminBox">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Klicka f&#xf6;r att &#xe4;ndra till admin"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelUpdateAlien">
@@ -1174,23 +1183,57 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="265" max="32767" attributes="0"/>
-                  <Component id="lblUpdateAlien" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="btnBackToHome1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="253" max="32767" attributes="0"/>
+                  <Component id="lblUpdateAlien" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="252" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
+                  <Component id="btnAndra2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jAndraVal" min="-2" pref="144" max="-2" attributes="0"/>
+                      <Component id="lblValjAlien" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAndraVal" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jAlienBox" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jAndraBox2" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblUpdateAlien" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="lblValjAlien" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jAlienBox" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="txtAndraVal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jAndraBox2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jAndraVal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnAndra2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Component id="btnBackToHome1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
               </Group>
@@ -1212,6 +1255,58 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#xc4;ndra Alien"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblValjAlien">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="V&#xe4;lj alien:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="txtAndraVal">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vad vill du &#xe4;ndra?"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jAndraVal">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAndra2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndra2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jAlienBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jAndraBox2">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="Registreringsdatum"/>
+                <StringItem index="1" value="Losenord"/>
+                <StringItem index="2" value="Namn"/>
+                <StringItem index="3" value="Telefon"/>
+                <StringItem index="4" value="Plats"/>
+                <StringItem index="5" value="Ansvarig_Agent"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Mata in nya v&#xe4;rdet:"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -1589,8 +1684,7 @@
                                   <Component id="btnRegAlien1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnDeleteUtrustning1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                                   <Component id="btnRegUtrust" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1672,10 +1766,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="lblUtrustning1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnDeleteUtrustning1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnRegUtrust" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnRegUtrust" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -1783,11 +1874,6 @@
         <Component class="javax.swing.JLabel" name="lblUtrustning1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Utrustning"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnDeleteUtrustning1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ta bort"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAlien3">
