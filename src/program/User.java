@@ -3,7 +3,11 @@ package program;
 import java.util.HashMap;
 
 /**
- *
+ * Klass för användaren (agent eller admin)
+ * User används som inloggad användare. För att komma åt data gällande användaren
+ * Har vi skapat denna klass. Här instansierar vi anvndarobjektet och med hjälp av
+ * Getters kommer vi kunna plocka ut all information vi behöver för att kunna köra
+ * Våra metoder i programklassen.
  * @author Sara
  */
 public class User
