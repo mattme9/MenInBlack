@@ -17,7 +17,7 @@ import static program.ValidateInput.isValidDate;
 
 /**
  *
- * @author Sara
+ * @author Sara Johansson, Mattias Messerer
  */
 public class MainApp extends javax.swing.JFrame {
 
@@ -2303,7 +2303,7 @@ public class MainApp extends javax.swing.JFrame {
         textAlienResult.setText(builder.toString());
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btnAndra2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndra2ActionPerformed
+    private void btnAndra2ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
         String andra = (String) jAndraBox2.getSelectedItem();
         String namn = (String) jAlienBox.getSelectedItem();
