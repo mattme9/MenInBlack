@@ -90,6 +90,8 @@ public class Program
         return alien != null;
     }
     
+    // Två metoder som hmtar och listar namn på alla agenter och platser.
+    // Kör metoden från databasen som listar namn på alla agenter. 
     public List<String> getAllAgents()
     {
         try {
@@ -112,6 +114,7 @@ public class Program
            }
     }
     
+    // Metod för 
     public void logIn(String name, String password)
     {
         if(user != null || alien != null)

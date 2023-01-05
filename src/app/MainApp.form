@@ -1668,36 +1668,54 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblAlien9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jValjAlienBox2" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="lblUtrustning1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnDeleteUtrustning1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnRegUtrustning1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lblUtrustning2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jUtrustningBox1" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblUtrustID1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblUtrID2" max="32767" attributes="0"/>
+                                      </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="btnShowInfo" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnUpdateAlien1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnDeleteAlien1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnUpdateAlien2" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnRegAlien1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="btnRegUtrust" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRegAlien2" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblAlien2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jValjAlienBox" min="-2" pref="107" max="-2" attributes="0"/>
+                              <Component id="lblAlienLosen1" alignment="1" max="32767" attributes="0"/>
+                              <Component id="lblAlienRegDatum1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblAlienTfn1" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblAlienPlats1" min="-2" pref="146" max="-2" attributes="0"/>
+                                      <Component id="lblAlienID2" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" pref="51" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lblUser1" min="-2" max="-2" attributes="0"/>
@@ -1750,25 +1768,52 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                          <Component id="lblAlien2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAlien9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jValjAlienBox" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnUpdateAlien1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnShowInfo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnRegAlien1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jValjAlienBox2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lblUtrustning1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAlienID2" min="-2" pref="16" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="lblAlienTfn1" min="-2" pref="16" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Component id="lblAlienRegDatum1" min="-2" pref="16" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAlienLosen1" min="-2" pref="16" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblAlienPlats1" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnRegUtrust" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnDeleteAlien1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnUpdateAlien2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnRegAlien2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="lblUtrustning2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jUtrustningBox1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblUtrustID1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnDeleteUtrustning1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnRegUtrustning1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="lblUtrID2" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblAlien4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblAlien3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1798,7 +1843,7 @@
                           <Component id="jScrollPane1" min="-2" pref="87" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lblAlien8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="45" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnLogout1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnChangePassword1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1832,48 +1877,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangePassword1ActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblAlien2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="V&#xe4;lj alien:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnRegAlien1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Registrera"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegAlien1ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnUpdateAlien1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateAlien1ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnRegUtrust">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Registrera"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegUtrustActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnShowInfo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Visa info"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowInfoActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblUtrustning1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Utrustning"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAlien3">
           <Properties>
@@ -1915,16 +1918,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Omr&#xe5;deschef:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jValjAlienBox">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBox1">
           <Properties>
@@ -1978,6 +1971,114 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnUpdateAlien2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateAlien2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnRegAlien2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registrera"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegAlien2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnDeleteAlien1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ta bort"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteAlien1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAlienPlats1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Plats:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAlienLosen1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Losenord:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAlienTfn1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Telefon:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAlienRegDatum1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Regdatum:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAlienID2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Alien_ID:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jValjAlienBox2">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jValjAlienBox2ActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnDeleteUtrustning1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ta bort"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteUtrustning1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblUtrustning2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Utrustning"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAlien9">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="V&#xe4;lj alien:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblUtrID2">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblUtrustID1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Utrustning ID:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnRegUtrustning1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registrera"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegUtrustning1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jUtrustningBox1">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jUtrustningBox1ActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
