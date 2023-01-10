@@ -123,14 +123,12 @@
               <Component id="panelHome" alignment="0" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="panelRegAlien" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="panelRegAlien1" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="panelRegAlien" alignment="1" max="-2" attributes="0"/>
+                      <Component id="panelRegAlien1" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -459,9 +457,9 @@
                       <Component id="lblAlien" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jValjAlienBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jValjAgentCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jValjAgentCombo" min="-2" max="-2" attributes="0"/>
+                      <Component id="jValjAlienBox1" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1024,15 +1022,8 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="btnBackToHome" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
-                  <Component id="btnAndra" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="213" max="32767" attributes="0"/>
+                  <EmptySpace pref="222" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
@@ -1055,13 +1046,23 @@
                           <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jSetAdminBox" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblUpdateAgent" min="-2" pref="163" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblUpdateAgent" min="-2" pref="163" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <Component id="btnBackToHome" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                          <Component id="btnAndra" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jSetAdminBox" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1082,19 +1083,19 @@
                   <Component id="lblNewValue" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtNewValue" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jSetAdminBox" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Component id="btnBackToHome" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnAndra" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jSetAdminBox" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1134,13 +1135,12 @@
         <Component class="javax.swing.JComboBox" name="jAndraBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
+              <StringArray count="5">
                 <StringItem index="0" value="Namn"/>
                 <StringItem index="1" value="Telefon"/>
                 <StringItem index="2" value="Anstallningsdatum"/>
                 <StringItem index="3" value="Omrade"/>
-                <StringItem index="4" value="Administrator"/>
-                <StringItem index="5" value="Losenord"/>
+                <StringItem index="4" value="Losenord"/>
               </StringArray>
             </Property>
           </Properties>
@@ -1173,7 +1173,7 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="jSetAdminBox">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Klicka f&#xf6;r att &#xe4;ndra till admin"/>
+            <Property name="text" type="java.lang.String" value="&#xc4;ndra till admin"/>
           </Properties>
         </Component>
       </SubComponents>
