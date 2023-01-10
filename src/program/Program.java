@@ -251,4 +251,14 @@ public class Program
             return new ArrayList<>();
         }
     }
+    
+    public boolean doesAgentExist(String agentName)
+    {
+        return database.doesAgentExist(agentName);
+    }
+    
+     public boolean doesAlienExist(String alienName)
+    {
+        return database.doesAgentExist(alienName);
+    }
 }

@@ -47,7 +47,7 @@ public class MainApp extends javax.swing.JFrame {
         //Ska bort
         
         initComponents();
-        
+        changePasswordFrame.setVisible(false);
     }
     
     private void fyllAgenter()
@@ -154,12 +154,12 @@ public class MainApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
-        txtNewPass = new javax.swing.JTextField();
-        lblNewPass = new javax.swing.JLabel();
-        btnApprove = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        changePasswordFrame = new javax.swing.JFrame();
+        txtNewPass1 = new javax.swing.JTextField();
+        lblNewPass1 = new javax.swing.JLabel();
+        btnApprove1 = new javax.swing.JButton();
+        btnBack1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         panelLogin = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JTextField();
@@ -299,68 +299,66 @@ public class MainApp extends javax.swing.JFrame {
         btnRegUtrustning1 = new javax.swing.JButton();
         jUtrustningBox1 = new javax.swing.JComboBox<>();
 
-        jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        jDialog1.setTitle("Byt lösenord");
+        changePasswordFrame.setMinimumSize(new java.awt.Dimension(600, 300));
+        changePasswordFrame.setResizable(false);
+        changePasswordFrame.setSize(new java.awt.Dimension(400, 300));
 
-        txtNewPass.setText("jTextField3");
-        txtNewPass.addActionListener(new java.awt.event.ActionListener() {
+        txtNewPass1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNewPassActionPerformed(evt);
+                txtNewPass1ActionPerformed(evt);
             }
         });
 
-        lblNewPass.setText("Nytt lösenord:");
+        lblNewPass1.setText("Nytt lösenord:");
 
-        btnApprove.setText("Godkänn");
-        btnApprove.addActionListener(new java.awt.event.ActionListener() {
+        btnApprove1.setText("Godkänn");
+        btnApprove1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnApproveActionPerformed(evt);
+                btnApprove1ActionPerformed(evt);
             }
         });
 
-        btnBack.setText("Tillbaka");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        btnBack1.setText("Tillbaka");
+        btnBack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                btnBack1ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(btnApprove)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(34, 34, 34))
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNewPass)
-                            .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel4)))
-                .addContainerGap(111, Short.MAX_VALUE))
+        javax.swing.GroupLayout changePasswordFrameLayout = new javax.swing.GroupLayout(changePasswordFrame.getContentPane());
+        changePasswordFrame.getContentPane().setLayout(changePasswordFrameLayout);
+        changePasswordFrameLayout.setHorizontalGroup(
+            changePasswordFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(changePasswordFrameLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(btnApprove1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(btnBack1)
+                .addGap(120, 120, 120))
+            .addGroup(changePasswordFrameLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addGroup(changePasswordFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(changePasswordFrameLayout.createSequentialGroup()
+                        .addGroup(changePasswordFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNewPass1)
+                            .addComponent(txtNewPass1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        changePasswordFrameLayout.setVerticalGroup(
+            changePasswordFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(changePasswordFrameLayout.createSequentialGroup()
                 .addGap(92, 92, 92)
-                .addComponent(lblNewPass)
+                .addComponent(lblNewPass1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnApprove)
-                    .addComponent(btnBack))
-                .addGap(20, 20, 20))
+                .addComponent(txtNewPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(changePasswordFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnApprove1)
+                    .addComponent(btnBack1))
+                .addGap(58, 58, 58))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1823,6 +1821,12 @@ public class MainApp extends javax.swing.JFrame {
             //Hämtar inmatat namn
             String namn = namnField.getText();
             System.out.println("Namn: " + namn);
+            
+             if(program.doesAlienExist(namn))
+        {
+            System.out.println("Det finns redan en alien med detta namn!");
+            return;
+        }
 
             //Hämtar telefon
             String telefon = tfnField1.getText();
@@ -1866,10 +1870,8 @@ public class MainApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jAlienIDStateChanged
 
     private void btnChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePasswordActionPerformed
-        jDialog1.setSize(500, 300);
-        jDialog1.dispose();
-        jDialog1.repaint();
-        jDialog1.setVisible(true);
+        txtNewPass1.setText("");
+        changePasswordFrame.setVisible(true);
     }//GEN-LAST:event_btnChangePasswordActionPerformed
 
     private void btnRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlienActionPerformed
@@ -1950,6 +1952,11 @@ public class MainApp extends javax.swing.JFrame {
         
         String namn = txtAgentName.getText();
         System.out.println(namn);
+        if(program.doesAgentExist(namn))
+        {
+            System.out.println("Det finns redan en agent med detta namn!");
+            return;
+        }
         
         String telefon = txtAgentPhone.getText();
         
@@ -2033,9 +2040,8 @@ public class MainApp extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackToHome1ActionPerformed
 
     private void btnChangeAlienPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAlienPasswordActionPerformed
-        System.out.println("pushed alien change pass");
-        jDialog1.setSize(500, 300);
-        jDialog1.setVisible(true);
+        txtNewPass1.setText("");
+        changePasswordFrame.setVisible(true);
     }//GEN-LAST:event_btnChangeAlienPasswordActionPerformed
 
     private void btnLogoutAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutAlienActionPerformed
@@ -2049,12 +2055,6 @@ public class MainApp extends javax.swing.JFrame {
         panelRegAgent.setVisible(false);
         panelLogin.setVisible(true);
     }//GEN-LAST:event_btnLogoutAlienActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        jDialog1.setEnabled(false);
-        jDialog1.dispose();
-        
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDeleteAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAlienActionPerformed
         // TODO add your handling code here:
@@ -2168,27 +2168,6 @@ public class MainApp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jUtrustningBoxActionPerformed
 
-
-    private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
-        if (txtNewPass.getText() == "")
-        {
-            return;
-        }
-       boolean didChange = program.changePassword(txtNewPass.getText());
-        if(didChange)
-        {
-            System.out.println("Du har bytt lösenord!");
-            jLabel4.setText("Du har bytt lösenord! Nytt lösenord:" + txtNewPass.getText());
-        }
-        else
-        {
-            System.out.println("Lösenord har inte ändrats.");    
-        }
-    }//GEN-LAST:event_btnApproveActionPerformed
-
-    private void txtNewPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNewPassActionPerformed
 
     private void btnRegUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegUtrustningActionPerformed
         // TODO add your handling code here.
@@ -2308,8 +2287,8 @@ public class MainApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1InputMethodTextChanged
 
     private void btnChangePassword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePassword1ActionPerformed
-        jDialog1.setSize(500, 300);
-        jDialog1.setVisible(true);
+        txtNewPass1.setText("");
+        changePasswordFrame.setVisible(true);
     }//GEN-LAST:event_btnChangePassword1ActionPerformed
 
     private void btnLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogout1ActionPerformed
@@ -2392,6 +2371,41 @@ public class MainApp extends javax.swing.JFrame {
     private void jUtrustningBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUtrustningBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jUtrustningBox1ActionPerformed
+
+    private void txtNewPass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPass1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNewPass1ActionPerformed
+
+    private void btnApprove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApprove1ActionPerformed
+        jLabel5.setText("");
+        if (txtNewPass1.getText() == "")
+        {
+            return;
+        }
+        
+        if (txtNewPass1.getText().length() > 15)
+        {
+            jLabel5.setText("För långt lösenord, max 15 tecken.");
+            return;
+        }
+        
+        boolean didChange = program.changePassword(txtNewPass1.getText());
+        if(didChange)
+        {
+            System.out.println("Du har bytt lösenord!");
+            jLabel5.setText("Du har bytt lösenord! Nytt lösenord:" + txtNewPass1.getText());
+        }
+        else
+        {
+            System.out.println("Lösenord har inte ändrats.");    
+        }
+    }//GEN-LAST:event_btnApprove1ActionPerformed
+
+    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
+        txtNewPass1.setText("");
+        jLabel5.setText("");
+        changePasswordFrame.setVisible(false);
+    }//GEN-LAST:event_btnBack1ActionPerformed
 
     private void btnAndra2ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
@@ -2515,7 +2529,6 @@ public class MainApp extends javax.swing.JFrame {
                 m.panelRegAgent.setVisible(false);
                 m.panelLogin.setVisible(true);             
                 m.setVisible(true);
-            
             } catch (InfException ex) {
                 Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -2527,8 +2540,8 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JButton bRegistrera;
     private javax.swing.JButton btnAndra;
     private javax.swing.JButton btnAndra2;
-    private javax.swing.JButton btnApprove;
-    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnApprove1;
+    private javax.swing.JButton btnBack1;
     private javax.swing.JButton btnBackToHome;
     private javax.swing.JButton btnBackToHome1;
     private javax.swing.JButton btnChangeAlienPassword;
@@ -2553,6 +2566,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdateAgent;
     private javax.swing.JButton btnUpdateAlien;
     private javax.swing.JButton btnUpdateAlien2;
+    private javax.swing.JFrame changePasswordFrame;
     private javax.swing.JTextField datumField;
     private javax.swing.JLabel datumLabel;
     private javax.swing.JLabel datumLabel1;
@@ -2571,11 +2585,10 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2620,7 +2633,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblAnvändarnamn;
     private javax.swing.JLabel lblFelMeddelande;
     private javax.swing.JLabel lblLösenord;
-    private javax.swing.JLabel lblNewPass;
+    private javax.swing.JLabel lblNewPass1;
     private javax.swing.JLabel lblNewValue;
     private javax.swing.JLabel lblOmrade;
     private javax.swing.JLabel lblUpdateAgent;
@@ -2663,7 +2676,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JTextField txtAgentReg;
     private javax.swing.JLabel txtAndraVal;
     private javax.swing.JLabel txtHarReg;
-    private javax.swing.JTextField txtNewPass;
+    private javax.swing.JTextField txtNewPass1;
     private javax.swing.JTextField txtNewValue;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;

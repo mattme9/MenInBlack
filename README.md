@@ -1,8 +1,4 @@
-# Info about git!
-
-## Commands
-```
-git add . //lägger till alla filer till tracked.
-git commit -am "här skriver du meddelande" //Commitar kod för push
-git push //pushar din commit till github
-```
+# OBS!
+Vi fick merge-konflikt just innan inlämning så metoder
+för panelen "AgentHome" är inte med, bara knapparna.
+Dessa metoder finns i "PanelHome" (Admin) och fungerar.

@@ -7,6 +7,8 @@ package db;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import program.User;
@@ -131,5 +133,35 @@ public class Database
     public List<String> listAlienQuery(String query) throws InfException
     {
         return db.fetchColumn(query);
+    }
+    
+    public boolean doesAgentExist(String agentName)
+    {
+        try
+        {
+            String name = db.fetchSingle("SELECT Namn FROM agent WHERE Namn=" + agentName);
+            System.out.println("doesAgentExist: " + name);
+            return name != null && name.equals(agentName);
+        }
+        catch (InfException ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean doesAlienExist(String alienName)
+    {
+        try
+        {
+            String name = db.fetchSingle("SELECT Namn FROM alien WHERE Namn=" + alienName);
+            System.out.println("doesAlienExist: " + name);
+            return name != null && name.equals(alienName);
+        }
+        catch (InfException ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+            return false;
+        }
     }
 }
