@@ -165,7 +165,6 @@ public class MainApp extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         panelLogin = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
-        txtPassword = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         lblAnvändarnamn = new javax.swing.JLabel();
         lblLösenord = new javax.swing.JLabel();
@@ -411,7 +410,11 @@ public class MainApp extends javax.swing.JFrame {
 
         lblLösenord.setText("Lösenord:");
 
-        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
         panelLogin.setLayout(panelLoginLayout);
@@ -429,19 +432,15 @@ public class MainApp extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(lblAnvändarnamn)
                                 .addGap(5, 5, 5)))
-                        .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelLoginLayout.createSequentialGroup()
-                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panelLoginLayout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(btnLogin))
+                        .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                            .addComponent(jPasswordField1)))
                     .addGroup(panelLoginLayout.createSequentialGroup()
                         .addGap(269, 269, 269)
-                        .addComponent(lblFelMeddelande)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                        .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLogin)
+                            .addComponent(lblFelMeddelande))))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -452,7 +451,6 @@ public class MainApp extends javax.swing.JFrame {
                     .addComponent(lblAnvändarnamn))
                 .addGap(29, 29, 29)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLösenord)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
@@ -1734,7 +1732,7 @@ public class MainApp extends javax.swing.JFrame {
                         .addGap(99, 99, 99)
                         .addComponent(regAliRubrik2))
                     .addComponent(btnBackRegAlienForAgent, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(266, 266, 266))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         panelRegAlien1Layout.setVerticalGroup(
             panelRegAlien1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2808,6 +2806,10 @@ public class MainApp extends javax.swing.JFrame {
         panelRegAlien1.setVisible(false);
     }//GEN-LAST:event_btnBackRegAlienForAgentActionPerformed
 
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
     private void btnAndra2ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
         String andra = (String) jAndraBox2.getSelectedItem();
@@ -3100,7 +3102,6 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel txtHarReg;
     private javax.swing.JTextField txtNewPass1;
     private javax.swing.JTextField txtNewValue;
-    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
