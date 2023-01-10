@@ -139,7 +139,7 @@ public class Database
     {
         try
         {
-            String name = db.fetchSingle("SELECT Namn FROM agent WHERE Namn=" + agentName);
+            String name = db.fetchSingle("SELECT Namn FROM agent WHERE Namn='" + agentName + "'");
             System.out.println("doesAgentExist: " + name);
             return name != null && name.equals(agentName);
         }
@@ -154,7 +154,7 @@ public class Database
     {
         try
         {
-            String name = db.fetchSingle("SELECT Namn FROM alien WHERE Namn=" + alienName);
+            String name = db.fetchSingle("SELECT Namn FROM alien WHERE Namn='" + alienName + "'");
             System.out.println("doesAlienExist: " + name);
             return name != null && name.equals(alienName);
         }

@@ -259,6 +259,6 @@ public class Program
     
      public boolean doesAlienExist(String alienName)
     {
-        return database.doesAgentExist(alienName);
+        return database.doesAlienExist(alienName);
     }
 }
