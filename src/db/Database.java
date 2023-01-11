@@ -47,6 +47,11 @@ public class Database
         return db.fetchSingle("SELECT Namn FROM agent WHERE Agent_ID=" + id);
     }
     
+    public String getAgentIdByName(String id) throws InfException
+    {
+        return db.fetchSingle("SELECT Agent_ID FROM agent WHERE Namn='" + id +"'");
+    }
+    
     // Metod som tar in en String (som användarnamn) samt en String (som lösenord) som parametrar.
     // Denna metod returnerar ett User-objekt. Om det inte finns så returnerar den null.
     // User objekt representerar log in-state.
@@ -164,10 +169,34 @@ public class Database
             return false;
         }
     }
-    
-    public String getOmradesChef() throws InfException
+    public String getOmradesID (String omrade) throws InfException
     {
-        return db.fetchSingle("SELECT Namn from omradeschef as n JOIN agent a on n.Agent_ID=a.Agent_ID");
+        return db.fetchSingle("SELECT Omrades_ID FROM omrade WHERE Benamning = '" + omrade + "'");
+    }
+    
+    public String getOmradesChef(int omradesID) throws InfException
+    {
+        return db.fetchSingle("SELECT Namn from omradeschef as n JOIN agent a on n.Agent_ID=a.Agent_ID WHERE n.Omrade=" + omradesID);
+    }
+    
+    public void setOmradesChef(int userID, int omradesID) throws InfException
+    {
+        String omradeschef = getOmradesChef(omradesID);
+        if(omradeschef !=null && !omradeschef.isEmpty())
+        {
+            String query = "DELETE FROM omradeschef WHERE Omrade="+ omradesID;
+            db.delete(query);
+        }
+        
+        String alreadyBoss = db.fetchSingle("SELECT Agent_ID FROM omradeschef WHERE Agent_ID=" + userID);
+        if(alreadyBoss != null && !alreadyBoss.isEmpty())
+        {
+            String query = "DELETE FROM omradeschef WHERE Agent_ID="+userID;
+            db.delete(query);
+        }
+        
+        String query = "INSERT INTO omradeschef VALUES (" + userID + "," + omradesID + ");";
+        db.insert(query);
     }
     
     public String getKontorsChef() throws InfException

@@ -52,6 +52,8 @@ public class MainApp extends javax.swing.JFrame {
     
     private void fyllAgenter()
     {
+        clearAgents();
+        
         List<String> allAgents = program.getAllAgents();
         for(String oneAgent : allAgents){
             System.out.println(oneAgent);
@@ -59,7 +61,15 @@ public class MainApp extends javax.swing.JFrame {
             jValjAgentCombo.addItem(oneAgent);
             jAgentBox.addItem(oneAgent);
             jAnsvarigBox1.addItem(oneAgent);
+            jAgentComboBox.addItem(oneAgent);
+            jAgentComboBox1.addItem(oneAgent);
         }
+    }
+    
+    private void clearAgents()
+    {
+        jAgentComboBox.removeAllItems();
+        jAgentComboBox1.removeAllItems();
     }
     
     private void fyllPlatser()
@@ -165,11 +175,18 @@ public class MainApp extends javax.swing.JFrame {
         btnBack1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         changeBossFrame = new javax.swing.JFrame();
-        lblNuvarandeOchef = new javax.swing.JLabel();
         btnChange = new javax.swing.JButton();
         btnBack2 = new javax.swing.JButton();
-        lblNuvarandeKchef = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jAgentComboBox = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
+        jAgentComboBox1 = new javax.swing.JComboBox<>();
+        jAgentComboBox2 = new javax.swing.JComboBox<>();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         panelLogin = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
         txtUsername = new javax.swing.JTextField();
@@ -400,9 +417,7 @@ public class MainApp extends javax.swing.JFrame {
         changeBossFrame.setResizable(false);
         changeBossFrame.setSize(new java.awt.Dimension(400, 300));
 
-        lblNuvarandeOchef.setText("Nuvarande Områdeschef:");
-
-        btnChange.setText("Ändra");
+        btnChange.setText("Gör till kontorschef");
         btnChange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnChangeActionPerformed(evt);
@@ -416,46 +431,101 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
-        lblNuvarandeKchef.setText("Nuvarande Kontorschef:");
+        jLabel11.setText(" ");
 
-        jLabel6.setText("jLabel6");
+        jAgentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
+        jAgentComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAgentComboBoxActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Gör till områdeschef");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jAgentComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jAgentComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Svealand", "Götaland", "Norrland" }));
+        jAgentComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAgentComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Kontorsbeteckning");
+
+        jLabel13.setText("Agent");
+
+        jLabel14.setText("Agent");
+
+        jLabel15.setText("Område");
 
         javax.swing.GroupLayout changeBossFrameLayout = new javax.swing.GroupLayout(changeBossFrame.getContentPane());
         changeBossFrame.getContentPane().setLayout(changeBossFrameLayout);
         changeBossFrameLayout.setHorizontalGroup(
             changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changeBossFrameLayout.createSequentialGroup()
+            .addGroup(changeBossFrameLayout.createSequentialGroup()
                 .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(changeBossFrameLayout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(btnChange)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changeBossFrameLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNuvarandeOchef)
-                            .addGroup(changeBossFrameLayout.createSequentialGroup()
-                                .addComponent(lblNuvarandeKchef)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(btnBack2)
-                .addGap(120, 120, 120))
+                        .addGap(18, 18, 18)
+                        .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnBack2)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, changeBossFrameLayout.createSequentialGroup()
+                                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jAgentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addGroup(changeBossFrameLayout.createSequentialGroup()
+                                        .addComponent(jAgentComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton3))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, changeBossFrameLayout.createSequentialGroup()
+                                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jAgentComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnChange))))
+                    .addGroup(changeBossFrameLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jLabel11)))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         changeBossFrameLayout.setVerticalGroup(
             changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(changeBossFrameLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(19, 19, 19)
                 .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNuvarandeKchef)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addComponent(lblNuvarandeOchef)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jAgentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3)
+                    .addComponent(jAgentComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jAgentComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnChange)
-                    .addComponent(btnBack2))
-                .addGap(58, 58, 58))
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addComponent(btnBack2)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -515,7 +585,7 @@ public class MainApp extends javax.swing.JFrame {
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnLogin)
                             .addComponent(lblFelMeddelande))))
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -532,7 +602,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addComponent(lblFelMeddelande)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogin)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
         panelHome.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -721,7 +791,7 @@ public class MainApp extends javax.swing.JFrame {
                                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAlien)
                                     .addComponent(jValjAlienBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 25, Short.MAX_VALUE)))
+                        .addGap(0, 32, Short.MAX_VALUE)))
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
@@ -739,7 +809,7 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(lblIsAdmin))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelHomeLayout.createSequentialGroup()
                                 .addComponent(lblUser)
@@ -840,7 +910,7 @@ public class MainApp extends javax.swing.JFrame {
                                     .addComponent(btnDeleteUtrustning)
                                     .addComponent(btnRegUtrustning)))
                             .addComponent(lblUtrID1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         panelRegAlien.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -1150,7 +1220,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addComponent(btnBackToHome1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAlienLayout.createSequentialGroup()
-                .addContainerGap(253, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblUpdateAlien)
                 .addGap(252, 252, 252))
             .addGroup(panelUpdateAlienLayout.createSequentialGroup()
@@ -1416,7 +1486,7 @@ public class MainApp extends javax.swing.JFrame {
         panelAlienHomeLayout.setVerticalGroup(
             panelAlienHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAlienHomeLayout.createSequentialGroup()
-                .addContainerGap(114, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelAlienHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(lblAlienAgentValue))
@@ -1622,7 +1692,7 @@ public class MainApp extends javax.swing.JFrame {
                                         .addComponent(btnUpdateAlien2)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnRegAlien2)))
-                        .addGap(0, 17, Short.MAX_VALUE))
+                        .addGap(0, 18, Short.MAX_VALUE))
                     .addGroup(panelAgentHomeLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3033,8 +3103,35 @@ public class MainApp extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNewPass1ActionPerformed
 
     private void btnChangeBossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeBossActionPerformed
-        // TODO add your handling code here:
+        panelHome.setVisible(false);
+        jLabel11.setText("");
+        changeBossFrame.setVisible(true);
     }//GEN-LAST:event_btnChangeBossActionPerformed
+
+    private void jAgentComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAgentComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAgentComboBoxActionPerformed
+
+    private void jAgentComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAgentComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAgentComboBox2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //if boxed null => return
+        jLabel11.setText("");
+        String agent = jAgentComboBox.getSelectedItem().toString();
+        String omrade = jAgentComboBox2.getSelectedItem().toString();
+        
+        boolean success = program.setOmradesChef(agent, omrade);
+        if(success)
+        {
+            jLabel11.setText("Du har satt " + agent + "som chef för "+ omrade);
+        }
+        else
+        {
+            jLabel11.setText("Det sket sig!");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnAndra2ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
@@ -3227,6 +3324,9 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel harRegRubrik2;
     private javax.swing.JCheckBox jAdminCheck;
     private javax.swing.JComboBox<String> jAgentBox;
+    private javax.swing.JComboBox<String> jAgentComboBox;
+    private javax.swing.JComboBox<String> jAgentComboBox1;
+    private javax.swing.JComboBox<String> jAgentComboBox2;
     private javax.swing.JSpinner jAgentID;
     private javax.swing.JComboBox<String> jAlienBox;
     private javax.swing.JSpinner jAlienID;
@@ -3238,15 +3338,20 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jAnsvarigBox1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -3258,6 +3363,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JCheckBox jSetAdminBox;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JComboBox<String> jUtrustningBox;
     private javax.swing.JComboBox<String> jUtrustningBox1;
     private javax.swing.JComboBox<String> jValjAgentCombo;
@@ -3296,8 +3402,6 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblLösenord;
     private javax.swing.JLabel lblNewPass1;
     private javax.swing.JLabel lblNewValue;
-    private javax.swing.JLabel lblNuvarandeKchef;
-    private javax.swing.JLabel lblNuvarandeOchef;
     private javax.swing.JLabel lblOmrade;
     private javax.swing.JLabel lblOmrade2;
     private javax.swing.JLabel lblUpdateAgent;

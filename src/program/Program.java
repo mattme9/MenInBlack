@@ -266,9 +266,32 @@ public class Program
         return database.doesAlienExist(alienName);
     }
      
-     public String getOmradesChef() throws InfException
+     public String getOmradesID(String omrade) throws InfException
      {
-        return database.getOmradesChef();
+        return database.getOmradesID(omrade);
+     }
+     
+     public String getOmradesChef(int omradesID) throws InfException
+     {
+        return database.getOmradesChef(omradesID);
+     }
+     
+     public boolean setOmradesChef(String username, String omrade)
+     {
+        try
+        {
+            String omradesId = database.getOmradesID(omrade);
+            System.out.println("id: " + omradesId);
+            String userId = database.getAgentIdByName(username);
+            System.out.println("userid: " + userId);
+            database.setOmradesChef(Integer.parseInt(userId), Integer.parseInt(omradesId));
+            return true;
+        }
+        catch (InfException ex)
+        {
+            System.out.println("Ops, fel: " +  ex.getMessage());
+            return false;
+        }
      }
      
      public String getKontorsChef() throws InfException
