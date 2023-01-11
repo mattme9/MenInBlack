@@ -261,4 +261,14 @@ public class Program
     {
         return database.doesAlienExist(alienName);
     }
+     
+     public String getOmradesChef() throws InfException
+     {
+        return database.getOmradesChef();
+     }
+     
+     public String getKontorsChef() throws InfException
+     {
+        return database.getKontorsChef();
+     }
 }

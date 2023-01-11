@@ -164,4 +164,20 @@ public class Database
             return false;
         }
     }
+    
+    public String getOmradesChef() throws InfException
+    {
+        return db.fetchSingle("SELECT Namn from omradeschef as n JOIN agent a on n.Agent_ID=a.Agent_ID");
+    }
+    
+    public String getKontorsChef() throws InfException
+    {
+        return db.fetchSingle("SELECT Namn from kontorschef as n JOIN agent a on n.Agent_ID=a.Agnent_ID");
+    }
+    
+    
+    public void changeOmradesChef(String name)
+    {
+
+    }
 }
