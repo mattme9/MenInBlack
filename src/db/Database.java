@@ -172,7 +172,7 @@ public class Database
     
     public String getKontorsChef() throws InfException
     {
-        return db.fetchSingle("SELECT Namn from kontorschef as n JOIN agent a on n.Agent_ID=a.Agnent_ID");
+        return db.fetchSingle("SELECT Namn from kontorschef as n JOIN agent a on n.Agent_ID=a.Agent_ID");
     }
     
     

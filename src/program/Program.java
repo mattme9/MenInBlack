@@ -79,6 +79,10 @@ public class Program
         }
     }
     
+    public int getAlienID(){
+            return alien.getId();
+    }
+    
     // Två metoder för att kolla om man är inloggad som agent eller alein.
     public boolean isLoggedInAsAgent()
     {
