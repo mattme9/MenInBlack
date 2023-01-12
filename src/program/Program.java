@@ -294,8 +294,68 @@ public class Program
         }
      }
      
-     public String getKontorsChef() throws InfException
+     public boolean setkontorsChef(String usernamne)
      {
-        return database.getKontorsChef();
+        String userId;
+        try 
+        {
+            userId = database.getAgentIdByName(usernamne);
+            database.setKontorsChef(Integer.parseInt(userId));
+            return true;
+        }
+        catch (InfException ex) 
+        {
+            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("opsiedoooooopsie");
+            return false;
+        }
+     }
+     
+     public void changeToSquid (String alienName, int numberOfArms)
+     {
+        try
+        {
+           String alienId = database.getAlienIdByName(alienName);
+           int ID = Integer.parseInt(alienId);
+            database.deleteAlienRace(ID);
+            database.setNewSquid(ID, numberOfArms);
+        }
+        catch (InfException ex)
+        {
+            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
+     
+     public void changeToBoglodite(String alienName, int numberOfBoogies)
+     {
+        try 
+        {
+            String alienId = database.getAlienIdByName(alienName);
+            int ID = Integer.parseInt(alienId);
+            database.deleteAlienRace(ID);
+            database.setNewBoglodite(ID,numberOfBoogies);
+            
+        } 
+        catch (InfException ex) 
+        {
+            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
+     
+     public void changeToWorm(String alienName)
+     {
+        try 
+        {
+            String alienId = database.getAlienIdByName(alienName);
+            int ID = Integer.parseInt(alienId);
+            database.deleteAlienRace(ID);
+            database.setNewWorm(ID);
+            
+        } 
+        catch (InfException ex) 
+        {
+            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
      }
 }

@@ -182,7 +182,7 @@ public class Database
     public void setOmradesChef(int userID, int omradesID) throws InfException
     {
         String omradeschef = getOmradesChef(omradesID);
-        if(omradeschef !=null && !omradeschef.isEmpty())
+        if(omradeschef != null && !omradeschef.isEmpty())
         {
             String query = "DELETE FROM omradeschef WHERE Omrade="+ omradesID;
             db.delete(query);
@@ -199,14 +199,49 @@ public class Database
         db.insert(query);
     }
     
-    public String getKontorsChef() throws InfException
+    public String getNuvarandeKontorsChef() throws InfException
     {
-        return db.fetchSingle("SELECT Namn from kontorschef as n JOIN agent a on n.Agent_ID=a.Agent_ID");
+        return db.fetchSingle("SELECT Namn FROM kontorschef as n JOIN agent a on n.Agent_ID=a.Agent_ID");
+    }
+    
+    public void setKontorsChef(int userID) throws InfException
+    {
+        String kontorschef = getNuvarandeKontorsChef();
+        if(kontorschef !=null && !kontorschef.isEmpty())
+        {
+            String query = "DELETE FROM kontorschef WHERE Agent_ID="+userID;
+            db.delete(query);
+        }
+        String query = "INSERT INTO kontorschef VALUES(" + userID + ");";
+        db.insert(query);
+    }
+    
+    public String getAlienIdByName(String name) throws InfException
+    {
+        String query = "SELECT Alien_ID FROM alien WHERE Namn='"+name + "'";
+        return db.fetchSingle(query);
+    }
+    
+    public void deleteAlienRace(int alienID) throws InfException
+    {
+        db.delete("DELETE FROM worm WHERE Alien_ID=" +alienID);
+        db.delete("DELETE FROM squid WHERE Alien_ID=" +alienID);
+        db.delete("DELETE FROM boglodite WHERE Alien_ID=" +alienID);
+    }
+    
+    public void setNewSquid(int alienID, int arms) throws InfException
+    {
+        db.insert("INSERT INTO squid VALUES("+alienID+","+arms+")");
     }
     
     
-    public void changeOmradesChef(String name)
+    public void setNewBoglodite (int alienID, int boogies) throws InfException
     {
-
+        db.insert("INSERT INTO boglodite VALUES("+ alienID +","+boogies+")");
+    }
+    
+    public void setNewWorm(int alienID) throws InfException
+    {
+        db.insert("INSERT INTO worm VALUES("+alienID+")");
     }
 }
