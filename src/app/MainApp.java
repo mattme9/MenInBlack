@@ -286,6 +286,8 @@ public class MainApp extends javax.swing.JFrame {
         btnRegAgentBack = new javax.swing.JButton();
         jAdminCheck = new javax.swing.JCheckBox();
         txtHarReg = new javax.swing.JLabel();
+        lblChefForOmrade = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
         panelAlienHome = new javax.swing.JPanel();
         btnChangeAlienPassword = new javax.swing.JButton();
         lblUserAlien = new javax.swing.JLabel();
@@ -839,7 +841,7 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
-        btnChangeBoss.setText("Ändra chef");
+        btnChangeBoss.setText("Visa info/Ändra chef");
         btnChangeBoss.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnChangeBossActionPerformed(evt);
@@ -924,17 +926,15 @@ public class MainApp extends javax.swing.JFrame {
                                     .addGroup(panelHomeLayout.createSequentialGroup()
                                         .addComponent(btnLogout)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnChangePassword))))
+                                        .addComponent(btnChangePassword))
+                                    .addComponent(btnChangeBoss)))
                             .addGroup(panelHomeLayout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnChangeBoss)
-                                    .addGroup(panelHomeLayout.createSequentialGroup()
-                                        .addComponent(btnDeleteAgent)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnUpdateAgent)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnRegAgent)))))
+                                .addComponent(btnDeleteAgent)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnUpdateAgent)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRegAgent)))
                         .addGap(28, 28, 28))))
         );
         panelHomeLayout.setVerticalGroup(
@@ -992,19 +992,14 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(btnRegAlien))))
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHomeLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnChangeBoss)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnToAgent)
-                        .addGap(18, 18, 18)
-                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLogout)
-                            .addComponent(btnChangePassword)
-                            .addComponent(lblUser)))
-                    .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(lblUtrustning)
+                        .addComponent(lblUtrustning))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnChangeBoss, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
                         .addComponent(jUtrustningBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1014,8 +1009,15 @@ public class MainApp extends javax.swing.JFrame {
                                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnDeleteUtrustning)
                                     .addComponent(btnRegUtrustning)))
-                            .addComponent(lblUtrID1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                            .addComponent(lblUtrID1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
+                        .addComponent(btnToAgent)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnLogout)
+                            .addComponent(btnChangePassword)
+                            .addComponent(lblUser))))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         panelRegAlien.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -1488,6 +1490,10 @@ public class MainApp extends javax.swing.JFrame {
 
         jAdminCheck.setText("Ja");
 
+        lblChefForOmrade.setText("Chef för område");
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nej", "Svealand", "Götaland", "Norrland" }));
+
         javax.swing.GroupLayout panelRegAgentLayout = new javax.swing.GroupLayout(panelRegAgent);
         panelRegAgent.setLayout(panelRegAgentLayout);
         panelRegAgentLayout.setHorizontalGroup(
@@ -1495,52 +1501,63 @@ public class MainApp extends javax.swing.JFrame {
             .addGroup(panelRegAgentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelRegAgentLayout.createSequentialGroup()
+                            .addGap(9, 9, 9)
+                            .addComponent(jAdminCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(harRegRubrik1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(namnLabel1))
+                            .addGap(354, 354, 354))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegAgentLayout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(datumLabel1)
+                                .addComponent(platsLabel1)
+                                .addGroup(panelRegAgentLayout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(txtAgentReg, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(panelRegAgentLayout.createSequentialGroup()
+                                    .addGap(39, 39, 39)
+                                    .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegAgentLayout.createSequentialGroup()
+                                            .addComponent(btnRegNewAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(378, 378, 378))
+                                        .addComponent(txtHarReg, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegAgentLayout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelRegAgentLayout.createSequentialGroup()
+                                            .addComponent(txtAgentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jOmradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(losenLabel1)
+                                        .addComponent(lblChefForOmrade)
+                                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addContainerGap()))))
                     .addGroup(panelRegAgentLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(regAliRubrik1))
-                    .addComponent(btnRegAgentBack)
-                    .addGroup(panelRegAgentLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
-                    .addGroup(panelRegAgentLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(panelRegAgentLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
                                 .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(datumLabel1)
-                                    .addComponent(platsLabel1)
+                                    .addComponent(jLabel2)
                                     .addGroup(panelRegAgentLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(txtAgentReg, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(39, 39, 39)
-                                .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegAgentLayout.createSequentialGroup()
-                                        .addComponent(namnLabel1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
                                         .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblOmrade)
-                                            .addComponent(teleLabel1)
-                                            .addComponent(txtAgentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegAgentLayout.createSequentialGroup()
-                                        .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(losenLabel1)
-                                            .addComponent(txtAgentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnRegNewAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(112, 112, 112))
-                                    .addComponent(txtHarReg, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txtAgentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(btnRegAgentBack)
                             .addGroup(panelRegAgentLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jAdminCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelRegAgentLayout.createSequentialGroup()
-                                        .addGap(137, 137, 137)
-                                        .addComponent(jOmradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(harRegRubrik1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(266, 266, 266))
+                                .addGap(99, 99, 99)
+                                .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(teleLabel1)
+                                    .addComponent(regAliRubrik1))))
+                        .addGap(266, 266, 266))))
         );
         panelRegAgentLayout.setVerticalGroup(
             panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1548,29 +1565,36 @@ public class MainApp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(regAliRubrik1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(datumLabel1)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(namnLabel1)
                     .addComponent(teleLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAgentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAgentReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAgentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(datumLabel1)
+                    .addComponent(losenLabel1)
+                    .addComponent(lblOmrade))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAgentReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAgentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jOmradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(platsLabel1)
-                    .addComponent(losenLabel1)
-                    .addComponent(lblOmrade))
-                .addGap(5, 5, 5)
-                .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAgentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jOmradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jAdminCheck))
+                    .addComponent(lblChefForOmrade))
+                .addGroup(panelRegAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRegAgentLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jAdminCheck))
+                    .addGroup(panelRegAgentLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(btnRegNewAgent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2576,6 +2600,15 @@ public class MainApp extends javax.swing.JFrame {
                     //Printas ut under button att alien har reggats
                     txtHarReg.setText(namn + " har registrerats!");
                 }
+        
+              
+       
+        if(!"Nej".equals(jComboBox5.getSelectedItem().toString()))
+        {
+            boolean success = program.setOmradesChef(namn, jComboBox5.getSelectedItem().toString());
+            System.out.println(namn + " är chef: " + success);
+        }
+        
         }catch(InfException e){
             System.out.println("Knas i regAgent " + e.getMessage());
             JOptionPane.showMessageDialog(null, "Nånting blev fel. Kanske Agent_ID redan finns i databasen?");
@@ -3654,6 +3687,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -3711,6 +3745,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblAlienTfn;
     private javax.swing.JLabel lblAlienTfn1;
     private javax.swing.JLabel lblAnvändarnamn;
+    private javax.swing.JLabel lblChefForOmrade;
     private javax.swing.JLabel lblFelMeddelande;
     private javax.swing.JLabel lblIsAdmin;
     private javax.swing.JLabel lblLösenord;
