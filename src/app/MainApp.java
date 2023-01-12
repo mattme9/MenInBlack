@@ -8,6 +8,7 @@ import program.Program;
 import db.Database;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,8 +56,8 @@ public class MainApp extends javax.swing.JFrame {
         clearAgents();
         
         List<String> allAgents = program.getAllAgents();
-        for(String oneAgent : allAgents){
-            System.out.println(oneAgent);
+        for(String oneAgent : allAgents)
+        {
             jAnsvarigBox.addItem(oneAgent);
             jValjAgentCombo.addItem(oneAgent);
             jAgentBox.addItem(oneAgent);
@@ -68,15 +69,23 @@ public class MainApp extends javax.swing.JFrame {
     
     private void clearAgents()
     {
-        jAgentComboBox.removeAllItems();
-        jAgentComboBox1.removeAllItems();
+        if(jAnsvarigBox.getItemCount() > 0) jAnsvarigBox.removeAllItems();
+        if(jValjAgentCombo.getItemCount() > 0) jValjAgentCombo.removeAllItems();
+        if(jAgentBox.getItemCount() > 0) jAgentBox.removeAllItems();
+        if(jAnsvarigBox1.getItemCount() > 0) jAnsvarigBox1.removeAllItems();
+        if(jAgentComboBox.getItemCount() > 0) jAgentComboBox.removeAllItems();
+        if(jAgentComboBox1.getItemCount() > 0) jAgentComboBox1.removeAllItems();
     }
     
     private void fyllPlatser()
     {
+        if(jPlatsBox.getItemCount() > 0) jPlatsBox.removeAllItems();
+        if(jOmradeBox.getItemCount() > 0) jOmradeBox.removeAllItems();
+        if(jPlatsBox1.getItemCount() > 0) jPlatsBox1.removeAllItems();
+        
         List<String> allPlatser = program.getAllPlatser();
-        for(String onePlats : allPlatser){
-            System.out.println(onePlats);
+        for(String onePlats : allPlatser)
+        {
             jPlatsBox.addItem(onePlats);
             jOmradeBox.addItem(onePlats);
             jPlatsBox1.addItem(onePlats);
@@ -85,25 +94,35 @@ public class MainApp extends javax.swing.JFrame {
     
     private void fyllUtrustning()
     {
-        try{
-        List<String> utrustning = idb.fetchColumn("SELECT Benamning FROM Utrustning");
-        for(String enUtrustning : utrustning){
-            System.out.println(enUtrustning);
-            jUtrustningBox.addItem(enUtrustning);
-            jUtrustningBox1.addItem(enUtrustning);
+        try
+        {
+            if(jUtrustningBox.getItemCount() > 0) jUtrustningBox.removeAllItems();
+            if(jUtrustningBox1.getItemCount() > 0) jUtrustningBox1.removeAllItems();
+            
+            List<String> utrustning = idb.fetchColumn("SELECT Benamning FROM Utrustning");
+            for(String enUtrustning : utrustning)
+            {
+                jUtrustningBox.addItem(enUtrustning);
+                jUtrustningBox1.addItem(enUtrustning);
+            }
         }
-        }catch(InfException e){
+        catch(InfException e)
+        {
             System.out.println(e.getMessage());
         }
             
     }
     
+    
     private void fyllUtrustning2()
     {
-        try{
+        try
+        {
+            if(jUtrustningBox1.getItemCount() > 0) jUtrustningBox1.removeAllItems();
+
             List<String> utrustning = idb.fetchColumn("SELECT Benamning FROM Utrustning");
-            for(String enUtrustning : utrustning){
-                System.out.println(enUtrustning);
+            for(String enUtrustning : utrustning)
+            {
                 jUtrustningBox1.addItem(enUtrustning);
             }
         }
@@ -112,23 +131,7 @@ public class MainApp extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }
-    
-    /*
-    private void fyllAnsvarigRoller() {
-        try {
-            int id = 1;
-            String cont = idb.fetchSingle("SELECT count(namn) FROM Agent");
-            int max = Integer.parseInt(cont);
-            while (id <= max) {
-                String namn = idb.fetchSingle("SELECT Namn FROM Agent WHERE Agent_ID=" + id);
-                jAnsvarigBox.addItem(namn);
-                id++;
-            }
-        } catch (Exception e) {
-            System.out.println("Knas!");
-        }
-    }
-    */
+   
 
     //Lägger in automatiskt dagens datum i datumfältet i gränssnittet
     //Detta ska ändras så att man kan välja datum men det måste vara denna typ (YY-MM-DD)
@@ -140,24 +143,6 @@ public class MainApp extends javax.swing.JFrame {
         txtAgentReg.setText(datum);
         datumField1.setText(datum);
     }
-
-    //Samma funktion som fyllAnsvarigRoller-metoden fast den fyller PLATS i gränssnittet
-    /*private void fyllPlatser() {
-        try {
-            int id = 1;
-            String cont = idb.fetchSingle("SELECT count(Benamning) FROM Plats");
-            int max = Integer.parseInt(cont);
-            while (id <= max) {
-                String plats = idb.fetchSingle("SELECT Benamning FROM Plats WHERE Plats_ID=" + id);
-                jPlatsBox.addItem(plats);
-                id++;
-            }
-
-        } catch (Exception e) {
-            System.err.println("Knas");
-        }
-    }
-    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -530,13 +515,13 @@ public class MainApp extends javax.swing.JFrame {
                                         .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(changeBossFrameLayout.createSequentialGroup()
-                                            .addGap(26, 26, 26)
-                                            .addComponent(lblVisaANamn, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(changeBossFrameLayout.createSequentialGroup()
                                             .addGap(16, 16, 16)
                                             .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel15)
-                                                .addComponent(jAgentComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(jAgentComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(changeBossFrameLayout.createSequentialGroup()
+                                            .addGap(26, 26, 26)
+                                            .addComponent(lblVisaANamn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE))
                                 .addGroup(changeBossFrameLayout.createSequentialGroup()
                                     .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1216,6 +1201,12 @@ public class MainApp extends javax.swing.JFrame {
         lblUpdateAgent.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblUpdateAgent.setText("Ändra Agent");
 
+        jAgentBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAgentBoxActionPerformed(evt);
+            }
+        });
+
         jLabel7.setText("Välj agent:");
 
         jAndraBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Namn", "Telefon", "Anstallningsdatum", "Omrade", "Losenord" }));
@@ -1236,7 +1227,12 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
-        jSetAdminBox.setText("Ändra till admin");
+        jSetAdminBox.setText("Admin");
+        jSetAdminBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSetAdminBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelUpdateAgentLayout = new javax.swing.GroupLayout(panelUpdateAgent);
         panelUpdateAgent.setLayout(panelUpdateAgentLayout);
@@ -1327,11 +1323,27 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
+        jAlienBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAlienBoxActionPerformed(evt);
+            }
+        });
+
         jAndraBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registreringsdatum", "Losenord", "Namn", "Telefon", "Plats", "Ansvarig_Agent", "Ras" }));
+        jAndraBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAndraBox2ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Mata in nya värdet:");
 
         jRasBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Worm", "Boglodite", "Squid" }));
+        jRasBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRasBoxActionPerformed(evt);
+            }
+        });
 
         lblValjRas.setText("Välj ras:");
 
@@ -2281,26 +2293,15 @@ public class MainApp extends javax.swing.JFrame {
         fyllAgenter();
         fyllUtrustning();
     }
-    private void fyllAlienBox(){
-        try {
-            String idMin = idb.fetchSingle("SELECT min(Alien_ID) FROM Alien");
-            int minID = Integer.parseInt(idMin);
-            String cont = idb.fetchSingle("SELECT count(namn) FROM Alien");
-            int max = Integer.parseInt(cont);
-            while (minID <= max) {
-                String namn = idb.fetchSingle("SELECT Namn FROM Alien WHERE Alien_ID=" + minID);
-                // jValjAlienBox1.addItem(namn);
-                jAlienBox.addItem(namn);
-                minID++;
-            }
-        } catch (Exception e) {
-            System.out.println("Knas!" + e.getMessage());
-        }
-    }
     
     private void fyllAlienBox2()
     {
-        try {
+        try
+        {
+            if(jValjAlienBox2.getItemCount() > 0) jValjAlienBox2.removeAllItems();
+            if(jValjAlienBox1.getItemCount() > 0) jValjAlienBox1.removeAllItems();
+            if(jAlienBox.getItemCount() > 0) jAlienBox.removeAllItems();
+            
             ArrayList<String> aliens = idb.fetchColumn("SELECT Namn FROM Alien");
             for(String alien : aliens)
             {
@@ -2309,7 +2310,7 @@ public class MainApp extends javax.swing.JFrame {
                 jAlienBox.addItem(alien);
             }
         } catch (Exception e) {
-            System.out.println("Knas!" + e.getMessage());
+            System.out.println("Knas2!" + e.getMessage());
         }
     }
     
@@ -2485,8 +2486,17 @@ public class MainApp extends javax.swing.JFrame {
         panelRegAgent.setVisible(false);
         panelUpdateAlien.setVisible(false);
         panelRegAlien1.setVisible(false);
-        jAgentBox.removeAllItems();
         fyllAgenter();
+        try
+        {
+            String agent = (String) jAgentBox.getSelectedItem();
+            String admin = idb.fetchSingle("SELECT Administrator FROM Agent WHERE Namn='"+agent+"'");
+            jSetAdminBox.setSelected("J".equals(admin));
+        }
+        catch(Exception e)
+        {
+            System.out.println("Det sket sig.");
+        }
     }//GEN-LAST:event_btnUpdateAgentActionPerformed
 
     private void btnUpdateAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAlienActionPerformed
@@ -2819,31 +2829,48 @@ public class MainApp extends javax.swing.JFrame {
         // TODO add your handling code here:
         String andra = (String) jAndraBox.getSelectedItem();
         String namn = (String) jAgentBox.getSelectedItem();
-        String newValue = txtNewValue.getText();
-        System.out.print(andra);
-        try{
-        
-        if(andra.equals("Omrade")){
+        String newValue = getTextSafe(txtNewValue);
+        try
+        {
+            String admin = jSetAdminBox.isSelected() ? "J" : "N";
+            idb.update("UPDATE Agent SET Administrator='" + admin + "' WHERE Namn='" + namn +"'");
             
-            String currentValue = idb.fetchSingle("SELECT Omrade FROM Agent WHERE Namn='" + namn + "'");
-            String nyttOmrade = idb.fetchSingle("SELECT Omrades_ID FROM Omrade WHERE Benamning ='" + newValue + "'");
-            idb.update("UPDATE Agent SET Omrade=" + nyttOmrade + " WHERE Namn='" + namn + "'");
-            JOptionPane.showMessageDialog(null, namn + " har tilldelats nya området " + newValue);
+            if(newValue == null || "".equals(newValue))
+            {
+                JOptionPane.showMessageDialog(null, "Agent uppdaterad!");
+                return;
+            }
             
+            if(andra.equals("Omrade"))
+            {
+                String nyttOmrade = idb.fetchSingle("SELECT Omrades_ID FROM Omrade WHERE Benamning ='" + newValue + "'");
+                if(nyttOmrade == null || nyttOmrade.isEmpty())
+                {
+                    JOptionPane.showMessageDialog(null, "Område finns ej!");
+                    return;
+                }
+                idb.update("UPDATE Agent SET Omrade=" + nyttOmrade + " WHERE Namn='" + namn + "'");
+                JOptionPane.showMessageDialog(null, "Agent uppdaterad!");
+                return;
+            }
+            
+            if(andra.equals("Namn"))
+            {
+                String name = idb.fetchSingle("SELECT Namn FROM Agent WHERE Namn='"+newValue+"'");
+                if(name != null || !name.isEmpty())
+                {
+                    JOptionPane.showMessageDialog(null, "Finns redan en agent med namn "+newValue);
+                    return;
+                }
+            }
+            
+            idb.update("UPDATE Agent SET " + andra + "='" + newValue + "' WHERE Namn='" + namn + "'");
+            
+            JOptionPane.showMessageDialog(null, "Agent uppdaterad!");
+            fyllAgenter();
         }
-            
-        String agent = idb.fetchSingle("SELECT " + andra + " FROM Agent WHERE Namn='" + namn +"'");
-    
-        idb.update("UPDATE Agent SET " + andra + "='" + newValue + "' WHERE " + andra + "='" + agent + "'");
-        
-        if(jSetAdminBox.isSelected()){
-            idb.update("UPDATE Agent SET Administrator='J' WHERE Administrator='N' AND Namn='" + namn + "'");
-            JOptionPane.showMessageDialog(null, namn + " är nu administrator.");
-        }
-        JOptionPane.showMessageDialog(null, andra + " har ändrats hos " + namn + " till " + newValue);
-        jAgentBox.removeAllItems();
-        fyllAgenter();
-        } catch(InfException e){
+        catch(InfException e)
+        {
             System.out.println("Knas " + e.getMessage());
         }
         
@@ -3025,27 +3052,32 @@ public class MainApp extends javax.swing.JFrame {
 
     private void btnRegUtrustning1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegUtrustning1ActionPerformed
         // TODO add your handling code here:
-         try{
-        String utrNamn = JOptionPane.showInputDialog(panelHome, "Fyll i namnet på utrustningen.");
-        System.out.println(utrNamn);
-        if(utrNamn.isEmpty()){
-            JOptionPane.showMessageDialog(panelHome, "Fältet får ej vara tomt.");
-        }
-        else{
-            String cont = JOptionPane.showInputDialog(panelHome, "Fyll i ID.");
-            int id = Integer.parseInt(cont);
-            if(id > 0 && id < 10000){
-                idb.insert("INSERT INTO Utrustning VALUES('" + id + "','" + utrNamn + "')");
-                JOptionPane.showMessageDialog(panelHome, utrNamn + " har registrerats!");
-                jUtrustningBox.removeAllItems();
-                fyllUtrustning();
+        try
+        {
+            String utrNamn = JOptionPane.showInputDialog(panelHome, "Fyll i namnet på utrustningen.");
+
+            if(utrNamn.isEmpty())
+            {
+                JOptionPane.showMessageDialog(panelHome, "Fältet får ej vara tomt.");
             }
-            else{
-                JOptionPane.showMessageDialog(panelHome, "ID måste inte redan finnas i databasen och vara mellan 0-10000");
+            else
+            {
+                String cont = JOptionPane.showInputDialog(panelHome, "Fyll i ID.");
+                int id = Integer.parseInt(cont);
+                if(id > 0 && id < 10000){
+                    idb.insert("INSERT INTO Utrustning VALUES('" + id + "','" + utrNamn + "')");
+                    JOptionPane.showMessageDialog(panelHome, utrNamn + " har registrerats!");
+                    jUtrustningBox.removeAllItems();
+                    fyllUtrustning();
+                }
+                else{
+                    JOptionPane.showMessageDialog(panelHome, "ID måste inte redan finnas i databasen och vara mellan 0-10000");
+                }
+
             }
-            
         }
-        }catch(InfException e){
+        catch(InfException e)
+        {
             System.out.println("Knas i btnRegUtr " + e.getMessage());
             JOptionPane.showMessageDialog(panelHome, "Error! ID:t kanske redan finns i databasen?");
         }
@@ -3055,10 +3087,13 @@ public class MainApp extends javax.swing.JFrame {
     private void jUtrustningBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUtrustningBox1ActionPerformed
         // TODO add your handling code here:
         String benamning = (String) jUtrustningBox1.getSelectedItem();
-        try{
-        String cont = idb.fetchSingle("SELECT Utrustnings_ID FROM Utrustning WHERE Benamning='" + benamning + "'");
-        lblUtrID2.setText(cont);
-        }catch(InfException e){
+        try
+        {
+            String cont = idb.fetchSingle("SELECT Utrustnings_ID FROM Utrustning WHERE Benamning='" + benamning + "'");
+            lblUtrID2.setText(cont);
+        }
+        catch(InfException e)
+        {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jUtrustningBox1ActionPerformed
@@ -3110,41 +3145,43 @@ public class MainApp extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Reg alien för Agent
         try {
-        String cont = jPlatsBox1.getSelectedItem().toString();
-        String platsid = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='" + cont + "'");
-        int plats = Integer.parseInt(platsid);
-        
-        String cont2 = jAlienID1.getValue().toString();
-        int aid = Integer.parseInt(cont2);
-        
-        String ansvarig = jAnsvarigBox1.getSelectedItem().toString();
-        String ans1 = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn='" + ansvarig + "'");
-        int ans = Integer.parseInt(ans1);
-        
-        this.datum = datumField1.getText();
-        
-        String losenord = losenField1.getText();
-        
-        String namn = namnField1.getText();
-        
-        String telefon = tfnField2.getText();
-        
-         if(program.doesAlienExist(namn))
-        {
-            System.out.println("Det finns redan en alien med detta namn!");
-            JOptionPane.showMessageDialog(null, "Det finns redan en alien med detta namn!");
-            return;
-        }
+            String cont = jPlatsBox1.getSelectedItem().toString();
+            String platsid = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='" + cont + "'");
+            int plats = Integer.parseInt(platsid);
+
+            String cont2 = jAlienID1.getValue().toString();
+            int aid = Integer.parseInt(cont2);
+
+            String ansvarig = jAnsvarigBox1.getSelectedItem().toString();
+            String ans1 = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn='" + ansvarig + "'");
+            int ans = Integer.parseInt(ans1);
+
+            this.datum = datumField1.getText();
+
+            String losenord = losenField1.getText();
+
+            String namn = namnField1.getText();
+
+            String telefon = tfnField2.getText();
+
+             if(program.doesAlienExist(namn))
+            {
+                JOptionPane.showMessageDialog(null, "Det finns redan en alien med detta namn!");
+                return;
+            }
        
         
-        //Hämtar alla variabler och lägger till Alien
-            try {
+            //Hämtar alla variabler och lägger till Alien
+            try
+            {
 
                 //Kollar så att samtliga rader är inmatade annars error
-                if(losenord.isEmpty() || namn.isEmpty() || telefon.isEmpty()){
+                if(losenord.isEmpty() || namn.isEmpty() || telefon.isEmpty())
+                {
                     JOptionPane.showMessageDialog(null, "Samtliga fält måste vara ifyllda!");
                 }
-                else{
+                else
+                {
                     //Sätter in samtliga värden i databasen och reggar en ny alien
                     idb.insert("INSERT INTO Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES ('"
                         + aid + "','"
@@ -3158,88 +3195,17 @@ public class MainApp extends javax.swing.JFrame {
                     harRegRubrik2.setText(namn + " har registrerats!");
                 }
 
-            } catch (InfException e) {
+            }
+            catch (InfException e)
+            {
                 JOptionPane.showMessageDialog(null, "Nånting blev fel. Kanske Alien_ID redan finns i databasen?");
             }
          
-        } catch(InfException e){
-            System.out.println("Knas " + e.getMessage());
         }
-       
-        /*
-         try {
-            //Hämtar valt plats ID
-            String cont = jPlatsBox.getSelectedItem().toString();
-            String platsid = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='" + cont + "'");
-            //Omvandlar variabeln platsid till en int
-            int plats = Integer.parseInt(platsid);
-            //En "check" så att rätt värde visas
-            System.out.println("Plats: " + plats);
-
-            //Hämtar inmatat Alien ID
-            String cont2 = jAlienID.getValue().toString();
-            int aid = Integer.parseInt(cont2);
-            System.out.println("Alien ID: " + aid);
-
-            //Hämtar inmatat ansvarig_ID (DATATYPEN MÅSTE VARA AV INT DÄR DATABASENS TYPER ÄR INT)
-            String ansvarig = jAnsvarigBox.getSelectedItem().toString();
-            String ans1 = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn ='" + ansvarig + "'");
-            int ans = Integer.parseInt(ans1);
-            System.out.println("Ansvarig :" + ans);
-
-            //Hämtar datum
-            this.datum = datumField.getText();
-            System.out.println("Datum: " + datum);
-
-            //Hämtar inmatat lösenord
-            String losenord = losenField.getText();
-            System.out.println("Lösenord: " + losenord);
-
-            //Hämtar inmatat namn
-            String namn = namnField.getText();
-            System.out.println("Namn: " + namn);
-            
-             if(program.doesAlienExist(namn))
+        catch(InfException e)
         {
-            System.out.println("Det finns redan en alien med detta namn!");
-            return;
-        }
-
-            //Hämtar telefon
-            String telefon = tfnField1.getText();
-
-            //Hämtar alla variabler och lägger till Alien
-            try {
-
-                //Kollar så att samtliga rader är inmatade annars error
-                if(losenord.isEmpty() || namn.isEmpty() || telefon.isEmpty()){
-                    JOptionPane.showMessageDialog(null, "Samtliga fält måste vara ifyllda!");
-                }
-                else{
-                    //Sätter in samtliga värden i databasen och reggar en ny alien
-                    idb.insert("INSERT INTO Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES ('"
-                        + aid + "','"
-                        + datum + "','"
-                        + losenord + "','"
-                        + namn + "','"
-                        + telefon + "','"
-                        + plats + "','"
-                        + ans + "')");
-                    //Printas ut under button att alien har reggats
-                    harRegRubrik.setText(namn + " har registrerats!");
-                }
-
-            } catch (InfException e) {
-                JOptionPane.showMessageDialog(null, "Nånting blev fel. Kanske Alien_ID redan finns i databasen?");
-            }
-
-        } catch (InfException e) {
-            System.out.println("Knas" + e.getMessage());
-        }
-    }                               */  
-        
-        
-        
+            System.out.println("Knas " + e.getMessage());
+        } 
     }//GEN-LAST:event_bRegistrera1ActionPerformed
 
     private void datumField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datumField1ActionPerformed
@@ -3319,6 +3285,7 @@ public class MainApp extends javax.swing.JFrame {
     private void btnChangeBossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeBossActionPerformed
         panelHome.setVisible(false);
         lblNyChef.setText("");
+        lblVisaANamn.setText("");
         changeBossFrame.setVisible(true);
     }//GEN-LAST:event_btnChangeBossActionPerformed
 
@@ -3364,69 +3331,170 @@ public class MainApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void btnVisaOmradesChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaOmradesChefActionPerformed
-     
-   
+     String omrade = jComboBox4.getSelectedItem().toString();
+     String namn = program.getOmradesChef(omrade);
+     lblVisaANamn.setText(namn);
     }//GEN-LAST:event_btnVisaOmradesChefActionPerformed
 
+    private void jAndraBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAndraBox2ActionPerformed
+        try
+        {
+            String andra = jAndraBox2.getSelectedItem().toString();
+            if(andra != "Ras")
+            {
+                jAndraVal.setVisible(true);
+                jLabel9.setText("Mata in nya värdet:");
+                jRasBox.setVisible(false);
+                lblValjRas.setVisible(false);
+                return;
+            }
+            setLabelAndraRas();
+        }
+        catch(Exception e)
+        {
+            return;
+        }
+    }//GEN-LAST:event_jAndraBox2ActionPerformed
+
+    private void jAlienBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAlienBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAlienBoxActionPerformed
+
+    private void jRasBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRasBoxActionPerformed
+        String ras = jRasBox.getSelectedItem().toString();
+            if(ras == "Worm")
+            {
+                jAndraVal.setVisible(false);
+                jLabel9.setText("");
+                return;
+            }
+            
+            if(ras == "Squid")
+            {
+                jAndraVal.setVisible(true);
+                jLabel9.setText("Ange antal armar");
+                return;
+            }
+            
+            if(ras == "Boglodite")
+            {
+                jAndraVal.setVisible(true);
+                jLabel9.setText("Ange antal boogies");
+                return;
+            }
+            jLabel9.setText("");
+    }//GEN-LAST:event_jRasBoxActionPerformed
+
+    private void jSetAdminBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSetAdminBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSetAdminBoxActionPerformed
+
+    private void jAgentBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAgentBoxActionPerformed
+        try
+        {
+            String agent = (String) jAgentBox.getSelectedItem();
+            String admin = idb.fetchSingle("SELECT Administrator FROM Agent WHERE Namn='"+agent+"'");
+            jSetAdminBox.setSelected("J".equals(admin));
+        }
+        catch(Exception e)
+        {
+            System.out.println("Det sket sig.");
+        }
+    }//GEN-LAST:event_jAgentBoxActionPerformed
+
+    private void setLabelAndraRas()
+    {
+        try
+        {
+            lblValjRas.setVisible(true);
+            jRasBox.setVisible(true);
+            String ras = jRasBox.getSelectedItem().toString();
+            if(ras == "Worm")
+            {
+                jAndraVal.setVisible(false);
+                jLabel9.setText("");
+                return;
+            }
+            
+            if(ras == "Squid")
+            {
+                jLabel9.setText("Ange antal armar");
+                return;
+            }
+            
+            if(ras == "Boglodite")
+            {
+                jLabel9.setText("Ange antal boogies");
+                return;
+            }
+            jLabel9.setText("");
+        }
+        catch(Exception e)
+        {
+            jLabel9.setText("");
+        }
+    }
+    
     private void btnAndra2ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
         String andra = (String) jAndraBox2.getSelectedItem();
         String namn = (String) jAlienBox.getSelectedItem();
-        String newValue = jAndraVal.getText();
+        String newValue = getTextSafe(jAndraVal);
         
-        try{
-            
-            if(andra == "Registreringsdatum" || andra == "Losenord" || andra == "Namn" || andra == "Telefon"){
-                
+        try
+        {   
+            if(andra == "Registreringsdatum" || andra == "Losenord" || andra == "Namn" || andra == "Telefon")
+            {
                 String oldValue = idb.fetchSingle("SELECT " + andra + " FROM Alien WHERE Namn='" + namn + "'");
                 
                 idb.update("UPDATE Alien SET " + andra + "='" + newValue + "' WHERE " + andra + "='" + oldValue + "' AND Namn='" + namn + "'");
                 JOptionPane.showMessageDialog(null, namn + " har nu " + andra + " :" + newValue);
-                jAlienBox.removeAllItems();
-                fyllAlienBox2();
             }
-            else if(andra == "Ras"){
-                jAndraVal.setVisible(false);
-                jLabel9.setVisible(false);
-                jRasBox.setVisible(true);
-                lblValjRas.setVisible(true);
+            else if(andra == "Ras")
+            {
+                switch(jRasBox.getSelectedItem().toString())
+                {
+                    case "Worm":
+                        program.changeToWorm(namn);
+                        // visa
+                        break;
+                    case "Squid":
+                        program.changeToSquid(namn, Integer.parseInt(newValue));
+                        JOptionPane.showMessageDialog(null, namn + " är nu squid med " + newValue + " armar!");
+                        break;
+                    case "Boglodite":
+                        program.changeToBoglodite(namn,Integer.parseInt(newValue));
+                        break;
+                }
             }
-            else if(andra == "Ansvarig_Agent"){
-                
+            else if(andra == "Ansvarig_Agent")
+            {
                 String agentid = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Namn='" + newValue + "'");
                 int aid = Integer.parseInt(agentid);
                 idb.update("UPDATE Alien SET " + andra + "=" + aid + " WHERE Namn ='" + namn + "'");
                 JOptionPane.showMessageDialog(null, namn + " har en ny ansvarig agent: " + newValue);
                 
             }
-            else if(andra == "Plats"){
-                
+            else if(andra == "Plats")
+            {
                 String cont1 = idb.fetchSingle("SELECT Plats FROM Alien WHERE Namn='" + namn + "'");
                 int nuvarandeOmrade = Integer.parseInt(cont1);
-                System.out.println(nuvarandeOmrade);
                 //Hämtar nuvarande platsID
                   
                 String cont2 = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='" + newValue + "'");
                 int newOmrade = Integer.parseInt(cont2);
-                System.out.println(newOmrade);
                 //Hämtar nytt platsid
                 
                 idb.update("UPDATE Alien SET " + andra + "=" + newOmrade + " WHERE " + andra + "=" + nuvarandeOmrade + " AND Namn='" + namn + "'");
                 JOptionPane.showMessageDialog(null, namn + " har ändrad plats.");
-                jAlienBox.removeAllItems();
-                fyllAlienBox2();
-                
-            
             }
-        }catch(InfException e){
-            System.out.println("Knas " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Error! Har du stavat rätt?");
         }
-        
-        
-        
-        
-        
+        catch(Exception e)
+        {
+            System.out.println("Knas " + e.getMessage());
+            String errorMessage = andra == "Ras" ? "Endast nummer är tillåtet" : "Error! Har du stavat rätt?";
+            JOptionPane.showMessageDialog(null, errorMessage);
+        }
     }
 
     private String getTextSafe(javax.swing.JTextField field)

@@ -356,6 +356,18 @@ public class Program
         {
             Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+     }
+     
+     public String getOmradesChef(String omrade)
+     {
+        try
+        {
+            return database.getNuvarandeChef(omrade);
+        }
+        catch (InfException ex)
+        {
+            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+            return "";
+        }
      }
 }

@@ -179,6 +179,15 @@ public class Database
         return db.fetchSingle("SELECT Namn from omradeschef as n JOIN agent a on n.Agent_ID=a.Agent_ID WHERE n.Omrade=" + omradesID);
     }
     
+      public String getNuvarandeChef(String benamning) throws InfException
+    {
+        String query = """
+                       SELECT Namn from agent as a
+                       JOIN omradeschef o on a.Agent_ID = o.Agent_ID
+                       JOIN omrade o2 on o2.Omrades_ID = o.Omrade WHERE o2.Benamning = '"""+benamning+"'";
+        return db.fetchSingle(query);
+    }
+    
     public void setOmradesChef(int userID, int omradesID) throws InfException
     {
         String omradeschef = getOmradesChef(omradesID);
