@@ -342,6 +342,7 @@ public class MainApp extends javax.swing.JFrame {
         jUtrustningBox1 = new javax.swing.JComboBox<>();
         btnToAdmin = new javax.swing.JButton();
         btnVisaOChef = new javax.swing.JButton();
+        lblAlienId2 = new javax.swing.JLabel();
         panelRegAlien1 = new javax.swing.JPanel();
         datumLabel2 = new javax.swing.JLabel();
         namnLabel2 = new javax.swing.JLabel();
@@ -1456,6 +1457,7 @@ public class MainApp extends javax.swing.JFrame {
 
         losenLabel1.setText("Lösenord:");
 
+        jOmradeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Svealand", "Norrland", "Götaland" }));
         jOmradeBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jOmradeBoxActionPerformed(evt);
@@ -1825,7 +1827,10 @@ public class MainApp extends javax.swing.JFrame {
                             .addGroup(panelAgentHomeLayout.createSequentialGroup()
                                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAlienPlats1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblAlienID2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelAgentHomeLayout.createSequentialGroup()
+                                        .addComponent(lblAlienID2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblAlienId2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(18, 18, 18)
                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1878,7 +1883,9 @@ public class MainApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jValjAlienBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblAlienID2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAlienID2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAlienId2))
                         .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAgentHomeLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
@@ -2533,8 +2540,8 @@ public class MainApp extends javax.swing.JFrame {
         String losenord = txtAgentPassword.getText();
         
         String omrade = jOmradeBox.getSelectedItem().toString();
-        String cont2 = idb.fetchSingle("SELECT Plats_ID FROM Plats WHERE Benamning='" + omrade + "'");
-        int platsid = Integer.parseInt(cont2);
+        String cont2 = idb.fetchSingle("SELECT Omrades_ID FROM Omrade WHERE Benamning='" + omrade + "'");
+        int omradeid = Integer.parseInt(cont2);
         
         String isAdmin;
         if(jAdminCheck.isSelected()){
@@ -2555,7 +2562,7 @@ public class MainApp extends javax.swing.JFrame {
                         + datum + "','"
                         + isAdmin + "','"
                         + losenord + "','"
-                        + platsid + "')");
+                        + omradeid + "')");
                     //Printas ut under button att alien har reggats
                     txtHarReg.setText(namn + " har registrerats!");
                 }
@@ -2599,7 +2606,6 @@ public class MainApp extends javax.swing.JFrame {
         panelUpdateAlien.setVisible(false);
         panelRegAlien1.setVisible(false);
         sattDatum();
-        fyllPlatser();
     }//GEN-LAST:event_btnRegAgentActionPerformed
 
     private void btnBackToHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToHome1ActionPerformed
@@ -2710,7 +2716,7 @@ public class MainApp extends javax.swing.JFrame {
         String datum = idb.fetchSingle("SELECT Anstallningsdatum FROM Agent WHERE Namn ='" + namn + "'");
         String isAdmin = idb.fetchSingle("SELECT Administrator FROM Agent WHERE Namn = '" + namn + "'");
         String cont = idb.fetchSingle("SELECT Omrade FROM Agent WHERE Namn ='" + namn + "'");
-        String omrade = idb.fetchSingle("SELECT Benamning FROM Plats WHERE Plats_ID=" + cont);
+        String omrade = idb.fetchSingle("SELECT Benamning FROM Omrade WHERE Omrades_ID=" + cont);
         /*
         if(isAdmin.equals("J")){
             lblIsAdmin.setText("Admin: Ja");
@@ -2760,6 +2766,7 @@ public class MainApp extends javax.swing.JFrame {
                     fyllUtrustning();
                 }catch (InfException e){
                     System.out.println(e.getMessage() + " knas i btnDeleteUtrustning");
+                    JOptionPane.showMessageDialog(null, "Kan inte ta bort utrustning som är i användning!");
                     
                 }
             }
@@ -2817,9 +2824,12 @@ public class MainApp extends javax.swing.JFrame {
         try{
         
         if(andra.equals("Omrade")){
-            /*
-            String currentValue = idb.fetchSingle("SELECT Omrade FROM Agent")
-            */
+            
+            String currentValue = idb.fetchSingle("SELECT Omrade FROM Agent WHERE Namn='" + namn + "'");
+            String nyttOmrade = idb.fetchSingle("SELECT Omrades_ID FROM Omrade WHERE Benamning ='" + newValue + "'");
+            idb.update("UPDATE Agent SET Omrade=" + nyttOmrade + " WHERE Namn='" + namn + "'");
+            JOptionPane.showMessageDialog(null, namn + " har tilldelats nya området " + newValue);
+            
         }
             
         String agent = idb.fetchSingle("SELECT " + andra + " FROM Agent WHERE Namn='" + namn +"'");
@@ -2970,6 +2980,19 @@ public class MainApp extends javax.swing.JFrame {
 
     private void btnDeleteAlien1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAlien1ActionPerformed
         // TODO add your handling code here:
+        String value = (String) jValjAlienBox2.getSelectedItem();
+        int reply = JOptionPane.showConfirmDialog(panelHome, "Vill du radera " + value + " från databasen?", "Varning!", JOptionPane.YES_NO_OPTION);
+            if(reply == JOptionPane.YES_OPTION){
+                try{
+            idb.delete("DELETE FROM Alien WHERE Alien_ID=" + Integer.parseInt(lblAlienId2.getText()));
+            JOptionPane.showMessageDialog(null, "En alien har raderats.");
+            
+            }
+            catch (InfException e){
+                System.out.println("Knas" + e.getMessage());
+            }
+            
+        }
     }//GEN-LAST:event_btnDeleteAlien1ActionPerformed
 
     private void jValjAlienBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jValjAlienBox2ActionPerformed
@@ -2986,11 +3009,13 @@ public class MainApp extends javax.swing.JFrame {
             String plats = idb.fetchSingle("SELECT Benamning FROM Plats WHERE Plats_ID=" + cont2);
 
 
-            lblAlienID2.setText("ID: " +id);
+            lblAlienID2.setText("ID: ");
+            lblAlienId2.setText(id);
             lblAlienRegDatum1.setText("Reg.datum: " +datum);
             lblAlienTfn1.setText("Telefon: " + telefon);
             lblAlienLosen1.setText("Losenord: " + losenord);
             lblAlienPlats1.setText("Plats: " + plats);
+           
         }
         catch (InfException e)
         {
@@ -3029,6 +3054,13 @@ public class MainApp extends javax.swing.JFrame {
 
     private void jUtrustningBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUtrustningBox1ActionPerformed
         // TODO add your handling code here:
+        String benamning = (String) jUtrustningBox1.getSelectedItem();
+        try{
+        String cont = idb.fetchSingle("SELECT Utrustnings_ID FROM Utrustning WHERE Benamning='" + benamning + "'");
+        lblUtrID2.setText(cont);
+        }catch(InfException e){
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_jUtrustningBox1ActionPerformed
 
     private void btnApprove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApprove1ActionPerformed
@@ -3601,6 +3633,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblAlienID;
     private javax.swing.JLabel lblAlienID1;
     private javax.swing.JLabel lblAlienID2;
+    private javax.swing.JLabel lblAlienId2;
     private javax.swing.JLabel lblAlienLosen;
     private javax.swing.JLabel lblAlienLosen1;
     private javax.swing.JLabel lblAlienPlats;
