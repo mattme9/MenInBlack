@@ -212,7 +212,10 @@ public class Database
             String query = "DELETE FROM kontorschef WHERE Agent_ID="+userID;
             db.delete(query);
         }
-        String query = "INSERT INTO kontorschef VALUES(" + userID + ");";
+         String q = "DELETE FROM kontorschef WHERE Kontorsbeteckning='Örebrokontoret'";
+            db.delete(q);
+        
+        String query = "INSERT INTO kontorschef VALUES(" + userID + ",'Örebrokontoret');";
         db.insert(query);
     }
     
