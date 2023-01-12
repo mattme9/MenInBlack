@@ -177,7 +177,7 @@ public class MainApp extends javax.swing.JFrame {
         changeBossFrame = new javax.swing.JFrame();
         btnChange = new javax.swing.JButton();
         btnBack2 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
+        lblNyChef = new javax.swing.JLabel();
         jAgentComboBox = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         jAgentComboBox1 = new javax.swing.JComboBox<>();
@@ -187,6 +187,16 @@ public class MainApp extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        lblNewKChef = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        lblValjOmrade = new javax.swing.JLabel();
+        btnVisaOmradesChef = new javax.swing.JButton();
+        lblVisaANamn = new javax.swing.JLabel();
+        showBossFrame = new javax.swing.JFrame();
+        lblOmrade1 = new javax.swing.JLabel();
+        btnBack3 = new javax.swing.JButton();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
         panelLogin = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
         txtUsername = new javax.swing.JTextField();
@@ -310,7 +320,6 @@ public class MainApp extends javax.swing.JFrame {
         lblAlien5 = new javax.swing.JLabel();
         lblAlien6 = new javax.swing.JLabel();
         lblAlien7 = new javax.swing.JLabel();
-        lblAlien8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         textAlienResult = new javax.swing.JTextArea();
@@ -332,6 +341,7 @@ public class MainApp extends javax.swing.JFrame {
         btnRegUtrustning1 = new javax.swing.JButton();
         jUtrustningBox1 = new javax.swing.JComboBox<>();
         btnToAdmin = new javax.swing.JButton();
+        btnVisaOChef = new javax.swing.JButton();
         panelRegAlien1 = new javax.swing.JPanel();
         datumLabel2 = new javax.swing.JLabel();
         namnLabel2 = new javax.swing.JLabel();
@@ -432,7 +442,7 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setText(" ");
+        lblNyChef.setText(" ");
 
         jAgentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
         jAgentComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -449,11 +459,23 @@ public class MainApp extends javax.swing.JFrame {
         });
 
         jAgentComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jAgentComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAgentComboBox1ActionPerformed(evt);
+            }
+        });
 
         jAgentComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Svealand", "Götaland", "Norrland" }));
         jAgentComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jAgentComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jTextField3.setText("Örebrokontoret");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
             }
         });
 
@@ -465,68 +487,164 @@ public class MainApp extends javax.swing.JFrame {
 
         jLabel15.setText("Område");
 
+        lblNewKChef.setText(" ");
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Svealand", "Götaland", "Norrland" }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
+
+        lblValjOmrade.setText("Områden");
+
+        btnVisaOmradesChef.setText("Visa områdeschef");
+        btnVisaOmradesChef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaOmradesChefActionPerformed(evt);
+            }
+        });
+
+        lblVisaANamn.setText(" ");
+
         javax.swing.GroupLayout changeBossFrameLayout = new javax.swing.GroupLayout(changeBossFrame.getContentPane());
         changeBossFrame.getContentPane().setLayout(changeBossFrameLayout);
         changeBossFrameLayout.setHorizontalGroup(
             changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(changeBossFrameLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(changeBossFrameLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnBack2)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, changeBossFrameLayout.createSequentialGroup()
-                                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jAgentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addGroup(changeBossFrameLayout.createSequentialGroup()
-                                        .addComponent(jAgentComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton3))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, changeBossFrameLayout.createSequentialGroup()
-                                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jAgentComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnChange))))
-                    .addGroup(changeBossFrameLayout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(jLabel11)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                    .addComponent(lblValjOmrade)
+                    .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(changeBossFrameLayout.createSequentialGroup()
+                            .addComponent(lblNewKChef, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBack2))
+                        .addGroup(changeBossFrameLayout.createSequentialGroup()
+                            .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(changeBossFrameLayout.createSequentialGroup()
+                                    .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jAgentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel14)
+                                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(changeBossFrameLayout.createSequentialGroup()
+                                            .addGap(26, 26, 26)
+                                            .addComponent(lblVisaANamn, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(changeBossFrameLayout.createSequentialGroup()
+                                            .addGap(16, 16, 16)
+                                            .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel15)
+                                                .addComponent(jAgentComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE))
+                                .addGroup(changeBossFrameLayout.createSequentialGroup()
+                                    .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jAgentComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel13))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(changeBossFrameLayout.createSequentialGroup()
+                                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(26, 26, 26))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changeBossFrameLayout.createSequentialGroup()
+                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)))))
+                            .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnVisaOmradesChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(lblNyChef, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         changeBossFrameLayout.setVerticalGroup(
             changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(changeBossFrameLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jAgentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3)
-                    .addComponent(jAgentComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jAgentComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnChange)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(lblValjOmrade)
+                .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(changeBossFrameLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblVisaANamn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jAgentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3)
+                            .addComponent(jAgentComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jAgentComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnChange)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNyChef)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(changeBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changeBossFrameLayout.createSequentialGroup()
+                                .addComponent(btnBack2)
+                                .addGap(59, 59, 59))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changeBossFrameLayout.createSequentialGroup()
+                                .addComponent(lblNewKChef)
+                                .addGap(74, 74, 74))))
+                    .addGroup(changeBossFrameLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btnVisaOmradesChef))))
+        );
+
+        showBossFrame.setMinimumSize(new java.awt.Dimension(600, 300));
+        showBossFrame.setResizable(false);
+        showBossFrame.setSize(new java.awt.Dimension(400, 300));
+
+        lblOmrade1.setText("Område");
+
+        btnBack3.setText("Tillbaka");
+        btnBack3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack3ActionPerformed(evt);
+            }
+        });
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel6.setText("jLabel6");
+
+        javax.swing.GroupLayout showBossFrameLayout = new javax.swing.GroupLayout(showBossFrame.getContentPane());
+        showBossFrame.getContentPane().setLayout(showBossFrameLayout);
+        showBossFrameLayout.setHorizontalGroup(
+            showBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showBossFrameLayout.createSequentialGroup()
+                .addGap(120, 208, Short.MAX_VALUE)
+                .addComponent(btnBack3)
+                .addGap(120, 120, 120))
+            .addGroup(showBossFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(showBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblOmrade1)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        showBossFrameLayout.setVerticalGroup(
+            showBossFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showBossFrameLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(lblOmrade1)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel11)
-                .addGap(18, 18, 18)
-                .addComponent(btnBack2)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(27, 27, 27)
+                .addComponent(btnBack3)
+                .addGap(58, 58, 58))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -586,7 +704,7 @@ public class MainApp extends javax.swing.JFrame {
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnLogin)
                             .addComponent(lblFelMeddelande))))
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -603,7 +721,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addComponent(lblFelMeddelande)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogin)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
         panelHome.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -792,7 +910,7 @@ public class MainApp extends javax.swing.JFrame {
                                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAlien)
                                     .addComponent(jValjAlienBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 25, Short.MAX_VALUE)))
+                        .addGap(0, 31, Short.MAX_VALUE)))
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
@@ -810,7 +928,7 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(lblIsAdmin))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelHomeLayout.createSequentialGroup()
                                 .addComponent(lblUser)
@@ -911,7 +1029,7 @@ public class MainApp extends javax.swing.JFrame {
                                     .addComponent(btnDeleteUtrustning)
                                     .addComponent(btnRegUtrustning)))
                             .addComponent(lblUtrID1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         panelRegAlien.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -1225,7 +1343,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addComponent(btnBackToHome1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateAlienLayout.createSequentialGroup()
-                .addContainerGap(259, Short.MAX_VALUE)
+                .addContainerGap(264, Short.MAX_VALUE)
                 .addComponent(lblUpdateAlien)
                 .addGap(252, 252, 252))
             .addGroup(panelUpdateAlienLayout.createSequentialGroup()
@@ -1565,8 +1683,6 @@ public class MainApp extends javax.swing.JFrame {
 
         lblAlien7.setText("Reg fr.o.m");
 
-        lblAlien8.setText("Områdeschef:");
-
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "boglodite", "worm", "squid" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1671,6 +1787,8 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
+        btnVisaOChef.setText("Områdeschef");
+
         javax.swing.GroupLayout panelAgentHomeLayout = new javax.swing.GroupLayout(panelAgentHome);
         panelAgentHome.setLayout(panelAgentHomeLayout);
         panelAgentHomeLayout.setHorizontalGroup(
@@ -1726,7 +1844,6 @@ public class MainApp extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addComponent(lblAlien5))
-                            .addComponent(lblAlien8)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelAgentHomeLayout.createSequentialGroup()
                                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1746,7 +1863,10 @@ public class MainApp extends javax.swing.JFrame {
                                 .addComponent(btnLogout1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnChangePassword1)))
-                        .addGap(35, 35, 35))))
+                        .addGap(35, 35, 35))
+                    .addGroup(panelAgentHomeLayout.createSequentialGroup()
+                        .addComponent(btnVisaOChef)
+                        .addContainerGap())))
         );
         panelAgentHomeLayout.setVerticalGroup(
             panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1802,8 +1922,8 @@ public class MainApp extends javax.swing.JFrame {
                         .addComponent(lblAlien5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblAlien8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnVisaOChef)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelAgentHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3142,7 +3262,18 @@ public class MainApp extends javax.swing.JFrame {
     }//GEN-LAST:event_btnToAdminPropertyChange
 
     private void btnChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeActionPerformed
-        // TODO add your handling code here:
+        lblNewKChef.setText("");
+        String agent = jAgentComboBox1.getSelectedItem().toString();
+        
+        boolean success = program.setkontorsChef(agent);
+        if(success)
+        {
+        lblNewKChef.setText("Du har satt " + agent + " som ny kontorschef");    
+        }
+        else
+        {
+        lblNewKChef.setText("Opsie, ingen chef registrerad");    
+        }
     }//GEN-LAST:event_btnChangeActionPerformed
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
@@ -3155,7 +3286,7 @@ public class MainApp extends javax.swing.JFrame {
 
     private void btnChangeBossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeBossActionPerformed
         panelHome.setVisible(false);
-        jLabel11.setText("");
+        lblNyChef.setText("");
         changeBossFrame.setVisible(true);
     }//GEN-LAST:event_btnChangeBossActionPerformed
 
@@ -3169,20 +3300,41 @@ public class MainApp extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //if boxed null => return
-        jLabel11.setText("");
+        lblNyChef.setText("");
         String agent = jAgentComboBox.getSelectedItem().toString();
         String omrade = jAgentComboBox2.getSelectedItem().toString();
         
         boolean success = program.setOmradesChef(agent, omrade);
         if(success)
         {
-            jLabel11.setText("Du har satt " + agent + "som chef för "+ omrade);
+            lblNyChef.setText("Du har satt " + agent + "som chef för "+ omrade);
         }
         else
         {
-            jLabel11.setText("Det sket sig!");
+            lblNyChef.setText("Det sket sig!");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jAgentComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAgentComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAgentComboBox1ActionPerformed
+
+    private void btnBack3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBack3ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void btnVisaOmradesChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaOmradesChefActionPerformed
+     
+   
+    }//GEN-LAST:event_btnVisaOmradesChefActionPerformed
 
     private void btnAndra2ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
@@ -3340,6 +3492,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JButton btnApprove1;
     private javax.swing.JButton btnBack1;
     private javax.swing.JButton btnBack2;
+    private javax.swing.JButton btnBack3;
     private javax.swing.JButton btnBackRegAlienForAgent;
     private javax.swing.JButton btnBackToHome;
     private javax.swing.JButton btnBackToHome1;
@@ -3368,6 +3521,8 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdateAgent;
     private javax.swing.JButton btnUpdateAlien;
     private javax.swing.JButton btnUpdateAlien2;
+    private javax.swing.JButton btnVisaOChef;
+    private javax.swing.JButton btnVisaOmradesChef;
     private javax.swing.JFrame changeBossFrame;
     private javax.swing.JFrame changePasswordFrame;
     private javax.swing.JTextField datumField;
@@ -3397,9 +3552,10 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -3408,6 +3564,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -3439,7 +3596,6 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblAlien5;
     private javax.swing.JLabel lblAlien6;
     private javax.swing.JLabel lblAlien7;
-    private javax.swing.JLabel lblAlien8;
     private javax.swing.JLabel lblAlien9;
     private javax.swing.JLabel lblAlienAgentValue;
     private javax.swing.JLabel lblAlienID;
@@ -3457,9 +3613,12 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblFelMeddelande;
     private javax.swing.JLabel lblIsAdmin;
     private javax.swing.JLabel lblLösenord;
+    private javax.swing.JLabel lblNewKChef;
     private javax.swing.JLabel lblNewPass1;
     private javax.swing.JLabel lblNewValue;
+    private javax.swing.JLabel lblNyChef;
     private javax.swing.JLabel lblOmrade;
+    private javax.swing.JLabel lblOmrade1;
     private javax.swing.JLabel lblOmrade2;
     private javax.swing.JLabel lblUpdateAgent;
     private javax.swing.JLabel lblUpdateAlien;
@@ -3473,7 +3632,9 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblUtrustning;
     private javax.swing.JLabel lblUtrustning2;
     private javax.swing.JLabel lblValjAlien;
+    private javax.swing.JLabel lblValjOmrade;
     private javax.swing.JLabel lblValjRas;
+    private javax.swing.JLabel lblVisaANamn;
     private javax.swing.JTextField losenField;
     private javax.swing.JTextField losenField1;
     private javax.swing.JLabel losenLabel;
@@ -3499,6 +3660,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel regAliRubrik;
     private javax.swing.JLabel regAliRubrik1;
     private javax.swing.JLabel regAliRubrik2;
+    private javax.swing.JFrame showBossFrame;
     private javax.swing.JLabel teleLabel;
     private javax.swing.JLabel teleLabel1;
     private javax.swing.JLabel teleLabel2;
