@@ -1803,7 +1803,11 @@
         <Component class="javax.swing.JComboBox" name="jOmradeBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
+              <StringArray count="3">
+                <StringItem index="0" value="Svealand"/>
+                <StringItem index="1" value="Norrland"/>
+                <StringItem index="2" value="G&#xf6;taland"/>
+              </StringArray>
             </Property>
           </Properties>
           <Events>
@@ -1993,7 +1997,11 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblAlienPlats1" min="-2" pref="146" max="-2" attributes="0"/>
-                                      <Component id="lblAlienID2" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblAlienID2" min="-2" pref="60" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblAlienId2" min="-2" pref="60" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -2065,7 +2073,10 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jValjAlienBox2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lblAlienID2" min="-2" pref="16" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblAlienID2" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="lblAlienId2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -2375,6 +2386,8 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnToAdminActionPerformed"/>
             <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="btnToAdminPropertyChange"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAlienId2">
         </Component>
       </SubComponents>
     </Container>
