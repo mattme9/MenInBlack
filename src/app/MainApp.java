@@ -2786,6 +2786,8 @@ public class MainApp extends javax.swing.JFrame {
         int reply = JOptionPane.showConfirmDialog(panelHome, "Vill du radera " + value + " från databasen?", "Varning!", JOptionPane.YES_NO_OPTION);
             if(reply == JOptionPane.YES_OPTION){
               try{
+            
+            idb.delete("DELETE FROM Omradeschef WHERE Agent_ID=" + Integer.parseInt(lblAgentID1.getText()));
             idb.delete("DELETE FROM Agent WHERE Agent_ID=" + Integer.parseInt(lblAgentID1.getText()));
             JOptionPane.showMessageDialog(null, "En agent har raderats.");
             jValjAgentCombo.removeAllItems();
@@ -3309,6 +3311,11 @@ public class MainApp extends javax.swing.JFrame {
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
         // TODO add your handling code here:
+        changeBossFrame.setVisible(false);
+        panelHome.setVisible(true);
+        
+        
+        
     }//GEN-LAST:event_btnBack2ActionPerformed
 
     private void txtNewPass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPass1ActionPerformed
