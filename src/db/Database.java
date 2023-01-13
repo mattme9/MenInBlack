@@ -23,7 +23,7 @@ import program.ValidateInput;
  * vi valt att göra våra fält som "final". Detta innebär att när vi satt värden i fälten så
  * kommer de inte gå att förändra. De blir som låsta. Detta kan ses som en säkerbetsåtgärd.
  * 
- * @author Sara
+ * @author Sara Johansson, Mattias Messerer
  */
 public class Database
 {

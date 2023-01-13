@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 /**
  * Valideringsklass för användarinput.
- * @author Sara
+ * @author Sara Johansson, Mattias Messerer
  */
 
 public class ValidateInput 

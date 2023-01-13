@@ -20,7 +20,7 @@ import oru.inf.InfException;
  * 
  * Här har vi skapat upp alla metoder som behövs för att göra ändringar/läsa data från db.
  * 
- * @author Sara
+ * @author Sara Johansson, Mattias Messerer
  */
 public class Program
 {

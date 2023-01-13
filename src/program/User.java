@@ -8,7 +8,7 @@ import java.util.HashMap;
  * Har vi skapat denna klass. Här instansierar vi anvndarobjektet och med hjälp av
  * Getters kommer vi kunna plocka ut all information vi behöver för att kunna köra
  * Våra metoder i programklassen.
- * @author Sara
+ * @author Sara Johansson, Mattias Messerer
  */
 public class User
 {

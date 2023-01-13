@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author Sara
+ * @author Sara Johansson, Mattias Messerer
  */
 public class UserAlien
 {
