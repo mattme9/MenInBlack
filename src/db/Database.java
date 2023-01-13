@@ -7,12 +7,11 @@ package db;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import program.User;
 import program.UserAlien;
+import program.ValidateInput;
 
 /**
  * Vi har skapat en egen databasklass i detta projekt. 
@@ -82,7 +81,19 @@ public class Database
     // Samt en String (lösenord) som parametrar. Metoden returnerar ett uppdaterat UserAlien-objekt.
     public UserAlien changePasswordAlien (UserAlien userAlien, String newPasswordA) throws InfException
     {
-        db.update("UPDATE alien SET Losenord='" + newPasswordA + "' WHERE Alien_ID=" + userAlien.getId());
+          if(ValidateInput.isValidPassword(newPasswordA))
+        {
+            throw new InfException("Invalid input!");
+        }
+        
+        
+        String query = "UPDATE alien SET Losenord='" + newPasswordA + "' WHERE Alien_ID=" + userAlien.getId();
+        if(!ValidateInput.isValidQuery(newPasswordA))
+        {
+            throw new InfException("Invalid input!");
+        }
+        
+        db.update(query);
         return logInAlien(userAlien.getName(), newPasswordA);
     }
     
@@ -90,7 +101,18 @@ public class Database
     // Returnerar ett uppdaterat User-objekt.
     public User changePassword(User user, String newPassword) throws InfException
     {
-        db.update("UPDATE agent SET Losenord='" + newPassword + "' WHERE Agent_ID=" + user.getId());
+        if(!ValidateInput.isValidPassword(newPassword))
+        {
+            throw new InfException("Invalid input!");
+        }
+        
+        String query = "UPDATE agent SET Losenord='" + newPassword + "' WHERE Agent_ID=" + user.getId();
+         if(!ValidateInput.isValidQuery(newPassword))
+        {
+            throw new InfException("Invalid input!");
+        }
+        
+        db.update(query);
         return logIn(user.getName(), newPassword);
     }
     

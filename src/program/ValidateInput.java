@@ -31,5 +31,27 @@ public class ValidateInput
         }
     }
     
+    public static boolean isValidPassword(String input)
+    {
+        if(input == null || input.trim().isEmpty() || input.length()>7)
+        {
+            return false;
+        }
+        return true;
+    }
     
+    public static boolean isValidQuery(String input)
+    {
+        if(input == null || input.trim().isEmpty())
+        {
+            return false;
+        }
+
+        return !(input.contains("DELETE") ||
+                input.contains("SELECT") ||
+                input.contains("ADD") ||
+                input.contains("DROP") ||
+                input.contains("TABLE") ||
+                input.contains("WHERE"));
+    }
 }
