@@ -81,7 +81,7 @@ public class Database
     // Samt en String (lösenord) som parametrar. Metoden returnerar ett uppdaterat UserAlien-objekt.
     public UserAlien changePasswordAlien (UserAlien userAlien, String newPasswordA) throws InfException
     {
-          if(ValidateInput.isValidPassword(newPasswordA))
+          if(!ValidateInput.isValidPassword(newPasswordA))
         {
             throw new InfException("Invalid input!");
         }
